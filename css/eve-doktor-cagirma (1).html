@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="tr-TR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="https://gmpg.org/xfn/11">
+<link rel="pingback" href="https://www.istanbulmedicalcenter.com/xmlrpc.php">
+<style>
+		.wpcf7-submit{
+			display:none;
+		}
+		.recaptcha-btn{
+			display:block;
+		}
+		.grecaptcha-badge { margin: 10px 0; }
+	</style>
+<script type="text/javascript">
+		var contactform = [];
+		var checkIfCalled = true;
+		var renderGoogleInvisibleRecaptchaFront = function() {
+			// prevent form submit from enter key
+			jQuery("input[name=_wpcf7]").attr("class","formid");
+				jQuery('.wpcf7-form').on('keyup keypress', "input", function(e) {
+				  var keyCode = e.keyCode || e.which;
+				  if (keyCode === 13) {
+					e.preventDefault();
+					return false;
+				  }
+				});
+
+			jQuery('.wpcf7-submit').each(function(index){
+
+				var checkexclude = 0;
+				var form = jQuery(this).closest('.wpcf7-form');
+				var value = jQuery(form).find(".formid").val();
+				// check form exclude from invisible recaptcha
+								if(checkexclude == 0){
+					// Hide the form orig submit button
+					form.find('.wpcf7-submit').hide();
+
+					// Fetch class and value of orig submit button
+					btnClasses = form.find('.wpcf7-submit').attr('class');
+					btnValue = form.find('.wpcf7-submit').attr('value');
+
+					// Add custom button and recaptcha holder
+
+					form.find('.wpcf7-submit').after('<input type="button" id="wpcf-custom-btn-'+index+'" class="'+btnClasses+'  recaptcha-btn recaptcha-btn-type-css" value="'+btnValue+'" title="'+btnValue+'" >');
+					form.append('<div class="recaptcha-holder" id="recaptcha-holder-'+index+'"></div>');
+					// Recaptcha rendenr from here
+					var holderId = grecaptcha.render('recaptcha-holder-'+index,{
+								'sitekey':'6LfhaS0aAAAAAGrg4AMNlxbumRHdzoeaFGXTEJF_',
+								'size': 'invisible',
+								'badge' : 'bottomright', // possible values: bottomright, bottomleft, inline
+								'callback' : function (recaptchaToken) {
+									//console.log(recaptchaToken);
+									var response=jQuery('#recaptcha-holder-'+index).find('.g-recaptcha-response').val();
+									//console.log(response);
+									//Remove old response and store new respone
+									jQuery('#recaptcha-holder-'+index).parent().find(".respose_post").remove();
+									jQuery('#recaptcha-holder-'+index).after('<input type="hidden" name="g-recaptcha-response"  value="'+response+'" class="respose_post">')
+									grecaptcha.reset(holderId);
+
+									if(typeof customCF7Validator !== 'undefined'){
+										if(!customCF7Validator(form)){
+											return;
+										}
+									}
+									// Call default Validator function
+									else if(contactFormDefaultValidator(form)){
+										return;
+									}
+									else{
+										// hide the custom button and show orig submit button again and submit the form
+										jQuery('#wpcf-custom-btn-'+index).hide();
+										form.find('input[type=submit]').show();
+										form.find("input[type=submit]").click();
+										form.find('input[type=submit]').hide();
+										jQuery('#wpcf-custom-btn-'+index).attr('style','');
+									}
+								}
+						},false);
+
+					// action call when click on custom button
+					jQuery('#wpcf-custom-btn-'+index).click(function(event){
+						event.preventDefault();
+						// Call custom validator function
+						if(typeof customCF7Validator == 'function'){
+							if(!customCF7Validator(form)){
+								return false;
+							}
+						}
+						// Call default Validator function
+						else if(contactFormDefaultValidator(form)){
+							return false;
+						}
+						else if(grecaptcha.getResponse(holderId) != ''){
+							grecaptcha.reset(holderId);
+						}
+						else{
+							// execute the recaptcha challenge
+							grecaptcha.execute(holderId);
+						}
+					});
+				}
+			});
+		}
+	</script><script src="https://www.google.com/recaptcha/api.js?onload=renderGoogleInvisibleRecaptchaFront&render=explicit" async defer></script><meta name="robots" content="max-image-preview:large" />
+
+<title>Eve Doktor Çağırma | Profesyonel Evde Sağlık ve Evde Bakım Merkezi</title>
+<meta name="description" content="Eve doktor çağırma hizmeti ile, 7/24 hizmetinizdeyiz. Hastanızın muayene ve kontrolleri evinizde gerçekleştirilir ve tedavisi planlanır." />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<link rel="canonical" href="https://www.istanbulmedicalcenter.com/tr/hizmetler/eve-doktor-cagirma" />
+<meta property="og:locale" content="tr_TR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="ar_AR" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Eve Doktor Çağırma | Profesyonel Evde Sağlık ve Evde Bakım Merkezi" />
+<meta property="og:description" content="Eve doktor çağırma hizmeti ile, 7/24 hizmetinizdeyiz. Hastanızın muayene ve kontrolleri evinizde gerçekleştirilir ve tedavisi planlanır." />
+<meta property="og:url" content="https://www.istanbulmedicalcenter.com/tr/hizmetler/eve-doktor-cagirma" />
+<meta property="og:site_name" content="Profesyonel Evde Sağlık ve Evde Bakım Merkezi | Medical Center" />
+<meta property="article:publisher" content="https://www.facebook.com/istanbulmedical/" />
+<meta property="article:modified_time" content="2024-06-03T20:43:43+00:00" />
+<meta property="og:image" content="https://www.istanbulmedicalcenter.com/wp-content/uploads/2021/02/evde-doktor-hizmetleri.jpg" />
+<meta property="og:image:width" content="510" />
+<meta property="og:image:height" content="392" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@istanbulmedical" />
+<meta name="twitter:label1" content="Tahmini okuma süresi">
+<meta name="twitter:data1" content="11 dakika">
+<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.istanbulmedicalcenter.com/tr/#organization","name":"Medical Center","url":"https://www.istanbulmedicalcenter.com/tr/","sameAs":["https://www.facebook.com/istanbulmedical/","https://www.instagram.com/istanbul_medical_center/","https://www.linkedin.com/company/i\u0307stanbul-medical-center-evde-bak\u0131m-merkezi","https://www.youtube.com/channel/UCppj7o0nM9zXl-lNbtEGArQ/videos","https://tr.wikipedia.org/wiki/\u0130stanbul_medical_center","https://twitter.com/istanbulmedical"],"logo":{"@type":"ImageObject","@id":"https://www.istanbulmedicalcenter.com/tr/#logo","inLanguage":"tr","url":"https://www.istanbulmedicalcenter.com/wp-content/uploads/2018/11/medical-center-1.png","width":199,"height":49,"caption":"Medical Center"},"image":{"@id":"https://www.istanbulmedicalcenter.com/tr/#logo"}},{"@type":"WebSite","@id":"https://www.istanbulmedicalcenter.com/tr/#website","url":"https://www.istanbulmedicalcenter.com/tr/","name":"Profesyonel Evde Sa\u011fl\u0131k ve Evde Bak\u0131m Merkezi | Medical Center","description":"Medical Center evde sa\u011fl\u0131k ve bak\u0131m merkezi, ihtiya&ccedil; duydu\u011funuz sa\u011fl\u0131k ve bak\u0131m hizmetlerini evinizde huzur ve g&uuml;ven i&ccedil;erisinde sunar.","publisher":{"@id":"https://www.istanbulmedicalcenter.com/tr/#organization"},"potentialAction":[{"@type":"SearchAction","target":"https://www.istanbulmedicalcenter.com/tr/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"tr"},{"@type":"ImageObject","@id":"https://www.istanbulmedicalcenter.com/tr/hizmetler/eve-doktor-cagirma#primaryimage","inLanguage":"tr","url":"https://www.istanbulmedicalcenter.com/wp-content/uploads/2021/02/evde-doktor-hizmetleri.jpg","width":510,"height":392,"caption":"eve doktor \u00e7a\u011f\u0131rma"},{"@type":["WebPage","MedicalWebPage"],"@id":"https://www.istanbulmedicalcenter.com/tr/hizmetler/eve-doktor-cagirma#webpage","url":"https://www.istanbulmedicalcenter.com/tr/hizmetler/eve-doktor-cagirma","name":"Eve Doktor \u00c7a\u011f\u0131rma | Profesyonel Evde Sa\u011fl\u0131k ve Evde Bak\u0131m Merkezi","isPartOf":{"@id":"https://www.istanbulmedicalcenter.com/tr/#website"},"primaryImageOfPage":{"@id":"https://www.istanbulmedicalcenter.com/tr/hizmetler/eve-doktor-cagirma#primaryimage"},"datePublished":"2015-01-01T19:55:36+00:00","dateModified":"2024-06-03T20:43:43+00:00","description":"Eve doktor \u00e7a\u011f\u0131rma hizmeti ile, 7/24 hizmetinizdeyiz. Hastan\u0131z\u0131n muayene ve kontrolleri evinizde ger\u00e7ekle\u015ftirilir ve tedavisi planlan\u0131r.","inLanguage":"tr","potentialAction":[{"@type":"ReadAction","target":["https://www.istanbulmedicalcenter.com/tr/hizmetler/eve-doktor-cagirma"]}]}]}</script>
+
+<link rel="amphtml" href="https://www.istanbulmedicalcenter.com/tr/hizmetler/eve-doktor-cagirma/amp" /><meta name="generator" content="AMP for WP 1.0.76.5" /><link rel="dns-prefetch" href="//www.google.com" />
+<link rel="dns-prefetch" href="//www.googletagmanager.com" />
+<link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com" />
+<link rel="dns-prefetch" href="//fonts.googleapis.com" />
+<link rel="dns-prefetch" href="//s.w.org" />
+<link rel="alternate" type="application/rss+xml" title="Profesyonel Evde Sağlık ve Evde Bakım Merkezi | Medical Center &raquo; beslemesi" href="https://www.istanbulmedicalcenter.com/tr/feed" />
+<link rel="alternate" type="application/rss+xml" title="Profesyonel Evde Sağlık ve Evde Bakım Merkezi | Medical Center &raquo; yorum beslemesi" href="https://www.istanbulmedicalcenter.com/tr/comments/feed" />
+<style type="text/css">.brave_popup{display:none}</style><script data-no-optimize="1"> var brave_popup_data = {}; var bravepop_emailValidation=false; var brave_popup_videos = {};  var brave_popup_formData = {};var brave_popup_adminUser = false; var brave_popup_pageInfo = {"type":"single","pageID":9128,"singleType":"stm_service"};  var bravepop_emailSuggestions={};</script> <script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.istanbulmedicalcenter.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.8.9"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([10084,65039,8205,55357,56613],[10084,65039,8203,55357,56613])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="sbi_styles-css" href="https://www.istanbulmedicalcenter.com/wp-content/plugins/instagram-feed/css/sbi-styles.min.css?ver=6.1" type="text/css" media="all" />
+<link rel="stylesheet" id="wp-block-library-css" href="https://www.istanbulmedicalcenter.com/wp-includes/css/dist/block-library/style.min.css?ver=5.8.9" type="text/css" media="all" />
+<link rel="stylesheet" id="a-excited-testimonials-all-css" href="https://www.istanbulmedicalcenter.com/wp-content/plugins/a-excited-testimonials/public/css/all.min.css?ver=1.3.2" type="text/css" media="all" />
+<link rel="stylesheet" id="a-excited-testimonials-font-awesome-css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css?ver=1.3.2" type="text/css" media="all" />
+<link rel="stylesheet" id="contact-form-7-css" href="https://www.istanbulmedicalcenter.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.5.2" type="text/css" media="all" />
+<link rel="stylesheet" id="stm-stmicons-css" href="https://www.istanbulmedicalcenter.com/wp-content/uploads/stm_fonts/stmicons/stmicons.css?ver=1.0.2" type="text/css" media="all" />
+<link rel="stylesheet" id="stm_megamenu-css" href="https://www.istanbulmedicalcenter.com/wp-content/plugins/stm-configurations/megamenu/assets/css/megamenu.css?ver=1.4" type="text/css" media="all" />
+<link rel="stylesheet" id="fontawesome-css-6-css" href="https://www.istanbulmedicalcenter.com/wp-content/plugins/wp-font-awesome/font-awesome/css/fontawesome-all.min.css?ver=1.7.8" type="text/css" media="all" />
+<link rel="stylesheet" id="fontawesome-css-4-css" href="https://www.istanbulmedicalcenter.com/wp-content/plugins/wp-font-awesome/font-awesome/css/v4-shims.min.css?ver=1.7.8" type="text/css" media="all" />
+<link rel="stylesheet" id="stm-gdpr-styles-css" href="https://www.istanbulmedicalcenter.com/wp-content/plugins/gdpr-compliance-cookie-consent/assets/css/styles.css?ver=5.8.9" type="text/css" media="all" />
+<style id="stm-gdpr-styles-inline-css" type="text/css">
+.stm_gdpr_popup-main {
+    position: fixed;
+    padding: 26px 30px 30px;
+    width: 100%;
+    border-radius: 5px;
+    z-index: 9999999;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.stm_gdpr_popup-main .stm_gdpr_popup-links {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.stm_gdpr_popup-main .stm_gdpr_popup-links:after {
+    content: "";
+    display: table;
+    width: 100%;
+    clear: both;
+}
+
+.stm_gdpr_popup-main .stm_gdpr_popup-links a {
+    float: right;
+    width: 153px;
+    padding: 4px 0;
+    text-align: center;
+    position: relative;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: 1px solid #fff;
+    text-decoration: none;
+    letter-spacing: .5px;
+    border-radius: 3px;
+    font-size: 12px;
+    color: #fff;
+    transition: all .3s;
+}
+
+.stm_gdpr_popup-main .stm_gdpr_popup-links a.stm_gdpr_popup-accept {
+    float: left;
+    background-color: #5e5cc7;
+    border: 1px solid #5e5cc7;
+    margin-left: -5px;
+}
+
+.stm_gdpr_popup-main .stm_gdpr_popup-links a:hover {
+    border-color: #fff;
+    background-color: #fff;
+    color: #5e5cc7;
+}
+
+@media (max-width: 420px) {
+    .stm_gdpr_popup-main {
+        width: auto;
+        right: 20px !important;
+        left: 20px !important;
+    }
+
+    .stm_gdpr_popup-main .stm_gdpr_popup-links a {
+        float: none !important;
+        display: block;
+        width: auto;
+    }
+}
+
+#stm-gpdr-form .stm-gdpr-errors {
+    color: #ce0000;
+}
+
+#stm-gpdr-form .stm-gdpr-success {
+    color: #056d05;
+}
+
+.place-order #stmgdpr_field label.checkbox {
+    padding-left: 20px;
+}
+
+.place-order #stmgdpr_field input#stmgdpr {
+    margin: 5px 0 0 -18px;
+}
+
+</style>
+<link rel="stylesheet" id="bootstrap-css" href="https://www.istanbulmedicalcenter.com/wp-content/themes/crypterio/assets/css/bootstrap.min.css?ver=2.3.5" type="text/css" media="all" />
+<link rel="stylesheet" id="font-awesome-css" href="https://www.istanbulmedicalcenter.com/wp-content/themes/crypterio/assets/css/font-awesome.min.css?ver=2.3.5" type="text/css" media="all" />
+<link rel="stylesheet" id="crypterio-style-css" href="https://www.istanbulmedicalcenter.com/wp-content/themes/crypterio/style.css?ver=2.3.5" type="text/css" media="all" />
+<link rel="stylesheet" id="crypterio-layout-css" href="https://www.istanbulmedicalcenter.com/wp-content/themes/crypterio/assets/css/corporate/main.css?ver=2.3.5" type="text/css" media="all" />
+<style id="crypterio-layout-inline-css" type="text/css">
+.page_title{ background-repeat: no-repeat !important; }body.site_creative_ico .vc_custom_heading.stripe_bottom:before, body.site_creative_ico .vc_custom_heading.stripe_top:before {
+			background: linear-gradient(to right, #3baae2, #38e569);
+		}.mtc, .mtc_h:hover, .stm_news_list__more.loading:before, .site_crypto_blog ul.comment-list .comment .comment-author a, .site_crypto_blog ul.comment-list .comment .comment-meta a{
+					color: #17181d!important
+				}.stc, .stc_h:hover, .stm_post_view__related .stm_news_widget .stm_news_grid__category a:hover, .stm_posts_carousel_single__category:hover a, .stm_single_ico__button.stm_single_ico__button_whitepaper i, .font-color_secondary{
+					color: #38e569!important
+				}.ttc, .ttc_h:hover{
+					color: #3baae2!important
+				}.mbc, .mbc_h:hover{
+					background-color: #17181d!important
+				}.sbc, .sbc_h:hover, .sbc_a:after, .stm_news_carousel .owl-controls .owl-nav>div:hover, .stm_single_ico__comments h4.comments-title:after, .secondary_bg_color{
+					background-color: #38e569!important
+				}.tbc, .tbc_h:hover, .tbc_a_h:hover:after, .stm_single_ico__button, .stm_single_ico__button.stm_single_ico__button_whitepaper:hover{
+					background-color: #3baae2!important
+				}.mbdc, .mbdc_h:hover{
+					border-color: #17181d!important
+				}.sbdc, .sbdc_h:hover, .stm_news_carousel .owl-controls .owl-nav>div:hover{
+					border-color: #38e569!important
+				}.tbdc, .tbdc_h:hover, .stm_single_ico__button.stm_single_ico__button_whitepaper{
+					border-color: #3baae2!important
+				}* { box-sizing:border-box; } body, html { padding: 0; margin: 0; } body { background: #4e616d; font-family: 'Montserrat', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.5; font-weight: normal; } /* ----> wrapper */ #content-slider .wrap-slider { max-width: 1400px; /*height: 100%;*/ width: 100%; margin: 0px auto; position: relative; text-align: right; } #content-slider .wrap-slider.full { width: 100%; max-width: 100%; text-align: center; border: none; } /* --------> Link style */ #content-slider *:focus { outline: 0; } #content-slider a:hover { color: #7FD4FD; text-decoration: underline; } #content-slider a:focus { outline: thin dotted #333; outline: 5px auto -webkit-focus-ring-color; outline-offset: -2px; } #content-slider a:hover, #content-slider a:active { outline: 0; } /* -------> Responsive images (ensure images don't scale beyond their parents) */ #content-slider img { max-width: 100%; width: auto\9; height: auto; vertical-align: middle; border: 0; -ms-interpolation-mode: bicubic; } /* -------> Main */ #content-slider .slider { margin-top: 5%; /*position: absolute;*/ overflow: hidden; width: 100%; margin: 0 auto; position: relative; } #content-slider .inset { width: 500%; line-height: 0; -webkit-animation: 30s slidy infinite; -moz-animation: 30s slidy infinite; -ms-animation: 30s slidy infinite; -o-animation: 30s slidy infinite; animation: 30s slidy infinite; -webkit-transition: all 2s ease-in-out; -moz-transition: all 2s ease-in-out; -ms-transition: all 2s ease-in-out; -o-transition: all 2s ease-in-out; transition: all 2s ease-in-out; } #content-slider h1.main-title { text-align: center; color: #1d4175; font-weight: 200; font-size: 2rem; line-height: 3rem; text-transform: uppercase; margin: 5px 0 0px 0; } #content-slider .slider [class*='title-'] { padding: 4%; bottom: 5%; display: inline-block; width: 60%; height: auto; position: absolute; z-index: 12; line-height: normal; overflow: hidden; text-align: left; -webkit-transition: all 0.5s ease-in-out; -moz-transition: all 0.5s ease-in-out; -ms-transition: all 0.5s ease-in-out; -o-transition: all 0.5s ease-in-out; transition: all 0.5s ease-in-out; } #content-slider .th>[class*='title-'] { width: auto; height: auto; position: absolute; top: 0em; right: 0em; text-align: right; margin: 5px 10px 0 0; opacity: 1; line-height: normal; overflow: hidden; -webkit-transition: all 0.5s ease-in-out; -moz-transition: all 0.5s ease-in-out; -ms-transition: all 0.5s ease-in-out; -o-transition: all 0.5s ease-in-out; transition: all 0.5s ease-in-out; } /* -------> Article */ #content-slider .slider h1, #content-slider .th h1 { color: #1d4175; text-transform: uppercase; padding: 0; margin: 0; font-size: 13px; font-weight: bold; } #content-slider .slider h2, #content-slider .th h2 { color: #1d4175; text-transform: uppercase; padding: 0; font-size: 13px; margin: 0; font-weight: bold; } #content-slider .slider h3, #content-slider .th h3 { color: #1d4175; text-transform: uppercase; padding: 0; font-size: 13px; margin: 0; font-weight: bold; } #content-slider .slider p, #content-slider .th p { color: #1d4175; padding: 0; margin: 0; } #content-slider .slider a, #content-slider .th a { font-weight: bold; color: #1d4175; text-decoration: none; text-transform: uppercase; } /* -------> Article IMg Slider */ #content-slider .slider h1 { font-size: 1.2rem; } #content-slider .slider p { font-size: 1rem; } #content-slider .slider a { font-size: 1rem; } /* -------> Article IMg Prev */ #content-slider .th h1 { font-size: 1rem; } #content-slider .th p { font-size: .875rem; } #content-slider .th a { font-size: .75rem; } #content-slider .th img { position: relative; max-width: 100%; height: auto !important; -webkit-filter: brightness(50%); -moz-filter: brightness(50%); -ms-filter: brightness(50%); -o-filter: brightness(50%); filter: brightness(50%); -webkit-transition: all 0.5s ease-in-out; -moz-transition: all 0.5s ease-in-out; -ms-transition: all 0.5s ease-in-out; -o-transition: all 0.5s ease-in-out; transition: all 0.5s ease-in-out; } #content-slider .th:hover img { -webkit-filter: brightness(100%); -moz-filter: brightness(100%); -ms-filter: brightness(100%); -o-filter: brightness(100%); filter: brightness(100%); } /* -------> Main Img */ #content-slider figure { margin: 0; padding: 0; width: 20%; float: left; cursor: pointer; -webkit-transition: all 2s ease-in-out; -moz-transition: all 2s ease-in-out; -ms-transition: all 2s ease-in-out; -o-transition: all 2s ease-in-out; transition: all 2s ease-in-out; } #content-slider figure img { width: 100%; position: relative; } /* -------> Max contrloS img preview */ #content-slider span.th { width: 25%; margin: 35% 0% 0 0%; float: left; text-align: center; display: inline-block; position: absolute; z-index: 1000; cursor: pointer; } #b-1 { left: 0; } #b-2 { left: 25%; } #b-3 { left: 50%; } #b-4 { left: 75%; } #content-slider input[type='radio'] { width: 10px; height: 10px; display: none; position: relative; display: none; } #control{ position: absolute; left: 3%; z-index: 5; top: 55%; width: 95%; } #content-slider label.first{ width: 9px; height: 9px; margin: 0 2px; text-align: center; display: inline-block; position: relative; z-index: 1000; cursor: pointer; border-radius: 100%; border: 2px solid #00ABFA; background: #00ABFA; -webkit-transition: all 0.3s ease-in-out; -moz-transition: all 0.3s ease-in-out; -ms-transition: all 0.3s ease-in-out; -o-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out; } #content-slider #main { padding: 1% 0; width: 100%; /*margin-top: 29.2%;*/ bottom: 0; z-index: 10; position: absolute; text-align: center; background: rgba(0, 0, 0, 0.71); } #content-slider input[type='radio'] { width: 10px; height: 10px; display: none; position: relative; display: none; } #content-slider #control{ position: absolute; left: 3%; z-index: 15; top: 0%; width: 95%; /*margin-top: 10%;*/ /*display: none;*/ height: 50px; top:50%; margin-top: -25px; } /* -------> Controls */ #main>label:hover { width: 9px; height: 9px; background: #FFF; border: 1px solid #00ABFA; } input#a-1:checked ~ .slider .inset { margin-left: 0%; } input#a-2:checked ~ .slider .inset { margin-left:-100%; } input#a-3:checked ~ .slider .inset { margin-left:-200%; } input#a-4:checked ~ .slider .inset { margin-left:-300%; } input#a-5:checked ~ .slider .inset { margin-left:-400%; } input#a-1:checked ~ #main>label:nth-child(1) { opacity: 1; background: #fff; } input#a-2:checked ~ #main>label:nth-child(2) { opacity: 1; background: #fff; } input#a-3:checked ~ #main>label:nth-child(3) { opacity: 1; background: #fff; } input#a-4:checked ~ #main>label:nth-child(4) { opacity: 1; background: #fff; } input#a-5:checked ~ #main>label:nth-child(5) { opacity: 1; background: #fff; } input#a-1:checked ~ #control>label:nth-child(2), input#a-2:checked ~ #control>label:nth-child(3), input#a-3:checked ~ #control>label:nth-child(4), input#a-4:checked ~ #control>label:nth-child(4), input#a-5:checked ~ #control>label:nth-child(1), input#a-1:checked ~ #control>label:nth-child(5), input#a-2:checked ~ #control>label:nth-child(1), input#a-3:checked ~ #control>label:nth-child(2), input#a-4:checked ~ #control>label:nth-child(3), input#a-5:checked ~ #control>label:nth-child(4) { width: 50px; height: 50px; top: 50%; margin-top: -25px; display: inline-block; position: relative; cursor: pointer; } input#a-1:checked ~ #control>label:nth-child(2):after, input#a-2:checked ~ #control>label:nth-child(3):after, input#a-3:checked ~ #control>label:nth-child(4):after, input#a-4:checked ~ #control>label:nth-child(5):after, input#a-5:checked ~ #control>label:nth-child(1):after, input#a-1:checked ~ #control>label:nth-child(5):after, input#a-2:checked ~ #control>label:nth-child(1):after, input#a-3:checked ~ #control>label:nth-child(2):after, input#a-4:checked ~ #control>label:nth-child(3):after, input#a-5:checked ~ #control>label:nth-child(4):after { font-family: FontAwesome; font-size: 7rem; line-height: 7rem; color:#00ABFA; position: absolute; top:0; left: 0; } input#a-1:checked ~ #control>label:nth-child(2), input#a-2:checked ~ #control>label:nth-child(3), input#a-3:checked ~ #control>label:nth-child(4), input#a-4:checked ~ #control>label:nth-child(5), input#a-5:checked ~ #control>label:nth-child(1) { float: right; right: 0.3%; } input#a-1:checked ~ #control>label:nth-child(2):after, input#a-2:checked ~ #control>label:nth-child(3):after, input#a-3:checked ~ #control>label:nth-child(4):after, input#a-4:checked ~ #control>label:nth-child(5):after, input#a-5:checked ~ #control>label:nth-child(1):after { content: "\f105"; } input#a-1:checked ~ #control>label:nth-child(5), input#a-2:checked ~ #control>label:nth-child(1), input#a-3:checked ~ #control>label:nth-child(2), input#a-4:checked ~ #control>label:nth-child(3), input#a-5:checked ~ #control>label:nth-child(4) { float: left; left: 0.3%; } input#a-1:checked ~ #control>label:nth-child(5):after, input#a-2:checked ~ #control>label:nth-child(1):after, input#a-3:checked ~ #control>label:nth-child(2):after, input#a-4:checked ~ #control>label:nth-child(3):after, input#a-5:checked ~ #control>label:nth-child(4):after { content: "\f104"; } span#a-1:focus ~ .slider .inset { margin-left: 0%; } span#a-2:focus ~ .slider .inset { margin-left:-100%; } span#a-3:focus ~ .slider .inset { margin-left:-200%; } span#a-4:focus ~ .slider .inset { margin-left:-300%; } span#a-5:focus ~ .slider .inset { margin-left:-400%; } span#b-1:focus ~ .slider .inset { margin-left: 0%; } span#b-2:focus ~ .slider .inset { margin-left:-100%; } span#b-3:focus ~ .slider .inset { margin-left:-200%; } span#b-4:focus ~ .slider .inset { margin-left:-300%; } span#b-5:focus ~ .slider .inset { margin-left:-400%; } #content-slider input:checked ~ .slider>.inset { -webkit-animation: none; -moz-animation: none; -ms-animation: none; -o-animation: none; animation: none; } #content-slider input:hover ~ .slider>.inset, #content-slider label:hover ~ .slider>.inset { -webkit-animation-play-state: paused; -moz-animation-play-state: paused; -ms-animation-play-state: paused; -o-animation-play-state: paused; animation-play-state: paused; } #content-slider input:hover ~ .slider>.inset, #content-slider label:hover ~ .slider>.inset { -webkit-animation-play-state: paused; -moz-animation-play-state: paused; -ms-animation-play-state: paused; -o-animation-play-state: paused; animation-play-state: paused; } #content-slider span:focus ~ .slider>.inset { -webkit-animation: none; -moz-animation: none; -ms-animation: none; -o-animation: none; animation: none; } #content-slider span:hover ~ .slider>.inset { -webkit-animation-play-state: paused; -moz-animation-play-state: paused; -ms-animation-play-state: paused; -o-animation-play-state: paused; animation-play-state: paused; } /* -------> Animation */ @keyframes slidy { 10% { margin-left: 0%; } 20% { margin-left: -100%; } 30% { margin-left: -100%; } 40% { margin-left: -200%; } 50% { margin-left: -200%; } 60% { margin-left: -300%; } 70% { margin-left: -300%; } 85% { margin-left: -400%; } 100% { margin-left: -400%; } } @-webkit-keyframes slidy { 10% { margin-left: 0%; } 20% { margin-left: -100%; } 30% { margin-left: -100%; } 40% { margin-left: -200%; } 50% { margin-left: -200%; } 60% { margin-left: -300%; } 70% { margin-left: -300%; } 85% { margin-left: -400%; } 100% { margin-left: -400%; } } @-moz-keyframes slidy { 10% { margin-left: 0%; } 20% { margin-left: -100%; } 30% { margin-left: -100%; } 40% { margin-left: -200%; } 50% { margin-left: -200%; } 60% { margin-left: -300%; } 70% { margin-left: -300%; } 85% { margin-left: -400%; } 100% { margin-left: -400%; } } @-o-keyframes slidy { 10% { margin-left: 0%; } 20% { margin-left: -100%; } 30% { margin-left: -100%; } 40% { margin-left: -200%; } 50% { margin-left: -200%; } 60% { margin-left: -300%; } 70% { margin-left: -300%; } 85% { margin-left: -400%; } 100% { margin-left: -400%; } } /* -------> Responsive */ @media screen and (max-width: 1920px) { html { font-size: 16px; } #content-slider .slide>[class*='title-'] { display: none; } } @media (max-width: 992px) { html { font-size: 11px; } #content-slider .th>[class*='title-'] { display: none; } } @media (max-width: 768px) { html { font-size: 12px; } #content-slider .th>[class*='title-'] { display: none; } } #content-slider span.first { display: none; } #content-slider #control { display: block; } #content-slider span#b-2:focus { opacity: 1; } span#b-2:focus ~ span#b-5 { display: none; } #content-slider span#b-3:focus { opacity: 1; } span#b-3:focus ~ span#b-5 { display: none; } #content-slider span#b-4:focus { opacity: 1; } span#b-4:focus ~ span#b-5 { display: none; } } @media (max-width: 480px) { html { font-size: 10px; } #content-slider .th>[class*='title-'] { display: none; } } #content-slider span.th img { display: none; } } @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'); a, a:hover { text-decoration: none; } .socialbtns, .socialbtns ul, .socialbtns li { margin: 0; padding: 2px; } .socialbtns li { list-style: none outside none; display: inline-block; } .socialbtns .fa { width: 28px; height: 28px; color: #000; background-color: #FFF; border: 1px solid #000; padding-top: 7px; border-radius: 22px; -moz-border-radius: 22px; -webkit-border-radius: 22px; -o-border-radius: 22px; } .socialbtns .fa:hover { color: #FFF; background-color: #000; border: 1px solid #000; } .wpcf7-form-control { font-size: 13px; line-height: 18px; color: #222; background: #cacaca; border: none; box-shadow: none; outline: 0; padding: 10px 10px 15px; border-radius: 0; transition: all .3s ease; box-sizing: border-box!important; width: 100%; display: block; height: 100%; } 
+</style>
+<link rel="stylesheet" id="select2-css" href="https://www.istanbulmedicalcenter.com/wp-content/themes/crypterio/assets/css/select2.min.css?ver=2.3.5" type="text/css" media="all" />
+<link rel="stylesheet" id="crypterio-default-font-css" href="https://fonts.googleapis.com/css?family=Open+Sans%3A400%2C300%2C300italic%2C400italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%26subset%3Dlatin%2Cgreek%2Cgreek-ext%2Cvietnamese%2Ccyrillic-ext%2Clatin-ext%2Ccyrillic%7CMontserrat%3A400%2C600%2C700&#038;ver=2.3.5" type="text/css" media="all" />
+<link rel="stylesheet" id="crypterio-frontend_customizer-css" href="https://www.istanbulmedicalcenter.com/wp-content/themes/crypterio/assets/css/frontend_customizer.css?ver=2.3.5" type="text/css" media="all" />
+<link rel="stylesheet" id="stm_news_widget-css" href="https://www.istanbulmedicalcenter.com/wp-content/themes/crypterio/assets/css/shared/vc/stm_news_widget.css?ver=2.3.5" type="text/css" media="all" />
+<link rel="stylesheet" id="crypterio-shared-css" href="https://www.istanbulmedicalcenter.com/wp-content/themes/crypterio/assets/css/shared/main.css?ver=2.3.5" type="text/css" media="all" />
+<link rel="stylesheet" id="joinchat-css" href="https://www.istanbulmedicalcenter.com/wp-content/plugins/creame-whatsapp-me/public/css/joinchat.min.css?ver=5.0.17" type="text/css" media="all" />
+<link rel="stylesheet" id="js_composer_front-css" href="//www.istanbulmedicalcenter.com/wp-content/uploads/js_composer/js_composer_front_custom.css?ver=6.10.0" type="text/css" media="all" />
+<link rel="stylesheet" id="stm_hb_main-css" href="https://www.istanbulmedicalcenter.com/wp-content/plugins/pearl-header-builder/assets/frontend/assets/css/header/main.css?ver=1.0" type="text/css" media="all" />
+<link rel="stylesheet" id="stm_hb_sticky-css" href="https://www.istanbulmedicalcenter.com/wp-content/plugins/pearl-header-builder/assets/frontend/assets/vendor/sticky.css?ver=1.0" type="text/css" media="all" />
+<link rel="stylesheet" id="fontawesome-css" href="https://www.istanbulmedicalcenter.com/wp-content/plugins/pearl-header-builder/assets/frontend/assets/css/font-awesome.min.css?ver=1.0" type="text/css" media="all" />
+<link rel="stylesheet" id="stm-google-fonts-css" href="//fonts.googleapis.com/css?family=Open+Sans%3Aregular%2C700%2C600%7CMontserrat%3Aregular%2C700%2C600&#038;subset=latin&#038;ver=2.3.5" type="text/css" media="all" />
+<script type="text/javascript" src="https://www.istanbulmedicalcenter.com/wp-includes/js/jquery/jquery.min.js?ver=3.6.0" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://www.istanbulmedicalcenter.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2" id="jquery-migrate-js"></script>
+<script type="text/javascript" id="a-excited-testimonials-all-js-extra">
+/* <![CDATA[ */
+var aet_localize = {"ajax_nonce":"5fe18b0a01","ajaxurl":"https:\/\/www.istanbulmedicalcenter.com\/wp-admin\/admin-ajax.php","default_avatar":"https:\/\/www.istanbulmedicalcenter.com\/wp-content\/plugins\/a-excited-testimonials\/admin\/img\/default-avatar.png","submit_selectors":[{"id":10434,"panel_animation":"push","selector":".aet_submission_form_trigger_0"},{"id":9567,"panel_animation":"push","selector":".aet_submission_form_trigger_9567"},{"id":9564,"panel_animation":"push","selector":".aet_submission_form_trigger_0"},{"id":9558,"panel_animation":"push","selector":".aet_submission_form_trigger_0"},{"id":9548,"panel_animation":"push","selector":".aet_submission_form_trigger_0"},{"id":8456,"panel_animation":"push","selector":".aet_submission_form_trigger_8456"},{"id":8090,"panel_animation":"push","selector":".aet_submission_form_trigger_0"}]};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.istanbulmedicalcenter.com/wp-content/plugins/a-excited-testimonials/public/js/all.min.js?ver=1.3.2" id="a-excited-testimonials-all-js"></script>
+<script type="text/javascript" async defer src="https://www.google.com/recaptcha/api.js?onload=reCaptchaOnloadCallback&#038;render=explicit&#038;hl=tr&#038;ver=1.3.2" id="google-recaptcha-js"></script>
+<script type="text/javascript" src="https://www.istanbulmedicalcenter.com/wp-content/plugins/cf7-invisible-recaptcha/js/cf7_invisible_recaptcha.js?ver=1.2.3" id="cf7_invisible_recaptcha_functions-js"></script>
+<script type="text/javascript" src="https://www.istanbulmedicalcenter.com/wp-content/plugins/stm-configurations/megamenu/assets/js/megamenu.js?ver=1.4" id="stm_megamenu-js"></script>
+<script type="text/javascript" src="https://www.istanbulmedicalcenter.com/wp-content/themes/crypterio/assets/js/jquery.simplemarquee.js?ver=2.3.5" id="simplemarquee-js"></script>
+
+
+<script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=GT-PBG2XP6" id="google_gtagjs-js" async></script>
+<script type="text/javascript" id="google_gtagjs-js-after">
+window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+gtag("set","linker",{"domains":["www.istanbulmedicalcenter.com"]});
+gtag("js", new Date());
+gtag("set", "developer_id.dZTNiMT", true);
+gtag("config", "GT-PBG2XP6");
+</script>
+
+<link rel="https://api.w.org/" href="https://www.istanbulmedicalcenter.com/wp-json/" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.istanbulmedicalcenter.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.istanbulmedicalcenter.com/wp-includes/wlwmanifest.xml" />
+<meta name="generator" content="WordPress 5.8.9" />
+<link rel="shortlink" href="https://www.istanbulmedicalcenter.com/?p=9128" />
+<link rel="alternate" type="application/json+oembed" href="https://www.istanbulmedicalcenter.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.istanbulmedicalcenter.com%2Ftr%2Fhizmetler%2Feve-doktor-cagirma" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.istanbulmedicalcenter.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.istanbulmedicalcenter.com%2Ftr%2Fhizmetler%2Feve-doktor-cagirma&#038;format=xml" />
+<meta name="generator" content="Site Kit by Google 1.128.0" />
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-50788496-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-50788496-1');
+</script>
+
+<meta name="facebook-domain-verification" content="51kvx80w0cubd7ejypxir43s5k122q" />
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N8HXSWR');</script>
+
+<link rel="alternate" href="https://www.istanbulmedicalcenter.com/tr/hizmetler/eve-doktor-cagirma" hreflang="tr" />
+<link rel="alternate" href="https://www.istanbulmedicalcenter.com/en/services/in-home-physician" hreflang="en" />
+<link rel="alternate" href="https://www.istanbulmedicalcenter.com/ar/services/eve-doktor-cagirma" hreflang="ar" />
+<script type="text/javascript">window.wp_data = {"crypterio_get_currency_data":"b478b84825","stm_ajax_add_review":"442c579e52","crypterio_install_plugin":"eb0d371379","crypterio_load_stm_news_list":"6fe3b1dedd","stm_ajax_load_events":"5e5bd6e718","stm_ajax_load_portfolio":"9ccefa6736","stm_custom_register":"575fb53996","stm_ajax_add_event_member":"1aa7a4e2df","stm_whitelist_data":"fc48afa0ae","stm_submit_ico":"a0935e7109","stm_icons_load":"dd0a219b10","stm_wl":"d36f730f02","stm_ico_search":"389c41a1c5"};</script> <script type="text/javascript">
+            var ajaxurl = 'https://www.istanbulmedicalcenter.com/wp-admin/admin-ajax.php';
+        </script>
+
+<meta name="google-adsense-platform-account" content="ca-host-pub-2644536267352236">
+<meta name="google-adsense-platform-domain" content="sitekit.withgoogle.com">
+
+<meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress." />
+
+<script type="text/javascript">
+			( function( w, d, s, l, i ) {
+				w[l] = w[l] || [];
+				w[l].push( {'gtm.start': new Date().getTime(), event: 'gtm.js'} );
+				var f = d.getElementsByTagName( s )[0],
+					j = d.createElement( s ), dl = l != 'dataLayer' ? '&l=' + l : '';
+				j.async = true;
+				j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+				f.parentNode.insertBefore( j, f );
+			} )( window, document, 'script', 'dataLayer', 'GTM-T6QTWK57' );
+			
+</script>
+
+<meta name="generator" content="Powered by Slider Revolution 6.5.19 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
+<link rel="icon" href="https://www.istanbulmedicalcenter.com/wp-content/uploads/2018/11/favicon-50x50.png" sizes="32x32" />
+<link rel="icon" href="https://www.istanbulmedicalcenter.com/wp-content/uploads/2018/11/favicon.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.istanbulmedicalcenter.com/wp-content/uploads/2018/11/favicon.png" />
+<meta name="msapplication-TileImage" content="https://www.istanbulmedicalcenter.com/wp-content/uploads/2018/11/favicon.png" />
+<script>function setREVStartSize(e){
+			//window.requestAnimationFrame(function() {
+				window.RSIW = window.RSIW===undefined ? window.innerWidth : window.RSIW;
+				window.RSIH = window.RSIH===undefined ? window.innerHeight : window.RSIH;
+				try {
+					var pw = document.getElementById(e.c).parentNode.offsetWidth,
+						newh;
+					pw = pw===0 || isNaN(pw) ? window.RSIW : pw;
+					e.tabw = e.tabw===undefined ? 0 : parseInt(e.tabw);
+					e.thumbw = e.thumbw===undefined ? 0 : parseInt(e.thumbw);
+					e.tabh = e.tabh===undefined ? 0 : parseInt(e.tabh);
+					e.thumbh = e.thumbh===undefined ? 0 : parseInt(e.thumbh);
+					e.tabhide = e.tabhide===undefined ? 0 : parseInt(e.tabhide);
+					e.thumbhide = e.thumbhide===undefined ? 0 : parseInt(e.thumbhide);
+					e.mh = e.mh===undefined || e.mh=="" || e.mh==="auto" ? 0 : parseInt(e.mh,0);
+					if(e.layout==="fullscreen" || e.l==="fullscreen")
+						newh = Math.max(e.mh,window.RSIH);
+					else{
+						e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
+						for (var i in e.rl) if (e.gw[i]===undefined || e.gw[i]===0) e.gw[i] = e.gw[i-1];
+						e.gh = e.el===undefined || e.el==="" || (Array.isArray(e.el) && e.el.length==0)? e.gh : e.el;
+						e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
+						for (var i in e.rl) if (e.gh[i]===undefined || e.gh[i]===0) e.gh[i] = e.gh[i-1];
+											
+						var nl = new Array(e.rl.length),
+							ix = 0,
+							sl;
+						e.tabw = e.tabhide>=pw ? 0 : e.tabw;
+						e.thumbw = e.thumbhide>=pw ? 0 : e.thumbw;
+						e.tabh = e.tabhide>=pw ? 0 : e.tabh;
+						e.thumbh = e.thumbhide>=pw ? 0 : e.thumbh;
+						for (var i in e.rl) nl[i] = e.rl[i]<window.RSIW ? 0 : e.rl[i];
+						sl = nl[0];
+						for (var i in nl) if (sl>nl[i] && nl[i]>0) { sl = nl[i]; ix=i;}
+						var m = pw>(e.gw[ix]+e.tabw+e.thumbw) ? 1 : (pw-(e.tabw+e.thumbw)) / (e.gw[ix]);
+						newh =  (e.gh[ix] * m) + (e.tabh + e.thumbh);
+					}
+					var el = document.getElementById(e.c);
+					if (el!==null && el) el.style.height = newh+"px";
+					el = document.getElementById(e.c+"_wrapper");
+					if (el!==null && el) {
+						el.style.height = newh+"px";
+						el.style.display = "block";
+					}
+				} catch(e){
+					console.log("Failure at Presize of Slider:" + e)
+				}
+			//});
+		  };</script>
+<style type="text/css" title="dynamic-css" class="options-output">body,
+					body .vc_general.vc_btn3 small,
+					.default_widgets .widget.widget_nav_menu ul li .children li,
+					.default_widgets .widget.widget_categories ul li .children li,
+					.default_widgets .widget.widget_product_categories ul li .children li,
+					.stm_sidebar .widget.widget_nav_menu ul li .children li,
+					.stm_sidebar .widget.widget_categories ul li .children li,
+					.stm_sidebar .widget.widget_product_categories ul li .children li,
+					.shop_widgets .widget.widget_nav_menu ul li .children li,
+					.shop_widgets .widget.widget_categories ul li .children li,
+					.shop_widgets .widget.widget_product_categories ul li .children li,
+					body.header_style_4 .header_top .icon_text .text strong,
+					.stm-header.stm-header__hb .stm-cart_style_1 .cart_rounded{font-family:Open Sans;}h1, .h1,
+					h2, .h2,
+					h3, .h3,
+					h4, .h4,
+					h5, .h5,
+					h6, .h6,
+					.top_nav .top_nav_wrapper > ul,
+					.top_nav .icon_text strong,
+					.stm_testimonials .item .testimonial-info .testimonial-text .name,
+					.stats_counter .counter_title,
+					.stm_contact .stm_contact_info .stm_contact_job,
+					.vacancy_table_wr .vacancy_table thead th,
+					.testimonials_carousel .testimonial .info .position,
+					.testimonials_carousel .testimonial .info .company,
+					.stm_gmap_wrapper .gmap_addresses .addresses .item .title,
+					.company_history > ul > li .year,
+					.stm_contacts_widget,
+					.stm_works_wr.grid .stm_works .item .item_wr .title,
+					.stm_works_wr.grid_with_filter .stm_works .item .info .title,
+					body .vc_general.vc_btn3,
+					.consulting-rev-title,
+					.consulting-rev-title-2,
+					.consulting-rev-title-3,
+					.consulting-rev-text,
+					body .vc_tta-container .vc_tta.vc_general.vc_tta-tabs.theme_style .vc_tta-tabs-container .vc_tta-tabs-list .vc_tta-tab a,
+					strong, b,
+					.button,
+					.woocommerce a.button,
+					.woocommerce button.button,
+					.woocommerce input.button,
+					.woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
+					.woocommerce input.button.alt,
+					.request_callback p,
+					ul.comment-list .comment .comment-author,
+					.page-numbers .page-numbers,
+					#footer .footer_widgets .widget.widget_recent_entries ul li a,
+					.default_widgets .widget.widget_nav_menu ul li,
+					.default_widgets .widget.widget_categories ul li,
+					.default_widgets .widget.widget_product_categories ul li,
+					.stm_sidebar .widget.widget_nav_menu ul li, .stm_sidebar .widget.widget_categories ul li,
+					.stm_sidebar .widget.widget_product_categories ul li,
+					.shop_widgets .widget.widget_nav_menu ul li,
+					.shop_widgets .widget.widget_categories ul li,
+					.shop_widgets .widget.widget_product_categories ul li,
+					.default_widgets .widget.widget_recent_entries ul li a,
+					.stm_sidebar .widget.widget_recent_entries ul li a,
+					.shop_widgets .widget.widget_recent_entries ul li a,
+					.staff_bottom_wr .staff_bottom .infos .info,
+					.woocommerce .widget_price_filter .price_slider_amount .button,
+					.woocommerce ul.product_list_widget li .product-title,
+					.woocommerce ul.products li.product .price,
+					.woocommerce a.added_to_cart,
+					.woocommerce div.product .woocommerce-tabs ul.tabs li a,
+					.woocommerce div.product form.cart .variations label,
+					.woocommerce table.shop_table th,
+					.woocommerce-cart table.cart th.product-name a,
+					.woocommerce-cart table.cart td.product-name a,
+					.woocommerce-cart table.cart th .amount,
+					.woocommerce-cart table.cart td .amount,
+					.stm_services .item .item_wr .content .read_more,
+					.staff_list ul li .staff_info .staff_department,
+					.stm_partner.style_2 .stm_partner_content .position,
+					.wpb_text_column ul li,
+					.comment-body .comment-text ul li,
+					body.header_style_4 .header_top .icon_text.big .text strong,
+					.info_box .read_more,
+					.stm_services_tabs .service_tab_item .service_name,
+					.stm_services_tabs .services_categories ul li a,
+					.stm_services_tabs .service_tab_item .service_cost,
+					.vc_custom_heading .subtitle,
+					.stm_gmap_wrapper .gmap_addresses .addresses .item .title,
+					.info_box h4,
+					.testimonials_carousel.style_2 .item .testimonial-info .testimonial-text .name,
+					.staff_carousel_item .staff_department,
+					body.header_style_5 .header_top .info-text strong,
+					.stm_works_wr.grid_2.style_1 .stm_works .item .item_wr .title,
+					.stm_works_wr.grid_2.style_2 .stm_works .item .item_wr .title,
+					.stm_works_wr.grid_with_filter.style_1 .stm_works .item .item_wr .title,
+					.stm_works_wr.grid_with_filter.style_2 .stm_works .item .item_wr .title,
+					body.header_style_7 .side_nav .main_menu_nav > li > a,
+					body.header_style_7 .side_nav .main_menu_nav > li ul li a,
+					body.header_style_5 .header_top .info-text b,
+					.pcw-box,
+					.pcw.pcw-table.pcw-basic table thead tr th,
+					.heading_font{font-family:Montserrat;}p{line-height:30px;}h1, .h1{font-weight:800;}h1, .h1{font-size:28px;}h1, .h1{line-height:32px;}h1, .h1{text-transform:none;}h2, .h2{font-size:26px;}h2, .h2{line-height:30px;}h2, .h2{letter-spacing:0px;}h3, .h3{font-size:24px;}h3, .h3{line-height:28px;}h4, .h4{font-weight:600;}h5, .h5{letter-spacing:0px;}</style>
+<style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1616159942752{margin-top: 20px !important;}.vc_custom_1616138573585{margin-bottom: 20px !important;}.vc_custom_1614512902643{margin-bottom: 20px !important;}.vc_custom_1614154352361{margin-top: 30px !important;margin-bottom: 30px !important;}.vc_custom_1612555480588{margin-bottom: 20px !important;}.vc_custom_1612349942171{margin-top: 20px !important;padding-top: 70px !important;padding-bottom: 70px !important;background-color: #22264b !important;}.vc_custom_1451889219674{margin-bottom: -60px !important;}.vc_custom_1612351591329{margin-top: 20px !important;margin-bottom: 20px !important;}.vc_custom_1612815004048{margin-top: 10px !important;}.vc_custom_1612251404926{margin-top: 10px !important;}.vc_custom_1612351600710{margin-top: 20px !important;margin-bottom: 20px !important;}.vc_custom_1612251404926{margin-top: 10px !important;}.vc_custom_1612351600710{margin-top: 20px !important;margin-bottom: 20px !important;}.vc_custom_1612251404926{margin-top: 10px !important;}.vc_custom_1612351600710{margin-top: 20px !important;margin-bottom: 20px !important;}.vc_custom_1612251404926{margin-top: 10px !important;}.vc_custom_1717447209133{margin-top: 10px !important;}.vc_custom_1717447225787{margin-top: 10px !important;}.vc_custom_1717447240166{margin-top: 10px !important;}.vc_custom_1717447252713{margin-top: 10px !important;}.vc_custom_1612351600710{margin-top: 20px !important;margin-bottom: 20px !important;}.vc_custom_1612351600710{margin-top: 20px !important;margin-bottom: 20px !important;}.vc_custom_1612351600710{margin-top: 20px !important;margin-bottom: 20px !important;}.vc_custom_1612351600710{margin-top: 20px !important;margin-bottom: 20px !important;}.vc_custom_1612351600710{margin-top: 20px !important;margin-bottom: 20px !important;}.vc_custom_1612351600710{margin-top: 20px !important;margin-bottom: 20px !important;}.vc_custom_1612555351608{margin-top: 10px !important;}.vc_custom_1623312349383{margin-top: 20px !important;margin-right: -5px !important;margin-bottom: 20px !important;margin-left: -5px !important;}.vc_custom_1623311609943{margin-top: 20px !important;margin-right: -5px !important;margin-bottom: 20px !important;margin-left: -5px !important;}.vc_custom_1623311633947{margin-top: 20px !important;margin-right: -5px !important;margin-bottom: 20px !important;margin-left: -5px !important;}.vc_custom_1614161739066{margin-top: 10px !important;margin-right: -5px !important;margin-bottom: 20px !important;margin-left: -5px !important;}.vc_custom_1614161746156{margin-top: 10px !important;margin-right: -5px !important;margin-bottom: 20px !important;margin-left: -5px !important;}.vc_custom_1717447398120{margin-top: 10px !important;}.vc_custom_1612351600710{margin-top: 20px !important;margin-bottom: 20px !important;}.vc_custom_1614445867268{background-color: #22264b !important;}.vc_custom_1615886819150{margin-right: 20px !important;}.vc_custom_1614445201857{margin-bottom: 0px !important;}</style><noscript><style> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-34692070-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-34692070-1');
+</script>
+</head>
+<body class="stm_service-template-default single single-stm_service postid-9128 site_corporate  header_style_1 boxed_layout bg_img_4 wpb-js-composer js-comp-ver-6.10.0 vc_responsive">
+<div id="wrapper">
+<div id="fullpage" class="content_wrapper">
+<header id="header">
+<style type="text/css" id="styles-beauty">@media (max-width:1023px) and (min-width:425px) {.stm-header__element.object311{order: -2100}}@media (max-width:425px) {.stm-header__element.object311{order: -2100}}.stm-header__element.object311{}@media (max-width:1023px) and (min-width:425px) {.stm-header__element.object383{order: -2300}}@media (max-width:425px) {.stm-header__element.object383{order: -2300}}.stm-header__element.object383{}@media (max-width:1023px) and (min-width:425px) {.stm-header__element.object219{order: -1100}}@media (max-width:425px) {.stm-header__element.object219{order: -1100}}.stm-header__element.object219{}@media (max-width:1023px) and (min-width:425px) {.stm-header__element.object728{order: -1300}}@media (max-width:425px) {.stm-header__element.object728{order: -1300}}.stm-header__element.object728{}@media (max-width:1023px) and (min-width:425px) {.stm-header__element.object884{order: -1300}}@media (max-width:425px) {.stm-header__element.object884{order: -1300}}.stm-header__element.object884{}@media (max-width:1023px) and (min-width:425px) {.stm-header__element.object1434{order: -2300}}@media (max-width:425px) {.stm-header__element.object1434{order: -2300}}.stm-header__element.object1434{}.stm-header{}.stm-header:before{}.stm-header__row_color_top{padding-top:5px;padding-bottom:5px;color:#1d4175;} .stm-header__row_color_top .stm-icontext__text {color:#1d4175;} .stm-header__row_color_top a {color:#1d4175;} .stm-header__row_color_top .dropdown-toggle {color:#1d4175!important;} .stm-header__row_color_top a:hover, .stm-navigation__default > ul > li > a:hover {color:!important;} .stm-header__row_color_top li:hover a {color:;} .stm-header__row_color_top .stm-switcher__trigger_default:after {border-top-color:#1d4175;} .stm-header__row_color_top .dropdown-toggle:after {border-top-color:#1d4175!important;}.stm-header__row_color_top:before{background-color:#ffffff;}.stm-header__row_color_center{padding-top:14px;padding-bottom:14px;color:#fffefe;} .stm-header__row_color_center .stm-icontext__text {color:#fffefe;} .stm-header__row_color_center a {color:#fffefe;} .stm-header__row_color_center .dropdown-toggle {color:#fffefe!important;} .stm-header__row_color_center li:hover > a {color:#fffefe!important;} .stm-header__row_color_center a:hover, .stm-navigation__default > ul > li > a:hover {color:#fffefe!important;} .stm-header__row_color_center a > .divider {color:#fffefe!important;} .stm-header__row_color_center a:hover > .divider {color:#fffefe!important;} .stm-header__row_color_center li:hover > a > .divider {color:#fffefe!important;} .stm-header__row_color_center .stm-switcher__trigger_default:after {border-top-color:#fffefe;} .stm-header__row_color_center .dropdown-toggle:after {border-top-color:#fffefe!important;}.stm-header__row_color_center:before{background-color:#1d4175;}.stm-header__row_color_bottom{} .stm-header__row_color_bottom .stm-icontext__text {color:;} .stm-header__row_color_bottom a {color:;} .stm-header__row_color_bottom .dropdown-toggle {color:!important;} .stm-header__row_color_bottom a:hover, .stm-navigation__default > ul > li > a:hover {color:!important;} .stm-header__row_color_bottom li:hover a {color:;} .stm-header__row_color_bottom .stm-switcher__trigger_default:after {border-top-color:;} .stm-header__row_color_bottom .dropdown-toggle:after {border-top-color:!important;}.stm-header__row_color_bottom:before{}                .stm_hb_mtc,.stm_hb_mtc_h:hover,.stm_hb_mtc_b:before,.stm_hb_mtc_b_h:hover:before,.stm_hb_mtc_a:after,.stm_hb_mtc_a_h:hover:after,.stm_hb_mtc_a_h.active,.mini-cart {color: #1d4175 !important}
+                            .stm_hb_stc,.stm_hb_stc_h:hover,.stm_hb_stc_a:after,.stm_hb_stc_a_h:hover:after,.stm_hb_stc_b:before,.stm_hb_stc_b_h:hover:before {color: #63bac1 !important}
+                            .stm_hb_ttc,.stm_hb_ttc_h:hover,.stm_hb_ttc_a:after,.stm_hb_ttc_a_h:hover:after,.stm_hb_ttc_b:before,.stm_hb_ttc_b_h:hover:before {color: #63bac1 !important}
+                            .stm_hb_mbc,.stm_hb_mbc_h:hover,.stm_hb_mbc_b:before,.stm_hb_mbc_b_h:hover:before,.stm_hb_mbc_a:after,.stm_hb_mbc_a_h:hover:after,.stm_hb_mbc_h.active,.stm-search .stm_widget_search button[type=submit] {background-color: #1d4175 !important}
+                            .stm_hb_sbc,.stm_hb_sbc_h:hover,.stm_hb_sbc_a:after,.stm_hb_sbc_a_h:hover:after,.stm_hb_sbc_b:before,.stm_hb_sbc_b_h:hover:before {background-color: #63bac1 !important}
+                            .stm_hb_tbc,.stm_hb_tbc_h:hover,.stm_hb_tbc_h.active,.stm_hb_tbc_a:after,.stm_hb_tbc_a_h:hover:after,.stm_hb_tbc_b:before,.stm_hb_tbc_b_h:hover:before {background-color: #63bac1 !important}
+                            .stm_hb_mbdc,.stm_hb_mbdc_h:hover,.stm_hb_mbdc_b:before,.stm_hb_mbdc_b_h:hover:before,.stm_hb_mbdc_a:after,.stm_hb_mbdc_a_h:hover:after,.stm-search .stm_widget_search .form-control:focus {border-color: #1d4175 !important}
+                            .stm_hb_sbdc,.stm_hb_sbdc_h:hover,.stm_hb_sbdc_a:after,.stm_hb_sbdc_a_h:hover:after,.stm_hb_sbdc_b:before,.stm_hb_sbdc_b_h:hover:before {border-color: #63bac1 !important}
+                            .stm_hb_tbdc,.stm_hb_tbdc_h:hover,.stm_hb_tbdc_a:after,.stm_hb_tbdc_a_h:hover:after,.stm_hb_tbdc_b:before,.stm_hb_tbdc_b_h:hover:before {border-color: #63bac1 !important}
+            </style>
+<script type="text/javascript">
+    var stm_sticky = '';
+</script>
+<div class="stm-header stm-header__hb" id="stm_beauty">
+<div class="stm-header__row_color stm-header__row_color_top elements_in_row_2">
+<div class="container">
+<div class="stm-header__row stm-header__row_top">
+<div class="stm-header__cell stm-header__cell_left">
+<div class="stm-header__element object219 stm-header__element_">
+<div class="stm-logo">
+<a href="https://www.istanbulmedicalcenter.com/tr" title="evde bakım merkezi medical center logo">
+<img width="250" height="103" src="https://www.istanbulmedicalcenter.com/wp-content/uploads/2020/05/istanbulmedikalcenter-logo-250x103-1.png" class="attachment-full size-full" alt="evde bakım merkezi medical center logo" loading="lazy" style="width:248px" srcset="https://www.istanbulmedicalcenter.com/wp-content/uploads/2020/05/istanbulmedikalcenter-logo-250x103-1.png 250w, https://www.istanbulmedicalcenter.com/wp-content/uploads/2020/05/istanbulmedikalcenter-logo-250x103-1-100x41.png 100w" sizes="(max-width: 250px) 100vw, 250px" /> </a>
+</div>
+</div>
+</div>
+<div class="stm-header__cell stm-header__cell_right">
+<div class="stm-header__element object728 stm-header__element_">
+<div class="stm-iconbox">
+<i class="stm-iconbox__icon stm_hb_mtc stm-iconbox__icon_left icon_22px fa fa-whatsapp"></i>
+<div class="stm-iconbox__info">
+<div class="stm-iconbox__description">
+<a class="stm_hb_mtc" href="#" data-toggle="modal" data-target="#iconBoxModal_"><a>Whatsapp 7/24</a></a> </div>
+</div>
+</div>
+</div>
+<div class="stm-header__element object884 stm-header__element_">
+<div class="stm-iconbox">
+<i class="stm-iconbox__icon stm_hb_mtc stm-iconbox__icon_left icon_22px fa fa-phone"></i>
+<div class="stm-iconbox__info">
+<div class="stm-iconbox__description">
+<a class="stm_hb_mtc" href="#" data-toggle="modal" data-target="#iconBoxModal_"><a>0 216 363 0 363</a></a> </div>
+</div>
+</div>
+</div>
+<div class="stm-header__element object1434 stm-header__element_icon_only">
+<div class="stm-socials">
+<a href="https://www.facebook.com/istanbulmedical/" class="stm-socials__icon icon_24px stm-socials__icon_icon_only" target="_blank" title="Social item">
+<i class="fa fa-facebook"></i>
+</a>
+<a href="https://twitter.com/istanbulmedical" class="stm-socials__icon icon_24px stm-socials__icon_icon_only" target="_blank" title="Social item">
+<i class="fa fa-twitter"></i>
+</a>
+<a href="https://www.instagram.com/istanbul_medical_center/" class="stm-socials__icon icon_24px stm-socials__icon_icon_only" target="_blank" title="Social item">
+<i class="fa fa-instagram"></i>
+</a>
+<a href="https://www.youtube.com/@MedicalCenterIstanbul" class="stm-socials__icon icon_24px stm-socials__icon_icon_only" target="_blank" title="Social item">
+<i class="fa fa-youtube"></i>
+</a>
+<a href="https://www.linkedin.com/company/i%CC%87stanbul-medical-center-evde-bak%C4%B1m-merkezi" class="stm-socials__icon icon_24px stm-socials__icon_icon_only" target="_blank" title="Social item">
+<i class="fa fa-linkedin"></i>
+</a>
+<a href="https://api.whatsapp.com/send/?phone=905540088581&amp;text&amp;type=phone_number&amp;app_absent=0" class="stm-socials__icon icon_24px stm-socials__icon_icon_only" target="_blank" title="Social item">
+<i class="fa fa-whatsapp"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="stm-header__row_color stm-header__row_color_center elements_in_row_2">
+<div class="container">
+<div class="stm-header__row stm-header__row_center">
+<div class="stm-header__cell stm-header__cell_left">
+<div class="stm-header__element object311 stm-header__element_default">
+<style type="text/css">.stm-header__hb .stm-header__element.object311 .stm-navigation > ul > li .sub-menu li a { color: #1d4175 !important; }</style>
+<div class="stm-navigation heading_font stm-navigation__default stm-navigation__default stm-navigation__none stm-navigation__ main_menu_nav">
+<ul>
+<li id="menu-item-6246" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-6246"><a href="#"><i class="fa fa-heartbeat"> </i> Hizmetler</a>
+<ul class="sub-menu">
+<li id="menu-item-9345" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-9345 stm_col_width_default stm_mega_cols_inside_default"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-bakim-hizmeti">Evde Bakım Hizmeti</a></li>
+<li id="menu-item-8928" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-8928 stm_col_width_default stm_mega_cols_inside_default"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-saglik-hizmeti">Evde Sağlık Hizmeti</a></li>
+<li id="menu-item-9504" class="menu-item menu-item-type-post_type menu-item-object-stm_service current-menu-item menu-item-9504 stm_col_width_default stm_mega_cols_inside_default"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/eve-doktor-cagirma" aria-current="page">Eve Doktor Çağırma</a></li>
+<li id="menu-item-8927" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-8927 stm_col_width_default stm_mega_cols_inside_default"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-hemsire-hizmeti">Evde Hemşire Hizmeti</a></li>
+<li id="menu-item-8926" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-8926 stm_col_width_default stm_mega_cols_inside_default"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/hasta-bakici">Hasta Bakıcı Hizmeti</a></li>
+<li id="menu-item-8922" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-8922 stm_col_width_default stm_mega_cols_inside_default"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/anne-ve-bebek-hizmetleri">Anne ve Bebek Hizmetleri</a></li>
+<li id="menu-item-8924" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-8924 stm_col_width_default stm_mega_cols_inside_default"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-fizik-tedavi">Fizik Tedavi Hizmeti</a></li>
+<li id="menu-item-8933" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-8933 stm_col_width_default stm_mega_cols_inside_default"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-kan-alma">Evde Kan Alma</a></li>
+<li id="menu-item-8929" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-8929 stm_col_width_default stm_mega_cols_inside_default"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-uyku-testi">Evde Uyku Testi</a></li>
+<li id="menu-item-8925" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-8925 stm_col_width_default stm_mega_cols_inside_default"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-goruntuleme-hizmetleri">Evde Görüntüleme</a></li>
+<li id="menu-item-8931" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-8931 stm_col_width_default stm_mega_cols_inside_default"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/tibbi-cihaz-kiralama-ve-satis">Tıbbi Cihaz Kiralama ve Satış</a></li>
+</ul>
+</li>
+<li id="menu-item-10969" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-10969"><a href="#"><i class="fa fa-check-square-o" aria-hidden="true"> </i> Paketler</a>
+<ul class="sub-menu">
+<li id="menu-item-10970" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10970 stm_col_width_default stm_mega_cols_inside_default"><a href="https://www.istanbulmedicalcenter.com/tr/glutatyon-paketleri">Glutatyon Paketleri</a></li>
+<li id="menu-item-10971" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10971 stm_col_width_default stm_mega_cols_inside_default"><a href="https://www.istanbulmedicalcenter.com/tr/laboratuvar-paketleri">Laboratuvar Paketleri</a></li>
+<li id="menu-item-11608" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11608 stm_col_width_default stm_mega_cols_inside_default"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/bakicim-check-up-paketi">Bakıcım Check-up Paketi</a></li>
+<li id="menu-item-11659" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11659 stm_col_width_default stm_mega_cols_inside_default"><a href="https://www.istanbulmedicalcenter.com/tr/bypass-paketimiz">By-Pass Paketi</a></li>
+<li id="menu-item-11661" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11661 stm_col_width_default stm_mega_cols_inside_default"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/yatak-yarasi">Yara Bakım Paketi</a></li>
+<li id="menu-item-11602" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11602 stm_col_width_default stm_mega_cols_inside_default"><a href="https://www.istanbulmedicalcenter.com/tr/kalca-kirigi-ameliyati-sonrasi-bakim-paketi">Kalça Kırığı Ameliyatı Sonrası Bakım Paketi</a></li>
+</ul>
+</li>
+<li id="menu-item-374" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-374"><a href="#"><i class="fa fa-user-md"></i> Medical Center</a>
+<ul class="sub-menu">
+<li id="menu-item-658" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-658 stm_col_width_default stm_mega_cols_inside_default"><a href="https://www.istanbulmedicalcenter.com/tr/hakkimizda">Medical Center Hakkında</a></li>
+<li id="menu-item-732" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-732 stm_col_width_default stm_mega_cols_inside_default"><a href="https://www.istanbulmedicalcenter.com/tr/yonetim-kadrosu">Yönetim Kadrosu</a></li>
+<li id="menu-item-11323" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11323 stm_col_width_default stm_mega_cols_inside_default"><a href="https://www.istanbulmedicalcenter.com/tr/evde-bakim-ekibi">Evde Bakım Ekibi</a></li>
+<li id="menu-item-724" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-724 stm_col_width_default stm_mega_cols_inside_default"><a href="https://www.istanbulmedicalcenter.com/tr/anlasmali-kurumlar">Anlaşmalı Kurumlar</a></li>
+<li id="menu-item-1572" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1572 stm_col_width_default stm_mega_cols_inside_default"><a href="https://www.istanbulmedicalcenter.com/tr/sizden-gelenler">Sizden Gelenler</a></li>
+<li id="menu-item-715" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-715 stm_col_width_default stm_mega_cols_inside_default"><a href="https://www.istanbulmedicalcenter.com/tr/basinda-biz">Basın</a></li>
+<li id="menu-item-801" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-801 stm_col_width_default stm_mega_cols_inside_default"><a href="https://www.istanbulmedicalcenter.com/tr/insan-kaynaklari">İnsan Kaynakları</a></li>
+<li id="menu-item-943" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-943 stm_col_width_default stm_mega_cols_inside_default"><a href="https://www.istanbulmedicalcenter.com/tr/etkinlikler">Etkinlikler</a></li>
+<li id="menu-item-7302" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7302 stm_col_width_default stm_mega_cols_inside_default"><a href="https://www.istanbulmedicalcenter.com/tr/egitim-hizmetleri">Eğitim Hizmetleri</a></li>
+<li id="menu-item-6326" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6326 stm_col_width_default stm_mega_cols_inside_default"><a href="https://www.istanbulmedicalcenter.com/tr/kurumsal-hizmetler">Kurumsal Hizmetler</a></li>
+<li id="menu-item-6328" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6328 stm_col_width_default stm_mega_cols_inside_default"><a href="https://www.istanbulmedicalcenter.com/tr/blog">Blogumuz</a></li>
+</ul>
+</li>
+<li id="menu-item-6316" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6316"><a href="https://www.istanbulmedicalcenter.com/tr/iletisim"><i class="fa fa-rss"> </i> İletişim</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="stm-header__cell stm-header__cell_right">
+<div class="stm-header__element object383 stm-header__element_">
+<div class="stm-text fwn">
+<div class="\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\&quot;stm-text" fwn\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"> <a href="https://www.istanbulmedicalcenter.com/tr/">Türkçe</a> / <a href="https://www.istanbulmedicalcenter.com/en/">English</a> / <a href="https://www.istanbulmedicalcenter.com/ar/">عربي</a></div> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="stm-header__overlay"></div>
+<div class="stm_mobile__header">
+<div class="container">
+<div class="stm_flex stm_flex_center stm_flex_last stm_flex_nowrap">
+<div class="stm_mobile__logo">
+<a href="https://www.istanbulmedicalcenter.com/tr/" title="Ana Sayfa">
+<img src="https://www.istanbulmedicalcenter.com/wp-content/uploads/2021/01/medical-center-logo-188x55-1.png" alt="Site Logosu" />
+</a>
+</div>
+<div class="stm_mobile__switcher stm_flex_last js_trigger__click" data-element=".stm-header, .stm-header__overlay" data-toggle="false">
+<span class="stm_hb_mbc"></span>
+<span class="stm_hb_mbc"></span>
+<span class="stm_hb_mbc"></span>
+</div>
+</div>
+</div>
+</div> </header>
+<div id="main">
+<div class="container">
+<div class="content-area">
+<article id="post-9128" class="post-9128 stm_service type-stm_service status-publish has-post-thumbnail hentry stm_service_category-hizmetler stm_service_category-tum-hizmetler">
+<div class="entry-content">
+<section class="wpb-content-wrapper">
+<div class="vc_row wpb_row vc_row-fluid vc_custom_1616159942752" style="&quot;&quot;">
+<div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-9">
+<div class="vc_column-inner ">
+<div class="wpb_wrapper">
+<div class="vc_custom_heading text_align_left"><h1 style="font-size: 28px;text-align: left">Eve Doktor Çağırma</h1></div>
+<div class="wpb_text_column wpb_content_element ">
+<div class="wpb_wrapper">
+<p>Sağlıklıyken çok da işleyişini bilmediğimiz <em>doktorun eve</em> gelerek <em>evde tedavi hizmeti</em>ni vermesi herhangi bir sağlık sorunu ile karşı karşıya kaldığımızda tüm gerçekliğiyle büyük bir ihtiyaç olarak önümüze çıkar. Hızlıca yaptığımız araştırmalarda aklımıza takılan konulardan bazıları olan <em>Özel doktor eve gelir mi? En iyi doktor hangisi? Eve doktor çağırma ücreti ne kadar? 65 yaş üstü eve doktor çağırma hizmeti var mı? Evde tedavi hizmeti nasıl verilir? </em><em>Eve doktor çağırma İstanbul’daki</em> semtler için nasıl organize edilebilir gibi <em>sorularının yanıtlarını </em>gelin birlikte detaylandıralım.</p>
+</div>
+</div>
+<div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner"><div class="wpb_wrapper">
+<div class="wpb_single_image wpb_content_element vc_align_left">
+<figure class="wpb_wrapper vc_figure">
+<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="500" height="650" src="https://www.istanbulmedicalcenter.com/wp-content/uploads/2015/01/eve-doktor-cagirma.jpg" class="vc_single_image-img attachment-large" alt="eve doktor çağırma" loading="lazy" title="eve-doktor-cagirma" srcset="https://www.istanbulmedicalcenter.com/wp-content/uploads/2015/01/eve-doktor-cagirma.jpg 500w, https://www.istanbulmedicalcenter.com/wp-content/uploads/2015/01/eve-doktor-cagirma-231x300.jpg 231w" sizes="(max-width: 500px) 100vw, 500px" /></div>
+</figure>
+</div>
+</div></div></div><div class="wpb_column vc_column_container vc_col-sm-8"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_empty_space" style="height: 10px"><span class="vc_empty_space_inner"></span></div>
+<div class="wpb_text_column wpb_content_element ">
+<div class="wpb_wrapper">
+<p>Eve doktor çağırma hizmeti, akut gelişen rahatsızlıklarda talep edilebileceği gibi, kronik (uzun dönem) hastalıkları olan bireylerin takibi için de son derece önemlidir. Özellikle yaş ilerledikçe kronik hastalıklar için 65 <em>yaş üstü eve doktor çağırma</em> hizmeti daha da kıymetli hale gelir. Aile bireyleri için <em>yaşlılar için eve doktor çağırma </em>ihtiyacı hiç beklenmedik zamanlarda dahi olabilir. İşte bu zamanlarda ihtiyaç olan branştaki <em>en iyi doktorun</em> eve gelerek en doğru tedaviyi planlaması önemlidir.</p>
+<p>&nbsp;</p>
+<p><em>Özel doktor</em> hizmetinde hekimlerimiz Diyabet, KOAH, Alzheimer, Hipertansiyon ve Onkolojik hastalıklarda muayene sonrası takip süreçlerini devam ettirirler. Eve doktor çağırma hizmeti sonrası hekimimiz ile sürekli iletişim halinde olabilirsiniz. Daha sonraki süreçlerde de hastanızın tedavi ve takibini hastaneye gitmenize gerek kalmadan düzenli olarak <em>evde tedavi hizmeti </em>alarak devam ettirebilirsiniz.</p>
+<p>&nbsp;</p>
+<p>Eve gelen Medical Center hekimleri gerekli görürse evde serum, enjeksiyon, kan alma işlemlerini hızlıca gerçekleştirebilmek adına bir hemşire ile birlikte muayeneyi gerçekleştirebilir.</p>
+<p>Evde sağlık ve bakım hizmetleri kapsamında eve doktor çağırma hizmetinin yanı sıra laboratuvar, taşınabilir röntgen cihazı ile röntgen çekimi, muayene sonrası hemşire tedavilerinin tamamı evde sunulabilmektedir. <em>Eve gelen doktor</em> ve ekibi ile hasta ve yakınlarına bütüncül bir hizmet sunulmakta ve hastaneye gitme ihtiyacı ortadan kaldırılmaktadır.</p>
+</div>
+</div>
+</div></div></div></div> <div class="vc_separator wpb_content_element vc_sep_width_100 type_1  vc_custom_1612351591329 vc_separator_no_text">
+<span class="vc_sep_holder vc_sep_holder_l"><span class="vc_sep_line"></span></span>
+<span class="vc_sep_holder vc_sep_holder_r"><span class="vc_sep_line"></span></span>
+</div>
+<div class="wpb_text_column wpb_content_element  vc_custom_1612815004048">
+<div class="wpb_wrapper">
+<h2>Eve Doktor Çağırma Kapsamındaki Branşlar;</h2>
+</div>
+</div>
+<div class="vc_row wpb_row vc_inner vc_row-fluid vc_custom_1612251404926"><div class="wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_custom_heading text_align_left"><h3 style="text-align: left">Dahiliye (İç Hastalıkları)</h3></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-8"><div class="vc_column-inner"><div class="wpb_wrapper">
+<div class="wpb_text_column wpb_content_element  vc_custom_1717447209133">
+<div class="wpb_wrapper">
+<p><strong>Evde Dahiliye (İç Hastalıkları) Muayenesi:</strong> Diyabet, hipertansiyon, karaciğer hastalıkları, sindirim sistemi (mide ve bağırsaklar) hastalıkları, enfeksiyon ve hormonal hastalıklarda muayene gerçekleştirilen bölümdür.</p>
+<p>Hastanın öyküsü ve detaylı muayenesi sonrasında gerekli tahlil, tetkik ve görüntüleme işlemleri yapılarak teşhis konulur ve <em>evde tedavi hizmeti</em> kapsamında hasta için en uygun tedavi planı hazırlanır.</p>
+</div>
+</div>
+</div></div></div></div> <div class="vc_separator wpb_content_element vc_sep_width_100 type_1  vc_custom_1612351600710 vc_separator_no_text">
+<span class="vc_sep_holder vc_sep_holder_l"><span class="vc_sep_line"></span></span>
+<span class="vc_sep_holder vc_sep_holder_r"><span class="vc_sep_line"></span></span>
+</div>
+<div class="vc_row wpb_row vc_inner vc_row-fluid vc_custom_1612251404926"><div class="wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_custom_heading text_align_left"><h3 style="text-align: left">Kardiyoloji Uzmanı</h3></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-8"><div class="vc_column-inner"><div class="wpb_wrapper">
+<div class="wpb_text_column wpb_content_element  vc_custom_1717447225787">
+<div class="wpb_wrapper">
+<p><strong>Evde Kardiyoloji Muayenesi:</strong> Kalp hastalıklarının teşhis, tedavi ve takip süreçlerinde <em>özel doktor</em> hizmeti gerçekleştiren alandır. Kardiyoloji muayenesi ile birlikte evde EKO çekimi, EKG çekimi ve Holter takma işlemleri de yapılmakta ve uzman kardiyoloji hekimleri tarafından değerlendirilmektedir. <em>Yaşlılar için eve doktor çağırma</em> gereksinimi de olmaktadır. <em>65 yaş üstü eve doktor çağırma </em>nedenlerinin bir kısmı kişilerde kronik bir kalp rahatsızlığının olması ve buna bağlı olarak kardiyoloji muayenesine ihtiyaç duymalarıdır.</p>
+</div>
+</div>
+</div></div></div></div> <div class="vc_separator wpb_content_element vc_sep_width_100 type_1  vc_custom_1612351600710 vc_separator_no_text">
+<span class="vc_sep_holder vc_sep_holder_l"><span class="vc_sep_line"></span></span>
+<span class="vc_sep_holder vc_sep_holder_r"><span class="vc_sep_line"></span></span>
+</div>
+<div class="vc_row wpb_row vc_inner vc_row-fluid vc_custom_1612251404926"><div class="wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_custom_heading text_align_left"><h3 style="text-align: left">Göğüs Hastalıkları Uzmanı</h3></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-8"><div class="vc_column-inner"><div class="wpb_wrapper">
+<div class="wpb_text_column wpb_content_element  vc_custom_1717447240166">
+<div class="wpb_wrapper">
+<p><strong>Evde Göğüs Hastalıkları Muayenesi:</strong> Kronik bronşit, zatürre, astım gibi solunum sıkıntısı, öksürük, halsizlik vb. şikayetlere sebep olan hastalıkların teşhis ve tedavisini gerçekleştiren bölümdür. <em>Eve gelen doktor</em> ile hastalığın tedavi süreci daha kontrollü bir şeklide yapılmakta ve hastalık seyri daha çabuk geriletilmektedir.</p>
+</div>
+</div>
+</div></div></div></div> <div class="vc_separator wpb_content_element vc_sep_width_100 type_1  vc_custom_1612351600710 vc_separator_no_text">
+<span class="vc_sep_holder vc_sep_holder_l"><span class="vc_sep_line"></span></span>
+<span class="vc_sep_holder vc_sep_holder_r"><span class="vc_sep_line"></span></span>
+</div>
+<div class="vc_row wpb_row vc_inner vc_row-fluid vc_custom_1612251404926"><div class="wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_custom_heading text_align_left"><h3 style="text-align: left">Nöroloji Uzmanı</h3></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-8"><div class="vc_column-inner"><div class="wpb_wrapper">
+<div class="wpb_text_column wpb_content_element  vc_custom_1717447252713">
+<div class="wpb_wrapper">
+<p><strong>Evde Nöroloji Muayenesi:</strong> Nörolojik hastalıkların birçoğu evde <em>özel doktor</em> hizmeti ihtiyacına neden olabilir. Geçirilmiş felç, ilerlemiş beyin hastalığı veya yaşlılıkta rastlanan bunama, Alzheimer, demans hastalıklar ve unutkanlık, baş dönmesi, denge kaybı, uzuvlarda ağrı, uyuşma, his kaybı vb birçok şikâyette nörolojik muayene gerçekleştirilir. Hastanızı evden çıkaramadığınız durumlarda veya davranışsal bozukluklar gözlemlendiğinde <em>özel doktor</em> hizmeti ile nöroloji hekimlerinden <em>evde tedavi hizmeti</em> desteği almanız iyileşme sürecine destek olacaktır.</p>
+</div>
+</div>
+</div></div></div></div> </div>
+</div>
+</div>
+<div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-3 vc_hidden-xs">
+<div class="vc_column-inner ">
+<div class="wpb_wrapper">
+<div class="stm_sidebar">
+<style type="text/css" scoped>
+		.vc_custom_1452056597103{margin-right: 0px !important;margin-bottom: 30px !important;margin-left: 0px !important;}.vc_custom_1452056597103{margin-right: 0px !important;margin-bottom: 30px !important;margin-left: 0px !important;}.vc_custom_1612297275332{margin-bottom: 30px !important;}.vc_custom_1452056633692{padding-top: 37px !important;padding-right: 30px !important;padding-bottom: 40px !important;padding-left: 30px !important;}.vc_custom_1611488147633{margin-bottom: 9px !important;}.vc_custom_1612556010190{margin-bottom: 17px !important;}.vc_custom_1452056633692{padding-top: 37px !important;padding-right: 30px !important;padding-bottom: 40px !important;padding-left: 30px !important;}	</style>
+<section class="wpb-content-wrapper">
+<div class="vc_row wpb_row vc_row-fluid" style="&quot;&quot;">
+<div class="wpb_column vc_column_container vc_col-sm-12">
+<div class="vc_column-inner ">
+<div class="wpb_wrapper">
+<div class="vc_wp_custommenu wpb_content_element"><div class="widget widget_nav_menu"><div class="menu-doktor-hizmetleri-tr-container"><ul id="menu-doktor-hizmetleri-tr" class="menu"><li id="menu-item-10055" class="menu-item menu-item-type-post_type menu-item-object-stm_service current-menu-item menu-item-10055"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/eve-doktor-cagirma" aria-current="page">Eve Doktor Çağırma</a></li>
+<li id="menu-item-8941" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-8941"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-doktor-muayenesi">Evde Doktor Muayenesi</a></li>
+<li id="menu-item-8942" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-8942"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-eko-cekimi">Evde EKO Çekimi</a></li>
+<li id="menu-item-8943" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-8943"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-nazogastrik-sonda-uygulamasi">Evde Nazogastrik Sonda Uygulaması</a></li>
+<li id="menu-item-8944" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-8944"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-peg-degisimi">Evde Peg Değişimi</a></li>
+<li id="menu-item-8945" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-8945"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-trakeostomi-kanul-degisimi">Evde Trakeostomi Kanül Değişimi</a></li>
+<li id="menu-item-9137" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-9137"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-doktor-hizmetleri">Evde Doktor Hizmetleri</a></li>
+</ul></div></div></div> <style type="text/css">
+        .vc_btn3-66684ba4a3bc8:hover {
+            background-color:  !important;
+        }
+    </style>
+<div class="vc_btn3-container vc_btn3-left vc_custom_1612297275332">
+<a class="vc_general vc_btn3 vc_btn3-size-lg vc_btn3-shape-rounded vc_btn3-style-flat vc_btn3-66684ba4a3bc8 vc_btn3-block vc_btn3-icon-left vc_btn3-color-theme_style_1" href="https://www.istanbulmedicalcenter.com/wp-content/uploads/2021/02/Medical-Center-Katalog.pdf" title="Tanıtım Broşürü"><i class="vc_btn3-icon "></i> Tanıtım Broşürü</a></div>
+</div>
+</div>
+</div> </div>
+<div class="vc_row wpb_row vc_row-fluid third_bg_color vc_custom_1452056597103" style="&quot;&quot;">
+<div class="wpb_column vc_column_container vc_col-sm-12">
+<div class="vc_column-inner vc_custom_1452056633692">
+<div class="wpb_wrapper">
+<div class="vc_custom_heading vc_custom_1611488147633 text_align_left"><div style="font-size: 16px;color: #222222;text-align: left">Nasıl Yardımcı Olabiliriz?</div></div>
+<div class="wpb_text_column wpb_content_element  vc_custom_1612556010190">
+<div class="wpb_wrapper">
+<p><span style="font-size: 13px; line-height: 22px;">Randevu almak istediğiniz uzman doktoru seçin, iletişim bilgileriniz ile birlikte bizimle paylaşın. Uzman sağlık yöneticilerimiz ile en kısa sürede sizi arayalım.</span></p>
+</div>
+</div>
+<style type="text/css">
+        .vc_btn3-66684ba4a4805:hover {
+            background-color:  !important;
+        }
+    </style>
+<div class="vc_btn3-container vc_btn3-inline">
+<a class="vc_general vc_btn3 vc_btn3-size-sm vc_btn3-shape-rounded vc_btn3-style-flat vc_btn3-66684ba4a4805 vc_btn3-icon-left vc_btn3-color-white" href="https://www.istanbulmedicalcenter.com/tr/iletisim" title="İletişim"><i class="vc_btn3-icon "></i> iletişime geç</a></div>
+</div>
+</div>
+</div> </div>
+<div class="vc_row wpb_row vc_row-fluid third_bg_color vc_custom_1452056597103" style="&quot;&quot;">
+<div class="wpb_column vc_column_container vc_col-sm-12">
+<div class="vc_column-inner vc_custom_1452056633692">
+<div class="wpb_wrapper">
+<div role="form" class="wpcf7" id="wpcf7-f9132-p9128-o1" lang="tr-TR" dir="ltr">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+<form action="/tr/hizmetler/eve-doktor-cagirma#wpcf7-f9132-p9128-o1" method="post" class="wpcf7-form init" novalidate="novalidate" data-status="init">
+<div style="display: none;">
+<input type="hidden" name="_wpcf7" value="9132" />
+<input type="hidden" name="_wpcf7_version" value="5.5.2" />
+<input type="hidden" name="_wpcf7_locale" value="tr_TR" />
+<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f9132-p9128-o1" />
+<input type="hidden" name="_wpcf7_container_post" value="9128" />
+<input type="hidden" name="_wpcf7_posted_data_hash" value />
+</div>
+<div class="form-request">
+<div class="row">
+<div class="columns columns-12"><span class="wpcf7-form-control-wrap text-388"><input type="text" name="text-388" value size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Ad ve Soyad" /></span></div>
+</div>
+<div class="row">
+<div class="columns columns-6"><span class="wpcf7-form-control-wrap email-664"><input type="email" name="email-664" value size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Email Adresi" /></span></div>
+<div class="columns columns-6"><span class="wpcf7-form-control-wrap tel-127"><input type="tel" name="tel-127" value size="40" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel" aria-required="true" aria-invalid="false" placeholder="Telefon Numarası" /></span></div>
+</div>
+<div class="row">
+<div class="columns columns-12"><span class="wpcf7-form-control-wrap menu-502"><select name="menu-502" class="wpcf7-form-control wpcf7-select" aria-invalid="false"><option value="Eve Hangi Uzman Doktoru Çağırmak İstersiniz?">Eve Hangi Uzman Doktoru Çağırmak İstersiniz?</option><option value="Dahiliye Uzmanı">Dahiliye Uzmanı</option><option value="Kardiyoloji Uzmanı">Kardiyoloji Uzmanı</option><option value="Göğüs Hastalıkları Uzmanı">Göğüs Hastalıkları Uzmanı</option><option value="Nöroloji Uzmanı">Nöroloji Uzmanı</option><option value="Onkoloji Uzmanı">Onkoloji Uzmanı</option><option value="Yoğun Bakım Uzmanı">Yoğun Bakım Uzmanı</option><option value="Dermatoloji Uzmanı">Dermatoloji Uzmanı</option><option value="Ortopedi Uzmanı">Ortopedi Uzmanı</option><option value="Psikiyatri Uzmanı">Psikiyatri Uzmanı</option></select></span></div>
+</div>
+<div class="row"><span class="wpcf7-form-control-wrap accept-this-1"><span class="wpcf7-form-control wpcf7-acceptance"><span class="wpcf7-list-item"><label><input type="checkbox" name="accept-this-1" value="1" aria-invalid="false" /><span class="wpcf7-list-item-label"><a href="https://www.istanbulmedicalcenter.com/tr/kisisel-verilerin-korunmasi">Şartlar ve Koşulları</a> okudum kabul ettim.</span></label></span></span></span></div>
+<div class="row">
+<div class="columns columns-12">Verilerimin bu web sitesi tarafından saklanmasını ve işlenmesini kabul ediyorum.</p>
+<p>[stmgdpr "Verilerimin bu web sitesi tarafından saklanmasını ve işlenmesini kabul ediyorum."]</p>
+<p><input type="submit" value="Gönder" class="wpcf7-form-control has-spinner wpcf7-submit button" /></p></div>
+</div>
+</div>
+<noscript>
+			<div class="wpcf7-response-output wpcf7-spam-blocked">Your browser does not support JavaScript!. Please enable javascript in your browser in order to get form work properly.</div>
+	</noscript><script type="text/javascript">
+
+						if(contactform === undefined){
+							var contactform = [];
+						}
+						var innerVal = [9132,'mail_sent_ok','Mesajınız g&ouml;nderildi, sizi en kısa s&uuml;rede arayacağız.'];
+						contactform.push(innerVal);
+						var innerVal = [9132,'mail_sent_ng','Mesajınızı g&ouml;ndermeye &ccedil;alışırken bir hata oluştu. L&uuml;tfen daha sonra tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [9132,'validation_error','Bir veya daha fazla alanda hata var. L&uuml;tfen kontrol edip tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [9132,'spam','Mesajınızı g&ouml;ndermeye &ccedil;alışırken bir hata oluştu. L&uuml;tfen daha sonra tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [9132,'accept_terms','Mesajınızı g&ouml;ndermeden &ouml;nce şartları ve koşulları kabul etmeniz gerekir.'];
+						contactform.push(innerVal);
+						var innerVal = [9132,'invalid_required','Alan zorunludur.'];
+						contactform.push(innerVal);
+						var innerVal = [9132,'invalid_too_long','Alan &ccedil;ok uzun. L&uuml;tfen kontrol edip tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [9132,'invalid_too_short','Alan &ccedil;ok kısa. L&uuml;tfen kontrol edip tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [9132,'upload_failed','Dosya y&uuml;klenirken bilinmeyen bir hata oluştu. L&uuml;tfen tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [9132,'upload_file_type_invalid','Bu t&uuml;r dosyaları y&uuml;kleyemezsiniz. L&uuml;tfen kontrol edip tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [9132,'upload_file_too_large','Dosya &ccedil;ok b&uuml;y&uuml;k. L&uuml;tfen kontrol edip tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [9132,'upload_failed_php_error','Dosya y&uuml;klenirken bir hata oluştu. L&uuml;tfen tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [9132,'invalid_date','Tarih formatı yanlış. L&uuml;tfen kontrol edip tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [9132,'date_too_early','Tarih, izin verilen en erken tarihten &ouml;nce. L&uuml;tfen kontrol edip tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [9132,'date_too_late','Tarih, izin verilen en erken tarihten sonra. L&uuml;tfen kontrol edip tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [9132,'invalid_number','Sayı bi&ccedil;imi ge&ccedil;ersiz. L&uuml;tfen kontrol edip tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [9132,'number_too_small','Sayı izin verilen minimum değerden daha kısa. L&uuml;tfen kontrol edip tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [9132,'number_too_large','Sayı izin verilen minimum değerden daha uzun. L&uuml;tfen kontrol edip tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [9132,'quiz_answer_not_correct','Testin cevabı yanlış. L&uuml;tfen kontrol edip tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [9132,'invalid_email','Girilen e-posta adresi ge&ccedil;ersiz. L&uuml;tfen kontrol edip tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [9132,'invalid_url','URL ge&ccedil;ersiz. L&uuml;tfen kontrol edip tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [9132,'invalid_tel','Telefon numarası ge&ccedil;ersiz. L&uuml;tfen kontrol edip tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [9132,'gdpr',''];
+						contactform.push(innerVal);
+						</script><div class="wpcf7-response-output" aria-hidden="true"></div></form></div> </div>
+</div>
+</div> </div>
+</section></div> </div>
+</div>
+</div> </div>
+<div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid" style="&quot;&quot;">
+<div class="wpb_column vc_column_container vc_col-sm-12">
+<div class="vc_column-inner ">
+<div class="wpb_wrapper">
+<div class="vc_separator wpb_content_element vc_sep_width_100 type_1  vc_custom_1612351600710 vc_separator_no_text">
+<span class="vc_sep_holder vc_sep_holder_l"><span class="vc_sep_line"></span></span>
+<span class="vc_sep_holder vc_sep_holder_r"><span class="vc_sep_line"></span></span>
+</div>
+<div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_custom_heading text_align_left"><h3 style="text-align: left">Onkoloji Uzmanı</h3></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-9"><div class="vc_column-inner"><div class="wpb_wrapper">
+<div class="wpb_text_column wpb_content_element ">
+<div class="wpb_wrapper">
+<p><strong>Evde Onkoloji Muayenesi:</strong> Kanser hastalarının uzman bir onkoloji hekimi tarafından takip edilmesi hastanın bu süreci daha konforlu geçirmesini sağlayan bir hizmettir. Terminal dönem (yaşam sonu) onkoloji hastalarının evdeki süreçleri oldukça ağır geçmektedir.  Hasta yakınları tarafından yaşanan bu zorlu süreci kolaylaştıran <em>evde tedavi hizmeti</em> sayesinde <em>özel doktorun</em> uyguladığı tedavilerin yanı sıra hastanın süreciyle ilgili vereceği tavsiyeler de aile yakınlarına güven vermektedir.</p>
+</div>
+</div>
+</div></div></div></div> <div class="vc_separator wpb_content_element vc_sep_width_100 type_1  vc_custom_1612351600710 vc_separator_no_text">
+<span class="vc_sep_holder vc_sep_holder_l"><span class="vc_sep_line"></span></span>
+<span class="vc_sep_holder vc_sep_holder_r"><span class="vc_sep_line"></span></span>
+</div>
+<div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_custom_heading text_align_left"><h3 style="text-align: left">Yoğun Bakım Uzmanı</h3></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-9"><div class="vc_column-inner"><div class="wpb_wrapper">
+<div class="wpb_text_column wpb_content_element ">
+<div class="wpb_wrapper">
+<p><strong>Evde Anestezi, Yoğun Bakım Hekim Muayenesi:</strong> Yoğun bakım sonrası evde tedavilerine devam edilen hastaların evde yapılabilecek girişimsel işlemleri uzman yoğun bakım hekimleri tarafından gerçekleştirilmektedir. Evde PEG (Perkütan Endoskopik Gastronomi) değişimi, evde trakeostomi kanülü değişimi, nazogastrik sonda takılması işlemi uzman yoğun bakım hekimleri tarafından yapılan işlemlerden bazılarıdır. Her yaştan kişinin ihtiyacı olabilecek <em>özel doktor </em>yoğun bakım muayenesi Medical Center’ın evde tedavi hizmetinin bir parçası olarak hasta ve hasta yakınlarına güvenle sunulmaktadır.</p>
+</div>
+</div>
+</div></div></div></div> <div class="vc_separator wpb_content_element vc_sep_width_100 type_1  vc_custom_1612351600710 vc_separator_no_text">
+<span class="vc_sep_holder vc_sep_holder_l"><span class="vc_sep_line"></span></span>
+<span class="vc_sep_holder vc_sep_holder_r"><span class="vc_sep_line"></span></span>
+</div>
+<div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_custom_heading text_align_left"><h3 style="text-align: left">Dermatoloji Uzmanı</h3></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-9"><div class="vc_column-inner"><div class="wpb_wrapper">
+<div class="wpb_text_column wpb_content_element ">
+<div class="wpb_wrapper">
+<p><strong>Evde Dermatoloji (Cildiye) Muayenesi:</strong> Cilt hastalıkları, alerjik reaksiyonlar, romatizmal hastalıklar, yatak yarası gibi hastalıklarının tanı ve tedavileri için eve doktor çağırma hizmetinden faydalanabilirsiniz. <em>Eve gelen doktor</em> tarafından hastalar düzenli olarak takip edilerek tedavi sonuçları değerlendirilmektedir.</p>
+</div>
+</div>
+</div></div></div></div> <div class="vc_separator wpb_content_element vc_sep_width_100 type_1  vc_custom_1612351600710 vc_separator_no_text">
+<span class="vc_sep_holder vc_sep_holder_l"><span class="vc_sep_line"></span></span>
+<span class="vc_sep_holder vc_sep_holder_r"><span class="vc_sep_line"></span></span>
+</div>
+<div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_custom_heading text_align_left"><h3 style="text-align: left">Ortopedi Uzmanı</h3></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-9"><div class="vc_column-inner"><div class="wpb_wrapper">
+<div class="wpb_text_column wpb_content_element ">
+<div class="wpb_wrapper">
+<p><strong>Evde Ortopedi Muayenesi:</strong> Evde düşme, çarpma, burkulma gibi problemlerden kaynaklanan kemiklerde ve eklemlerde hasar oluşturabilecek tüm travmalarda ortopedi muayenesi hizmeti alabilirsiniz. Ayrıca eklemlerde yaşlılığa ya da kronik hastalıklara bağlı dejeneratif bozukluklar olduğunda <em>y</em><em>aşlılar için eve doktor çağırma</em> hizmetinden yararlanabilirsiniz.</p>
+<p>Kadınlarda kemik erimesine bağlı farkında olmadan oluşan kırıklar, fiziksel kapasiteyi düşüren ve yaşam konforunu bozan tüm şüpheli kas ve iskelet sistemi rahatsızlıklarında evde <em>özel doktor</em> ortopedi muayenesi gerçekleştirilir. Özellikle <em>65 yaş üstü eve doktor çağırma</em> durumlarında hastanın tanı ve teşhis aşamasında önem taşıyan görüntüleme hizmetleri gerekirse evinizin ortamında gerçekleştirilebilir.</p>
+</div>
+</div>
+</div></div></div></div> <div class="vc_separator wpb_content_element vc_sep_width_100 type_1  vc_custom_1612351600710 vc_separator_no_text">
+<span class="vc_sep_holder vc_sep_holder_l"><span class="vc_sep_line"></span></span>
+<span class="vc_sep_holder vc_sep_holder_r"><span class="vc_sep_line"></span></span>
+</div>
+<div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_custom_heading text_align_left"><h3 style="text-align: left">Psikiyatri Uzmanı</h3></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-9"><div class="vc_column-inner"><div class="wpb_wrapper">
+<div class="wpb_text_column wpb_content_element ">
+<div class="wpb_wrapper">
+<p><strong>Evde Psikiyatri Muayenesi:</strong> <em>Özel doktor </em>hizmeti ile ruh ve sinir hastalığı bulunan hastaların değerlendirilmesi, ilaçlarının düzenlenmesi, gerekli tedavilerinin uygulanması ve takibi <em>evde tedavi hizmeti</em> bütüncül şekilde planlanmaktadır.</p>
+</div>
+</div>
+</div></div></div></div> <div class="vc_separator wpb_content_element vc_sep_width_100 type_1  vc_custom_1612351600710 vc_separator_no_text">
+<span class="vc_sep_holder vc_sep_holder_l"><span class="vc_sep_line"></span></span>
+<span class="vc_sep_holder vc_sep_holder_r"><span class="vc_sep_line"></span></span>
+</div>
+</div>
+</div>
+</div> </div>
+<div class="vc_row-full-width vc_clearfix"></div>
+<div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1616138573585" style="&quot;&quot;">
+<div class="wpb_column vc_column_container vc_col-sm-12">
+<div class="vc_column-inner ">
+<div class="wpb_wrapper">
+<div class="wpb_text_column wpb_content_element  vc_custom_1612555351608">
+<div class="wpb_wrapper">
+<h3>Diğer Evde Doktor Hizmetleri</h3>
+</div>
+</div>
+</div>
+</div>
+</div> </div>
+<div class="vc_row-full-width vc_clearfix"></div>
+<div class="vc_row wpb_row vc_row-fluid vc_custom_1614512902643 vc_row-o-content-middle vc_row-flex" style="&quot;&quot;">
+<div class="wpb_column vc_column_container vc_col-sm-1/5">
+<div class="vc_column-inner vc_custom_1623312349383">
+<div class="wpb_wrapper">
+<div class="wpb_single_image wpb_content_element vc_align_left">
+<figure class="wpb_wrapper vc_figure">
+<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="379" height="322" src="https://www.istanbulmedicalcenter.com/wp-content/uploads/2015/01/doktor-muayenesi.jpg" class="vc_single_image-img attachment-full" alt="evde doktor muayenesi" loading="lazy" title="doktor-muayenesi" srcset="https://www.istanbulmedicalcenter.com/wp-content/uploads/2015/01/doktor-muayenesi.jpg 379w, https://www.istanbulmedicalcenter.com/wp-content/uploads/2015/01/doktor-muayenesi-300x255.jpg 300w" sizes="(max-width: 379px) 100vw, 379px" /></div>
+</figure>
+</div>
+<style type="text/css">
+        .vc_btn3-66684ba4ab0c6:hover {
+            background-color:  !important;
+        }
+    </style>
+<div class="vc_btn3-container  memobutton vc_btn3-center">
+<a class="vc_general vc_btn3 vc_btn3-size-sm vc_btn3-shape-rounded vc_btn3-style-flat vc_btn3-66684ba4ab0c6 vc_btn3-block vc_btn3-color-theme_style_1" href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-doktor-muayenesi" title="Evde Doktor Muayenesi">Doktor Muayenesi</a></div>
+<div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div> </div>
+</div>
+</div>
+<div class="wpb_column vc_column_container vc_col-sm-1/5">
+<div class="vc_column-inner vc_custom_1623311609943">
+<div class="wpb_wrapper">
+<div class="wpb_single_image wpb_content_element vc_align_left">
+<figure class="wpb_wrapper vc_figure">
+<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="379" height="322" src="https://www.istanbulmedicalcenter.com/wp-content/uploads/2015/01/evde-eko-cekimi-1.jpg" class="vc_single_image-img attachment-full" alt="evde eko çekimi" loading="lazy" title="evde-eko-cekimi" srcset="https://www.istanbulmedicalcenter.com/wp-content/uploads/2015/01/evde-eko-cekimi-1.jpg 379w, https://www.istanbulmedicalcenter.com/wp-content/uploads/2015/01/evde-eko-cekimi-1-300x255.jpg 300w" sizes="(max-width: 379px) 100vw, 379px" /></div>
+</figure>
+</div>
+<style type="text/css">
+        .vc_btn3-66684ba4abe68:hover {
+            background-color:  !important;
+        }
+    </style>
+<div class="vc_btn3-container  memobutton vc_btn3-center">
+<a class="vc_general vc_btn3 vc_btn3-size-sm vc_btn3-shape-rounded vc_btn3-style-flat vc_btn3-66684ba4abe68 vc_btn3-block vc_btn3-color-theme_style_1" href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-eko-cekimi" title="Evde EKO Çekimi">Evde EKO Çekimi</a></div>
+<div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div> </div>
+</div>
+</div>
+<div class="wpb_column vc_column_container vc_col-sm-1/5">
+<div class="vc_column-inner vc_custom_1623311633947">
+<div class="wpb_wrapper">
+<div class="wpb_single_image wpb_content_element vc_align_left">
+<figure class="wpb_wrapper vc_figure">
+<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="379" height="322" src="https://www.istanbulmedicalcenter.com/wp-content/uploads/2015/01/evde-peg-degisimi-1.jpg" class="vc_single_image-img attachment-full" alt="peg değişimi" loading="lazy" title="evde-peg-degisimi" srcset="https://www.istanbulmedicalcenter.com/wp-content/uploads/2015/01/evde-peg-degisimi-1.jpg 379w, https://www.istanbulmedicalcenter.com/wp-content/uploads/2015/01/evde-peg-degisimi-1-300x255.jpg 300w" sizes="(max-width: 379px) 100vw, 379px" /></div>
+</figure>
+</div>
+<style type="text/css">
+        .vc_btn3-66684ba4acc21:hover {
+            background-color:  !important;
+        }
+    </style>
+<div class="vc_btn3-container  memobutton vc_btn3-center">
+<a class="vc_general vc_btn3 vc_btn3-size-sm vc_btn3-shape-rounded vc_btn3-style-flat vc_btn3-66684ba4acc21 vc_btn3-block vc_btn3-color-theme_style_1" href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-peg-degisimi" title="Evde PEG Değişimi">Evde PEG Değişimi</a></div>
+<div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div> </div>
+</div>
+</div>
+<div class="wpb_column vc_column_container vc_col-sm-1/5">
+<div class="vc_column-inner vc_custom_1614161739066">
+<div class="wpb_wrapper">
+<div class="wpb_single_image wpb_content_element vc_align_left">
+<figure class="wpb_wrapper vc_figure">
+<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="379" height="322" src="https://www.istanbulmedicalcenter.com/wp-content/uploads/2015/01/trakeostomi-degisimi.jpg" class="vc_single_image-img attachment-full" alt="trakeostomi değişimi" loading="lazy" title="trakeostomi-degisimi" srcset="https://www.istanbulmedicalcenter.com/wp-content/uploads/2015/01/trakeostomi-degisimi.jpg 379w, https://www.istanbulmedicalcenter.com/wp-content/uploads/2015/01/trakeostomi-degisimi-300x255.jpg 300w" sizes="(max-width: 379px) 100vw, 379px" /></div>
+</figure>
+</div>
+<style type="text/css">
+        .vc_btn3-66684ba4ae549:hover {
+            background-color:  !important;
+        }
+    </style>
+<div class="vc_btn3-container  memobutton vc_btn3-center">
+<a class="vc_general vc_btn3 vc_btn3-size-sm vc_btn3-shape-rounded vc_btn3-style-flat vc_btn3-66684ba4ae549 vc_btn3-block vc_btn3-color-theme_style_1" href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-trakeostomi-kanulu-degisimi" title="Evde Trakeostomi Değişimi">Trakeostomi Değişimi</a></div>
+<div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div> </div>
+</div>
+</div>
+<div class="wpb_column vc_column_container vc_col-sm-1/5">
+<div class="vc_column-inner vc_custom_1614161746156">
+<div class="wpb_wrapper">
+<div class="wpb_single_image wpb_content_element vc_align_left">
+<figure class="wpb_wrapper vc_figure">
+<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="379" height="322" src="https://www.istanbulmedicalcenter.com/wp-content/uploads/2015/01/Nazogastrik-Sonda-1.jpg" class="vc_single_image-img attachment-full" alt="Nazogastrik Sonda" loading="lazy" title="Nazogastrik-Sonda" srcset="https://www.istanbulmedicalcenter.com/wp-content/uploads/2015/01/Nazogastrik-Sonda-1.jpg 379w, https://www.istanbulmedicalcenter.com/wp-content/uploads/2015/01/Nazogastrik-Sonda-1-300x255.jpg 300w" sizes="(max-width: 379px) 100vw, 379px" /></div>
+</figure>
+</div>
+<style type="text/css">
+        .vc_btn3-66684ba4b1939:hover {
+            background-color:  !important;
+        }
+    </style>
+<div class="vc_btn3-container  memobutton vc_btn3-center">
+<a class="vc_general vc_btn3 vc_btn3-size-sm vc_btn3-shape-rounded vc_btn3-style-flat vc_btn3-66684ba4b1939 vc_btn3-block vc_btn3-color-theme_style_1" href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-nazogastrik-sonda-uygulamasi" title="Nazogastrik Sonda Takma">Nazogastrik Sonda</a></div>
+<div class="vc_empty_space" style="height: 20px"><span class="vc_empty_space_inner"></span></div> </div>
+</div>
+</div> </div>
+<div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1614154352361" style="&quot;&quot;">
+<div class="wpb_column vc_column_container vc_col-sm-12">
+<div class="vc_column-inner ">
+<div class="wpb_wrapper">
+<div class="wpb_text_column wpb_content_element  vc_custom_1717447398120">
+<div class="wpb_wrapper">
+<p><strong>Eve Doktor Çağırmanın Avantajları</strong></p>
+<ul>
+<li>Eve doktor çağırma hizmetinde hastanızın bulunduğu her yerde, evde, işte, otelde, hasta neredeyse hizmet o alanda gerçekleştirilmektedir.</li>
+<li>Eve doktor çağırma, size ve hastanıza evinizin rahat ortamında kapsamlı bir şekilde <em>en iyi doktor</em> muayenesini ve <em>evde tedavi hizmetini</em> almanızı sağlar.</li>
+<li>Eve doktor çağırma hizmeti sayesinde hastalar bulundukları ortamdan bir sağlık kuruluşuna gidene kadar bir zaman kaybı yaşanmaz. Sağlık kuruluşundaki gibi bir bekleme ve koşuşturma süreci olmaz. Hasta konforlu bir biçimde <em>özel doktor</em> hizmetini almış olur.</li>
+<li><em>Özel doktor</em> muayenesinin evde gerçekleşmesi, hasta ve aile üyeleri üzerindeki stresi de azaltmaktadır. Uzun araştırmaların sonucunda, ev ortamında muayene ve tedavinin hastayı daha çabuk iyileştirdiğini göstermiştir. Evde tedavi süreci stresi azalttığı ve devamında hasta takiplerinin daha verimli olduğunu göstermiştir.</li>
+<li>Hasta yakınlarının hastaları için <em>en iyi doktor</em> hizmetini aldıklarını düşünmeleri de aile ortamında pozitif bir etki de yaratmaktadır.</li>
+<li>Devam eden Covid 19 önlemleri kapsamında; <em>eve özel doktor çağırma</em> talebi sonrasında gelen hekim ve hemşirelerimiz gerekli önlemleri alarak <em>evde tedavi hizmetini</em> gerçekleştirmektedirler. Özellikle daha riskli gruptaki <em>65 yaş üstü eve doktor çağırmayı</em> düşünenler için evde sağlık ve bakım merkezleri hastanelere kıyasla risk olasılığının en düşük olduğu sağlık kurumlarıdır.</li>
+</ul>
+</div>
+</div>
+<div class="vc_separator wpb_content_element vc_sep_width_100 type_1  vc_custom_1612351600710 vc_separator_no_text">
+<span class="vc_sep_holder vc_sep_holder_l"><span class="vc_sep_line"></span></span>
+<span class="vc_sep_holder vc_sep_holder_r"><span class="vc_sep_line"></span></span>
+</div>
+</div>
+</div>
+</div> </div>
+<div class="vc_row-full-width vc_clearfix"></div>
+<div class="vc_row wpb_row vc_row-fluid vc_custom_1612555480588" style="&quot;&quot;">
+<div class="wpb_column vc_column_container vc_col-sm-12">
+<div class="vc_column-inner ">
+<div class="wpb_wrapper">
+<div class="wpb_text_column wpb_content_element ">
+<div class="wpb_wrapper">
+<p><strong>Evde Doktor Çağırma Ücreti </strong></p>
+<p>Branş hekimlerimizin uzmanlıklarına (profesör, doçent, uzman vs.) ve gerçekleştirilecek girişimsel işlemlere göre <em>eve doktor çağırma ücreti</em> değişkenlik göstermektedir.</p>
+<p>Özel sağlık sigortası olan hastalar poliçesi kapsamında eve doktor çağırma hizmetinden ücretsiz olarak faydalanabilirler. Poliçenizin evde sağlık hizmetlerini karşılayıp karşılamadığı konusunda acenteniz ile görüşmeniz önemlidir.</p>
+<p><em>Eve doktor çağırma İstanbul</em> ulaşımı ve koordinasyonu için Medical Center merkezini arayarak eve doktor çağırma ücreti hakkında bilgi alabilirsiniz. Hekimlerimiz hakkında daha fazla bilgi alabilir, <em>özel doktor</em> veya farklı <em>evde tedavi hizmeti</em> talebinde bulunabilirsiniz.</p>
+</div>
+</div>
+</div>
+</div>
+</div> </div>
+<div class="vc_row wpb_row vc_row-fluid" style="&quot;&quot;">
+<div class="wpb_column vc_column_container vc_col-sm-12">
+<div class="vc_column-inner ">
+<div class="wpb_wrapper">
+<div class="wpb_text_column wpb_content_element ">
+<div class="wpb_wrapper">
+</div>
+</div>
+</div>
+</div>
+</div> </div>
+<div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1612349942171 vc_row-has-fill" style="&quot;&quot;">
+<div class="wpb_column vc_column_container vc_col-sm-6 vc_col-has-fill">
+<div class="vc_column-inner vc_custom_1614445867268">
+<div class="wpb_wrapper">
+<div class="wpb_text_column wpb_content_element  vc_custom_1615886819150">
+<div class="wpb_wrapper">
+<h4 class="no-margin-top"><span style="color: #34beb9;">Hangi Sağlık Hizmetini Almak İstersiniz?</span></h4>
+<p><span style="color: #34beb9;">Kendiniz veya hasta yakınınız için evde sağlık hizmetlerinden birini seçin, iletişim bilgileriniz ile birlikte bizimle paylaşın. Sağlık danışmanlarımız ile sizi en kısa sürede arayalım.</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="wpb_column vc_column_container vc_col-sm-6">
+<div class="vc_column-inner ">
+<div class="wpb_wrapper">
+<div role="form" class="wpcf7" id="wpcf7-f1405-p9128-o2" lang="tr-TR" dir="ltr">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+<form action="/tr/hizmetler/eve-doktor-cagirma#wpcf7-f1405-p9128-o2" method="post" class="wpcf7-form init" novalidate="novalidate" data-status="init">
+<div style="display: none;">
+<input type="hidden" name="_wpcf7" value="1405" />
+<input type="hidden" name="_wpcf7_version" value="5.5.2" />
+<input type="hidden" name="_wpcf7_locale" value="tr_TR" />
+<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f1405-p9128-o2" />
+<input type="hidden" name="_wpcf7_container_post" value="9128" />
+<input type="hidden" name="_wpcf7_posted_data_hash" value />
+</div>
+<div class="form-request">
+<div class="row">
+<div class="columns columns-12"><span class="wpcf7-form-control-wrap text-388"><input type="text" name="text-388" value size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Adınız ve Soyadınız" /></span></div>
+</div>
+<div class="row">
+<div class="columns columns-6"><span class="wpcf7-form-control-wrap email-664"><input type="email" name="email-664" value size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Email Adresiniz" /></span></div>
+</div>
+<div class="row">
+<div class="columns columns-6"><span class="wpcf7-form-control-wrap tel-127"><input type="tel" name="tel-127" value size="40" class="wpcf7-form-control wpcf7-text wpcf7-tel wpcf7-validates-as-required wpcf7-validates-as-tel" aria-required="true" aria-invalid="false" placeholder="Telefon Numaranız" /></span></div>
+</div>
+<div class="row">
+<div class="columns columns-12"><span class="wpcf7-form-control-wrap menu-502"><select name="menu-502" class="wpcf7-form-control wpcf7-select" aria-invalid="false"><option value="Hangi Hizmeti Almak İstersiniz?">Hangi Hizmeti Almak İstersiniz?</option><option value="Evde Doktor Hizmeti">Evde Doktor Hizmeti</option><option value="Evde Hemşire Hizmeti">Evde Hemşire Hizmeti</option><option value="Evde Bakım Personeli Hizmeti">Evde Bakım Personeli Hizmeti</option><option value="Anne ve Bebek Hizmetleri">Anne ve Bebek Hizmetleri</option><option value="Evde Fizik Tedavi Hizmeti">Evde Fizik Tedavi Hizmeti</option><option value="Evde Laboratuvar Hizmeti">Evde Laboratuvar Hizmeti</option><option value="Görüntüleme Hizmeti">Görüntüleme Hizmeti</option><option value="Tıbbi Cihaz Kiralama ve Satış Hizmeti">Tıbbi Cihaz Kiralama ve Satış Hizmeti</option><option value="Evde Uyku Testi Hizmeti">Evde Uyku Testi Hizmeti</option></select></span></div>
+</div>
+<div class="row">
+<span class="wpcf7-form-control-wrap accept-this-1"><span class="wpcf7-form-control wpcf7-acceptance"><span class="wpcf7-list-item"><label><input type="checkbox" name="accept-this-1" value="1" aria-invalid="false" /><span class="wpcf7-list-item-label"><a href="https://www.istanbulmedicalcenter.com/tr/kisisel-verilerin-korunmasi">Şartlar ve Koşulları</a> okudum kabul ettim.</span></label></span></span></span>
+</div>
+<div class="row">
+<div class="columns columns-12">Verilerimin bu web sitesi tarafından saklanmasını ve işlenmesini kabul ediyorum.</p>
+<p>[stmgdpr "Verilerimin bu web sitesi tarafından saklanmasını ve işlenmesini kabul ediyorum."]</p>
+<p><input type="submit" value="Gönder" class="wpcf7-form-control has-spinner wpcf7-submit button" /></p></div>
+</div>
+</div>
+<noscript>
+			<div class="wpcf7-response-output wpcf7-spam-blocked">Your browser does not support JavaScript!. Please enable javascript in your browser in order to get form work properly.</div>
+	</noscript><script type="text/javascript">
+
+						if(contactform === undefined){
+							var contactform = [];
+						}
+						var innerVal = [1405,'mail_sent_ok','Mesajınız g&ouml;nderildi, sizi en kısa s&uuml;rede arayacağız.'];
+						contactform.push(innerVal);
+						var innerVal = [1405,'mail_sent_ng','Mesajınızı g&ouml;ndermeye &ccedil;alışırken bir hata oluştu. L&uuml;tfen daha sonra tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [1405,'validation_error','Bir veya daha fazla alanda hata var. L&uuml;tfen kontrol edip tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [1405,'spam','Mesajınızı g&ouml;ndermeye &ccedil;alışırken bir hata oluştu. L&uuml;tfen daha sonra tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [1405,'accept_terms','Mesajınızı g&ouml;ndermeden &ouml;nce şartları ve koşulları kabul etmeniz gerekir.'];
+						contactform.push(innerVal);
+						var innerVal = [1405,'invalid_required','Alan zorunludur.'];
+						contactform.push(innerVal);
+						var innerVal = [1405,'invalid_too_long','Alan &ccedil;ok uzun. L&uuml;tfen kontrol edip tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [1405,'invalid_too_short','Alan &ccedil;ok kısa. L&uuml;tfen kontrol edip tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [1405,'upload_failed','Dosya y&uuml;klenirken bilinmeyen bir hata oluştu. L&uuml;tfen tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [1405,'upload_file_type_invalid','Bu t&uuml;r dosyaları y&uuml;kleyemezsiniz. L&uuml;tfen kontrol edip tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [1405,'upload_file_too_large','Dosya &ccedil;ok b&uuml;y&uuml;k. L&uuml;tfen kontrol edip tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [1405,'upload_failed_php_error','Dosya y&uuml;klenirken bir hata oluştu. L&uuml;tfen tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [1405,'invalid_date','Tarih formatı yanlış. L&uuml;tfen kontrol edip tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [1405,'date_too_early','Tarih, izin verilen en erken tarihten &ouml;nce. L&uuml;tfen kontrol edip tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [1405,'date_too_late','Tarih, izin verilen en erken tarihten sonra. L&uuml;tfen kontrol edip tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [1405,'invalid_number','Sayı bi&ccedil;imi ge&ccedil;ersiz. L&uuml;tfen kontrol edip tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [1405,'number_too_small','Sayı izin verilen minimum değerden daha kısa. L&uuml;tfen kontrol edip tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [1405,'number_too_large','Sayı izin verilen minimum değerden daha uzun. L&uuml;tfen kontrol edip tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [1405,'quiz_answer_not_correct','Testin cevabı yanlış. L&uuml;tfen kontrol edip tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [1405,'invalid_email','Girilen e-posta adresi ge&ccedil;ersiz. L&uuml;tfen kontrol edip tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [1405,'invalid_url','URL ge&ccedil;ersiz. L&uuml;tfen kontrol edip tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [1405,'invalid_tel','Telefon numarası ge&ccedil;ersiz. L&uuml;tfen kontrol edip tekrar deneyiniz.'];
+						contactform.push(innerVal);
+						var innerVal = [1405,'gdpr',''];
+						contactform.push(innerVal);
+						</script><div class="wpcf7-response-output" aria-hidden="true"></div></form></div> </div>
+</div>
+</div> </div>
+<div class="vc_row-full-width vc_clearfix"></div>
+<div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid third_bg_color vc_custom_1451889219674" style="&quot;&quot;">
+<div class="wpb_column vc_column_container vc_col-sm-12">
+<div class="vc_column-inner ">
+<div class="wpb_wrapper">
+<section class="vc_cta3-container">
+<div class="vc_general vc_cta3 third_bg_color vc_cta3-style-flat vc_cta3-shape-square vc_cta3-align-left vc_cta3-color-classic vc_cta3-icon-size-md vc_cta3-actions-right vc_custom_1614445201857">
+<div class="vc_cta3_content-container">
+<div class="vc_cta3-content">
+<header class="vc_cta3-content-header">
+</header>
+<p><span style="font-size: 22px; color: white;">Birinci sınıf evde bakım merkezi mi arıyorsunuz? </span></p>
+</div>
+<div class="vc_cta3-actions"> <style type="text/css">
+        .vc_btn3-66684ba4b9fc3:hover {
+            background-color:  !important;
+        }
+    </style>
+<div class="vc_btn3-container vc_btn3-right">
+<a class="vc_general vc_btn3 vc_btn3-size-md vc_btn3-shape-rounded vc_btn3-style-flat vc_btn3-66684ba4b9fc3 vc_btn3-block vc_btn3-icon-right vc_btn3-color-theme_style_2" href="https://www.istanbulmedicalcenter.com/tr/iletisim" title="iletişim">iletişime geç <i class="vc_btn3-icon stm-done"></i></a></div>
+</div> </div>
+</div>
+</section>
+</div>
+</div>
+</div> </div>
+<div class="vc_row-full-width vc_clearfix"></div>
+</section> </div>
+</article> 
+</div>
+</div> 
+</div> 
+</div> 
+<footer id="footer" class="footer style_1">
+<div class="widgets_row">
+<div class="container">
+<div class="footer_widgets">
+<div class="row">
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+<section id="custom_html-7" class="widget_text widget widget_custom_html"><h4 class="widget_title no_stripe">Genel Müdürlük</h4><div class="textwidget custom-html-widget"><div class="aligncenter">
+<ul class="gr-btn">
+<li>Kozyatağı Mah. Değirmen Sok. Ar Plaza E Blok No: 13/3 Kat: 2 Kadıköy / İSTANBUL</li><li><a style="color:#fff;" href="/tr/iletisim/" class="content">Bize Ulaşın</a></li>
+<li><a style="color:#fff;" href="https://www.istanbulmedicalcenter.com/wp-content/uploads/2024/02/HD.FR_.10Hasta-Deneyimi-Anketi-Evde-Bakim.pdf" class="content">Hasta Deneyimi Anketi</a></li>
+<li><a class="content" style="color:#fff;" href="/tr/kisisel-verilerin-korunmasi"><span class="text">KVKK Hakkında</span></a></li><li><a class="content" style="color:#fff;" href="https://wa.me/02163630363"><span class="text"> 7/24 Her Bölgede Hizmetinizdeyiz</span></a></li>
+</ul>
+</div>
+</div></section><section id="media_gallery-5" class="widget widget_media_gallery"><h4 class="widget_title no_stripe">Belgeler</h4><div id="gallery-1" class="gallery galleryid-9128 gallery-columns-3 gallery-size-thumbnail"><figure class="gallery-item">
+<div class="gallery-icon portrait">
+<a href="https://www.istanbulmedicalcenter.com/tr/medical-center-kalite-belgesi"><img width="150" height="150" src="https://www.istanbulmedicalcenter.com/wp-content/uploads/2021/02/medical-center-kalite-belgesi-150x150.jpg" class="attachment-thumbnail size-thumbnail" alt="medical center kalite belgesi" loading="lazy" aria-describedby="gallery-1-9676" srcset="https://www.istanbulmedicalcenter.com/wp-content/uploads/2021/02/medical-center-kalite-belgesi-150x150.jpg 150w, https://www.istanbulmedicalcenter.com/wp-content/uploads/2021/02/medical-center-kalite-belgesi-600x600.jpg 600w, https://www.istanbulmedicalcenter.com/wp-content/uploads/2021/02/medical-center-kalite-belgesi-300x300.jpg 300w, https://www.istanbulmedicalcenter.com/wp-content/uploads/2021/02/medical-center-kalite-belgesi-50x50.jpg 50w, https://www.istanbulmedicalcenter.com/wp-content/uploads/2021/02/medical-center-kalite-belgesi-320x320.jpg 320w, https://www.istanbulmedicalcenter.com/wp-content/uploads/2021/02/medical-center-kalite-belgesi-100x100.jpg 100w" sizes="(max-width: 150px) 100vw, 150px" /></a>
+</div>
+<figcaption class="wp-caption-text gallery-caption" id="gallery-1-9676">
+Kalite Belgesi
+</figcaption></figure><figure class="gallery-item">
+<div class="gallery-icon portrait">
+<a href="https://www.istanbulmedicalcenter.com/tr/hakkimizda/evde-bakim-hizmetleri-uygunluk-belgesi"><img width="150" height="150" src="https://www.istanbulmedicalcenter.com/wp-content/uploads/2021/01/evde-bakim-hizmetleri-uygunluk-belgesi-150x150.jpg" class="attachment-thumbnail size-thumbnail" alt="evde bakım merkezi ruhsatı" loading="lazy" aria-describedby="gallery-1-7802" srcset="https://www.istanbulmedicalcenter.com/wp-content/uploads/2021/01/evde-bakim-hizmetleri-uygunluk-belgesi-150x150.jpg 150w, https://www.istanbulmedicalcenter.com/wp-content/uploads/2021/01/evde-bakim-hizmetleri-uygunluk-belgesi-75x75.jpg 75w, https://www.istanbulmedicalcenter.com/wp-content/uploads/2021/01/evde-bakim-hizmetleri-uygunluk-belgesi-50x50.jpg 50w, https://www.istanbulmedicalcenter.com/wp-content/uploads/2021/01/evde-bakim-hizmetleri-uygunluk-belgesi-320x320.jpg 320w, https://www.istanbulmedicalcenter.com/wp-content/uploads/2021/01/evde-bakim-hizmetleri-uygunluk-belgesi-300x300.jpg 300w, https://www.istanbulmedicalcenter.com/wp-content/uploads/2021/01/evde-bakim-hizmetleri-uygunluk-belgesi-100x100.jpg 100w" sizes="(max-width: 150px) 100vw, 150px" /></a>
+</div>
+<figcaption class="wp-caption-text gallery-caption" id="gallery-1-7802">
+Çalışma Ruhsatı
+</figcaption></figure>
+</div>
+</section> </div>
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+<section id="nav_menu-2" class="widget widget_nav_menu"><h4 class="widget_title no_stripe">Evde Sağlık Hizmetleri</h4><div class="menu-footer-menu-1-container"><ul id="menu-footer-menu-1" class="menu"><li id="menu-item-10028" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-10028"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-doktor-hizmetleri">Doktor Hizmeti</a></li>
+<li id="menu-item-10011" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-10011"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-hemsire-hizmeti">Hemşire Hizmeti</a></li>
+<li id="menu-item-10008" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-10008"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-ekg-cekimi">EKG Çekimi</a></li>
+<li id="menu-item-10009" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-10009"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-eko-cekimi">EKO Çekimi</a></li>
+<li id="menu-item-10010" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-10010"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-enjeksiyon-hizmeti">Enjeksiyon</a></li>
+<li id="menu-item-10012" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-10012"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-holter-takimi">Holter Takma</a></li>
+<li id="menu-item-10013" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-10013"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-kan-alma">Kan Alma</a></li>
+<li id="menu-item-10021" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-10021"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-uyku-testi">Uyku Testi</a></li>
+<li id="menu-item-10015" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-10015"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-peg-degisimi">Peg Değişimi</a></li>
+<li id="menu-item-10016" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-10016"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-rontgen-cekimi">Röntgen Çekimi</a></li>
+<li id="menu-item-10017" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-10017"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-serum-takma-hizmeti">Serum Takma</a></li>
+<li id="menu-item-10018" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-10018"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-sonda-takma-hizmeti">Sonda Takma</a></li>
+<li id="menu-item-10019" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-10019"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-trakeostomi-kanul-degisimi">Trakeostomi Kanül Değişimi</a></li>
+<li id="menu-item-10025" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-10025"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/yatak-yarasi-basi-yarasi-tedavi-hizmetleri">Yatak Yarası Tedavisi</a></li>
+<li id="menu-item-10020" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-10020"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-ultrason-cekimi">Ultrason Çekimi</a></li>
+<li id="menu-item-10022" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-10022"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-fizik-tedavi">Fizik Tedavi</a></li>
+<li id="menu-item-10023" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-10023"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/ozel-hemsire">Özel Hemşire Hizmeti</a></li>
+<li id="menu-item-10024" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-10024"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/premature-bebek-hemsiresi">Prematüre Bebek Hemşiresi</a></li>
+<li id="menu-item-10026" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-10026"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/bebek-hemsiresi">Bebek Hemşiresi Hizmeti</a></li>
+<li id="menu-item-10027" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-10027"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/yenidogan-egitimi">Yenidoğan Eğitimi</a></li>
+<li id="menu-item-10014" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-10014"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-nazogastrik-sonda-uygulamasi">Nazogastrik Sonda Uygulaması</a></li>
+</ul></div></section> </div>
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+<section id="nav_menu-14" class="widget widget_nav_menu"><h4 class="widget_title no_stripe">Evde Bakım Hizmetleri</h4><div class="menu-footer-menu-2-container"><ul id="menu-footer-menu-2" class="menu"><li id="menu-item-10029" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-10029"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/evde-hasta-bakici">Evde Hasta Bakıcı</a></li>
+<li id="menu-item-10030" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-10030"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/gunluk-hasta-bakici">Günlük Hasta Bakıcı</a></li>
+<li id="menu-item-10031" class="menu-item menu-item-type-post_type menu-item-object-stm_service menu-item-10031"><a href="https://www.istanbulmedicalcenter.com/tr/hizmetler/hasta-ve-yasli-bakim-egitimi">Hasta ve Yaşlı Bakım Eğitimi</a></li>
+<li id="menu-item-10032" class="menu-item menu-item-type-post_type menu-item-object-stm_works menu-item-10032"><a href="https://www.istanbulmedicalcenter.com/tr/egitimler/alzheimer-egitimi">Alzheimer Eğitimi</a></li>
+<li id="menu-item-10033" class="menu-item menu-item-type-post_type menu-item-object-stm_works menu-item-10033"><a href="https://www.istanbulmedicalcenter.com/tr/egitimler/als-egitimi">ALS Eğitimi</a></li>
+<li id="menu-item-10034" class="menu-item menu-item-type-post_type menu-item-object-stm_works menu-item-10034"><a href="https://www.istanbulmedicalcenter.com/tr/egitimler/hasta-bakici-egitimi">Hasta Bakıcı Eğitimi</a></li>
+</ul></div></section> </div>
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+<section id="custom_html-13" class="widget_text widget widget_custom_html"><h4 class="widget_title no_stripe">Sosyal Medya</h4><div class="textwidget custom-html-widget"><div align="center" class="socialbtns">
+<ul>
+<li><a href="https://www.facebook.com/istanbulmedical/" class="fa fa-lg fa-facebook"></a></li>
+<li><a href="https://twitter.com/istanbulmedical" class="fa fa-lg fa-twitter"></a></li>
+<li><a href="https://www.linkedin.com/company/i%CC%87stanbul-medical-center-evde-bak%C4%B1m-merkezi" class="fa fa-lg fa-linkedin"></a></li>
+<li><a href="https://www.instagram.com/istanbul_medical_center/" class="fa fa-lg fa-instagram"></a></li>
+<li><a href="https://www.youtube.com/channel/UCppj7o0nM9zXl-lNbtEGArQ/videos" class="fa fa-lg fa-youtube"></a></li>
+<li><a href="https://api.whatsapp.com/send/?phone=905540088581&text&type=phone_number&app_absent=0" class="fa fa-lg fa-whatsapp"></a></li>
+</ul>
+</div></div></section><section id="instagram-feed-widget-2" class="widget widget_instagram-feed-widget">
+<div id="sb_instagram" class="sbi sbi_mob_col_4 sbi_tab_col_4 sbi_col_4 sbi_width_resp" style="padding-bottom: 10px;width: 100%;" data-feedid="*1" data-res="auto" data-cols="4" data-colsmobile="4" data-colstablet="4" data-num="4" data-nummobile data-shortcode-atts="{}" data-postid="9128" data-locatornonce="12929fd31a" data-sbi-flags="favorLocal">
+<div id="sbi_images" style="padding: 5px;">
+<div class="sbi_item sbi_type_video sbi_new sbi_transition" id="sbi_18137871715313706" data-date="1705419622">
+<div class="sbi_photo_wrap">
+<a class="sbi_photo" href="https://www.instagram.com/reel/C2KpEMtIsxZ/" target="_blank" rel="noopener nofollow" data-full-res="https://scontent.cdninstagram.com/v/t51.29350-15/419319054_912678470222602_2690428182933567209_n.jpg?_nc_cat=103&#038;ccb=1-7&#038;_nc_sid=c4dd86&#038;_nc_ohc=LTFRyalOy48AX-OqKF7&#038;_nc_ht=scontent.cdninstagram.com&#038;edm=AM6HXa8EAAAA&#038;oh=00_AfDtxMYI8_yU25QzBPYhPna8G6UtAt_4pEDTUW_BC6Q_mQ&#038;oe=65AC2B9E" data-img-src-set="{&quot;d&quot;:&quot;https:\/\/scontent.cdninstagram.com\/v\/t51.29350-15\/419319054_912678470222602_2690428182933567209_n.jpg?_nc_cat=103&amp;ccb=1-7&amp;_nc_sid=c4dd86&amp;_nc_ohc=LTFRyalOy48AX-OqKF7&amp;_nc_ht=scontent.cdninstagram.com&amp;edm=AM6HXa8EAAAA&amp;oh=00_AfDtxMYI8_yU25QzBPYhPna8G6UtAt_4pEDTUW_BC6Q_mQ&amp;oe=65AC2B9E&quot;,&quot;150&quot;:&quot;https:\/\/scontent.cdninstagram.com\/v\/t51.29350-15\/419319054_912678470222602_2690428182933567209_n.jpg?_nc_cat=103&amp;ccb=1-7&amp;_nc_sid=c4dd86&amp;_nc_ohc=LTFRyalOy48AX-OqKF7&amp;_nc_ht=scontent.cdninstagram.com&amp;edm=AM6HXa8EAAAA&amp;oh=00_AfDtxMYI8_yU25QzBPYhPna8G6UtAt_4pEDTUW_BC6Q_mQ&amp;oe=65AC2B9E&quot;,&quot;320&quot;:&quot;https:\/\/scontent.cdninstagram.com\/v\/t51.29350-15\/419319054_912678470222602_2690428182933567209_n.jpg?_nc_cat=103&amp;ccb=1-7&amp;_nc_sid=c4dd86&amp;_nc_ohc=LTFRyalOy48AX-OqKF7&amp;_nc_ht=scontent.cdninstagram.com&amp;edm=AM6HXa8EAAAA&amp;oh=00_AfDtxMYI8_yU25QzBPYhPna8G6UtAt_4pEDTUW_BC6Q_mQ&amp;oe=65AC2B9E&quot;,&quot;640&quot;:&quot;https:\/\/scontent.cdninstagram.com\/v\/t51.29350-15\/419319054_912678470222602_2690428182933567209_n.jpg?_nc_cat=103&amp;ccb=1-7&amp;_nc_sid=c4dd86&amp;_nc_ohc=LTFRyalOy48AX-OqKF7&amp;_nc_ht=scontent.cdninstagram.com&amp;edm=AM6HXa8EAAAA&amp;oh=00_AfDtxMYI8_yU25QzBPYhPna8G6UtAt_4pEDTUW_BC6Q_mQ&amp;oe=65AC2B9E&quot;}">
+<span class="sbi-screenreader">Dünya hijyen günü kutlu olsun!
+#medicalcenter</span>
+<svg style="color: rgba(255,255,255,1)" class="svg-inline--fa fa-play fa-w-14 sbi_playbtn" aria-label="Play" aria-hidden="true" data-fa-processed data-prefix="fa" data-icon="play" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path></svg> <img src="https://www.istanbulmedicalcenter.com/wp-content/plugins/instagram-feed/img/placeholder.png" alt="Dünya hijyen günü kutlu olsun!
+
+#medicalcenter">
+</a>
+</div>
+</div><div class="sbi_item sbi_type_video sbi_new sbi_transition" id="sbi_18293442394196382" data-date="1704477273">
+<div class="sbi_photo_wrap">
+<a class="sbi_photo" href="https://www.instagram.com/reel/C1ugND3MuQb/" target="_blank" rel="noopener nofollow" data-full-res="https://scontent.cdninstagram.com/v/t51.29350-15/416414996_1294864148575514_8907006293270815722_n.jpg?_nc_cat=110&#038;ccb=1-7&#038;_nc_sid=c4dd86&#038;_nc_ohc=f2GtIf49cv4AX87TVNn&#038;_nc_ht=scontent.cdninstagram.com&#038;edm=AM6HXa8EAAAA&#038;oh=00_AfCcl2T8kCzSm0eU36h-DeA3unbFAaSkFUwEQ85x1tjz8g&#038;oe=65AB575C" data-img-src-set="{&quot;d&quot;:&quot;https:\/\/scontent.cdninstagram.com\/v\/t51.29350-15\/416414996_1294864148575514_8907006293270815722_n.jpg?_nc_cat=110&amp;ccb=1-7&amp;_nc_sid=c4dd86&amp;_nc_ohc=f2GtIf49cv4AX87TVNn&amp;_nc_ht=scontent.cdninstagram.com&amp;edm=AM6HXa8EAAAA&amp;oh=00_AfCcl2T8kCzSm0eU36h-DeA3unbFAaSkFUwEQ85x1tjz8g&amp;oe=65AB575C&quot;,&quot;150&quot;:&quot;https:\/\/scontent.cdninstagram.com\/v\/t51.29350-15\/416414996_1294864148575514_8907006293270815722_n.jpg?_nc_cat=110&amp;ccb=1-7&amp;_nc_sid=c4dd86&amp;_nc_ohc=f2GtIf49cv4AX87TVNn&amp;_nc_ht=scontent.cdninstagram.com&amp;edm=AM6HXa8EAAAA&amp;oh=00_AfCcl2T8kCzSm0eU36h-DeA3unbFAaSkFUwEQ85x1tjz8g&amp;oe=65AB575C&quot;,&quot;320&quot;:&quot;https:\/\/scontent.cdninstagram.com\/v\/t51.29350-15\/416414996_1294864148575514_8907006293270815722_n.jpg?_nc_cat=110&amp;ccb=1-7&amp;_nc_sid=c4dd86&amp;_nc_ohc=f2GtIf49cv4AX87TVNn&amp;_nc_ht=scontent.cdninstagram.com&amp;edm=AM6HXa8EAAAA&amp;oh=00_AfCcl2T8kCzSm0eU36h-DeA3unbFAaSkFUwEQ85x1tjz8g&amp;oe=65AB575C&quot;,&quot;640&quot;:&quot;https:\/\/scontent.cdninstagram.com\/v\/t51.29350-15\/416414996_1294864148575514_8907006293270815722_n.jpg?_nc_cat=110&amp;ccb=1-7&amp;_nc_sid=c4dd86&amp;_nc_ohc=f2GtIf49cv4AX87TVNn&amp;_nc_ht=scontent.cdninstagram.com&amp;edm=AM6HXa8EAAAA&amp;oh=00_AfCcl2T8kCzSm0eU36h-DeA3unbFAaSkFUwEQ85x1tjz8g&amp;oe=65AB575C&quot;}">
+<span class="sbi-screenreader">Birlikte daha iyiye...
+#mchealthgroup</span>
+<svg style="color: rgba(255,255,255,1)" class="svg-inline--fa fa-play fa-w-14 sbi_playbtn" aria-label="Play" aria-hidden="true" data-fa-processed data-prefix="fa" data-icon="play" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path></svg> <img src="https://www.istanbulmedicalcenter.com/wp-content/plugins/instagram-feed/img/placeholder.png" alt="Birlikte daha iyiye... 
+
+#mchealthgroup">
+</a>
+</div>
+</div><div class="sbi_item sbi_type_video sbi_new sbi_transition" id="sbi_18076765846436118" data-date="1704109392">
+<div class="sbi_photo_wrap">
+<a class="sbi_photo" href="https://www.instagram.com/reel/C1jk-hmL_RX/" target="_blank" rel="noopener nofollow" data-full-res="https://scontent.cdninstagram.com/v/t51.29350-15/416405329_220371157788027_3824260105915436417_n.jpg?_nc_cat=106&#038;ccb=1-7&#038;_nc_sid=c4dd86&#038;_nc_ohc=JOlwL2xHDgYAX-6fgAM&#038;_nc_ht=scontent.cdninstagram.com&#038;edm=AM6HXa8EAAAA&#038;oh=00_AfB_28nrEADn9z5BoJpB3TJvxlWpGvFz-l5La5EppKFh-Q&#038;oe=65AC8A2E" data-img-src-set="{&quot;d&quot;:&quot;https:\/\/scontent.cdninstagram.com\/v\/t51.29350-15\/416405329_220371157788027_3824260105915436417_n.jpg?_nc_cat=106&amp;ccb=1-7&amp;_nc_sid=c4dd86&amp;_nc_ohc=JOlwL2xHDgYAX-6fgAM&amp;_nc_ht=scontent.cdninstagram.com&amp;edm=AM6HXa8EAAAA&amp;oh=00_AfB_28nrEADn9z5BoJpB3TJvxlWpGvFz-l5La5EppKFh-Q&amp;oe=65AC8A2E&quot;,&quot;150&quot;:&quot;https:\/\/scontent.cdninstagram.com\/v\/t51.29350-15\/416405329_220371157788027_3824260105915436417_n.jpg?_nc_cat=106&amp;ccb=1-7&amp;_nc_sid=c4dd86&amp;_nc_ohc=JOlwL2xHDgYAX-6fgAM&amp;_nc_ht=scontent.cdninstagram.com&amp;edm=AM6HXa8EAAAA&amp;oh=00_AfB_28nrEADn9z5BoJpB3TJvxlWpGvFz-l5La5EppKFh-Q&amp;oe=65AC8A2E&quot;,&quot;320&quot;:&quot;https:\/\/scontent.cdninstagram.com\/v\/t51.29350-15\/416405329_220371157788027_3824260105915436417_n.jpg?_nc_cat=106&amp;ccb=1-7&amp;_nc_sid=c4dd86&amp;_nc_ohc=JOlwL2xHDgYAX-6fgAM&amp;_nc_ht=scontent.cdninstagram.com&amp;edm=AM6HXa8EAAAA&amp;oh=00_AfB_28nrEADn9z5BoJpB3TJvxlWpGvFz-l5La5EppKFh-Q&amp;oe=65AC8A2E&quot;,&quot;640&quot;:&quot;https:\/\/scontent.cdninstagram.com\/v\/t51.29350-15\/416405329_220371157788027_3824260105915436417_n.jpg?_nc_cat=106&amp;ccb=1-7&amp;_nc_sid=c4dd86&amp;_nc_ohc=JOlwL2xHDgYAX-6fgAM&amp;_nc_ht=scontent.cdninstagram.com&amp;edm=AM6HXa8EAAAA&amp;oh=00_AfB_28nrEADn9z5BoJpB3TJvxlWpGvFz-l5La5EppKFh-Q&amp;oe=65AC8A2E&quot;}">
+<span class="sbi-screenreader">IV Serumlar hakkında sizlerin de merak ettikleri </span>
+<svg style="color: rgba(255,255,255,1)" class="svg-inline--fa fa-play fa-w-14 sbi_playbtn" aria-label="Play" aria-hidden="true" data-fa-processed data-prefix="fa" data-icon="play" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path></svg> <img src="https://www.istanbulmedicalcenter.com/wp-content/plugins/instagram-feed/img/placeholder.png" alt="IV Serumlar hakkında sizlerin de merak ettikleri vardı! 🔥 Dr.Tayyar ile sık sorulan tüm sorularınızı yanıtladık ve IV Serumların faydalarına ışık tuttuğu özel bir canlı yayın oldu. 🤔💡">
+</a>
+</div>
+</div><div class="sbi_item sbi_type_image sbi_new sbi_transition" id="sbi_18015202031035297" data-date="1704005894">
+<div class="sbi_photo_wrap">
+<a class="sbi_photo" href="https://www.instagram.com/p/C1ghjW3o98W/" target="_blank" rel="noopener nofollow" data-full-res="https://scontent.cdninstagram.com/v/t51.29350-15/414153929_233623073108591_6509628835936089296_n.jpg?_nc_cat=100&#038;ccb=1-7&#038;_nc_sid=c4dd86&#038;_nc_ohc=BY_Rtkm4lu4AX-mj53a&#038;_nc_ht=scontent.cdninstagram.com&#038;edm=AM6HXa8EAAAA&#038;oh=00_AfDEobDFPO85NqjtbDK_TjF9e_wkpx1hi7RrQgVJHvbUrg&#038;oe=65ACB976" data-img-src-set="{&quot;d&quot;:&quot;https:\/\/scontent.cdninstagram.com\/v\/t51.29350-15\/414153929_233623073108591_6509628835936089296_n.jpg?_nc_cat=100&amp;ccb=1-7&amp;_nc_sid=c4dd86&amp;_nc_ohc=BY_Rtkm4lu4AX-mj53a&amp;_nc_ht=scontent.cdninstagram.com&amp;edm=AM6HXa8EAAAA&amp;oh=00_AfDEobDFPO85NqjtbDK_TjF9e_wkpx1hi7RrQgVJHvbUrg&amp;oe=65ACB976&quot;,&quot;150&quot;:&quot;https:\/\/scontent.cdninstagram.com\/v\/t51.29350-15\/414153929_233623073108591_6509628835936089296_n.jpg?_nc_cat=100&amp;ccb=1-7&amp;_nc_sid=c4dd86&amp;_nc_ohc=BY_Rtkm4lu4AX-mj53a&amp;_nc_ht=scontent.cdninstagram.com&amp;edm=AM6HXa8EAAAA&amp;oh=00_AfDEobDFPO85NqjtbDK_TjF9e_wkpx1hi7RrQgVJHvbUrg&amp;oe=65ACB976&quot;,&quot;320&quot;:&quot;https:\/\/scontent.cdninstagram.com\/v\/t51.29350-15\/414153929_233623073108591_6509628835936089296_n.jpg?_nc_cat=100&amp;ccb=1-7&amp;_nc_sid=c4dd86&amp;_nc_ohc=BY_Rtkm4lu4AX-mj53a&amp;_nc_ht=scontent.cdninstagram.com&amp;edm=AM6HXa8EAAAA&amp;oh=00_AfDEobDFPO85NqjtbDK_TjF9e_wkpx1hi7RrQgVJHvbUrg&amp;oe=65ACB976&quot;,&quot;640&quot;:&quot;https:\/\/scontent.cdninstagram.com\/v\/t51.29350-15\/414153929_233623073108591_6509628835936089296_n.jpg?_nc_cat=100&amp;ccb=1-7&amp;_nc_sid=c4dd86&amp;_nc_ohc=BY_Rtkm4lu4AX-mj53a&amp;_nc_ht=scontent.cdninstagram.com&amp;edm=AM6HXa8EAAAA&amp;oh=00_AfDEobDFPO85NqjtbDK_TjF9e_wkpx1hi7RrQgVJHvbUrg&amp;oe=65ACB976&quot;}">
+<span class="sbi-screenreader">Mutlu yıllar! 🎉🎊 #istanbulmedicalcenter</span>
+<img src="https://www.istanbulmedicalcenter.com/wp-content/plugins/instagram-feed/img/placeholder.png" alt="Mutlu yıllar! 🎉🎊 #istanbulmedicalcenter">
+</a>
+</div>
+</div> </div>
+<div id="sbi_load">
+</div>
+<span class="sbi_resized_image_data" data-feed-id="*1" data-resized="{&quot;18015202031035297&quot;:{&quot;id&quot;:&quot;414153929_233623073108591_6509628835936089296_n&quot;,&quot;ratio&quot;:&quot;1.00&quot;,&quot;sizes&quot;:{&quot;full&quot;:640,&quot;low&quot;:320,&quot;thumb&quot;:150}},&quot;18076765846436118&quot;:{&quot;id&quot;:&quot;416405329_220371157788027_3824260105915436417_n&quot;,&quot;ratio&quot;:&quot;0.56&quot;,&quot;sizes&quot;:{&quot;full&quot;:640,&quot;low&quot;:320,&quot;thumb&quot;:150}},&quot;18293442394196382&quot;:{&quot;id&quot;:&quot;416414996_1294864148575514_8907006293270815722_n&quot;,&quot;ratio&quot;:&quot;0.56&quot;,&quot;sizes&quot;:{&quot;full&quot;:640,&quot;low&quot;:320,&quot;thumb&quot;:150}},&quot;18137871715313706&quot;:{&quot;id&quot;:&quot;419319054_912678470222602_2690428182933567209_n&quot;,&quot;ratio&quot;:&quot;0.56&quot;,&quot;sizes&quot;:{&quot;full&quot;:640,&quot;low&quot;:320,&quot;thumb&quot;:150}}}">
+</span>
+</div>
+<div id="sb_youtube_sbyUCppj7o0nM9zXllNbtEGArQ3" class="sb_youtube sby_layout_grid sby_col_3 sby_mob_col_2 sby_palette_inherit  sby_width_resp" data-feedid="sby_UCppj7o0nM9zXl-lNbtEGArQ#3" data-shortcode-atts="{&quot;feed&quot;:&quot;1&quot;}" data-cols="3" data-colsmobile="2" data-num="3" data-nummobile="3" data-sby-flags="resizeDisable" data-postid="9128" data-sby-supports-lightbox="1" style="width: 100%;" data-videocardlayout="vertical">
+<div class="sby_items_wrap" style="padding: 5px;">
+<div class="sby_item  sby_new sby_transition" id="sby_UCppj7o0nM9zXl-lNbtEGArQ_hGqaM7kseLE" data-date="1715598007" data-video-id="hGqaM7kseLE">
+<div class="sby_inner_item">
+<div class="sby_video_thumbnail_wrap sby_item_video_thumbnail_wrap">
+<a class="sby_video_thumbnail sby_item_video_thumbnail" href="https://www.youtube.com/watch?v=hGqaM7kseLE" target="_blank" rel="noopener" data-full-res="https://i1.ytimg.com/vi/hGqaM7kseLE/maxresdefault.jpg" data-img-src-set="{&quot;120&quot;:&quot;https:\/\/i1.ytimg.com\/vi\/hGqaM7kseLE\/default.jpg&quot;,&quot;320&quot;:&quot;https:\/\/i1.ytimg.com\/vi\/hGqaM7kseLE\/mqdefault.jpg&quot;,&quot;480&quot;:&quot;https:\/\/i1.ytimg.com\/vi\/hGqaM7kseLE\/hqdefault.jpg&quot;,&quot;640&quot;:&quot;https:\/\/i1.ytimg.com\/vi\/hGqaM7kseLE\/sddefault.jpg&quot;}" data-video-id="hGqaM7kseLE" data-video-title="Doç. Dr. Serhat Sığırcı kalp hastalıklarıyla ilgili merak edilenleri cevaplıyor!">
+<img src="https://www.istanbulmedicalcenter.com/wp-content/plugins/feeds-for-youtube/img/placeholder.png" alt="Videomuzu beğendiyseniz lütfen sevdiklerinizle paylaşın! Bizimle paylaşmak istediğiniz fikirleriniz var ise yorum olarak videonun altına ekleyebilirsiniz. 
+
+Yeni videolarımız dan haberdar olmak için lütfen abone olun!
+
+Acil danışma hattı: 0216 363 0 363">
+<div class="sby_thumbnail_hover sby_item_video_thumbnail_hover">
+<div class="sby_thumbnail_hover_inner">
+</div>
+</div>
+<div class="sby_play_btn">
+<span class="sby_play_btn_bg"></span>
+<svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="youtube" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-inline--fa fa-youtube fa-w-18"><path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" class></path></svg> </div>
+<span class="sby_loader sby_hidden" style="background-color: rgb(255, 255, 255);"></span>
+</a>
+</div>
+</div>
+</div><div class="sby_item  sby_new sby_transition" id="sby_UCppj7o0nM9zXl-lNbtEGArQ_wTw51KR2Bs0" data-date="1697797320" data-video-id="wTw51KR2Bs0">
+<div class="sby_inner_item">
+<div class="sby_video_thumbnail_wrap sby_item_video_thumbnail_wrap">
+<a class="sby_video_thumbnail sby_item_video_thumbnail" href="https://www.youtube.com/watch?v=wTw51KR2Bs0" target="_blank" rel="noopener" data-full-res="https://i4.ytimg.com/vi/wTw51KR2Bs0/maxresdefault.jpg" data-img-src-set="{&quot;120&quot;:&quot;https:\/\/i4.ytimg.com\/vi\/wTw51KR2Bs0\/default.jpg&quot;,&quot;320&quot;:&quot;https:\/\/i4.ytimg.com\/vi\/wTw51KR2Bs0\/mqdefault.jpg&quot;,&quot;480&quot;:&quot;https:\/\/i4.ytimg.com\/vi\/wTw51KR2Bs0\/hqdefault.jpg&quot;,&quot;640&quot;:&quot;https:\/\/i4.ytimg.com\/vi\/wTw51KR2Bs0\/sddefault.jpg&quot;}" data-video-id="wTw51KR2Bs0" data-video-title="Why Medical Center?">
+<img src="https://www.istanbulmedicalcenter.com/wp-content/plugins/feeds-for-youtube/img/placeholder.png" alt="Medical Center’s Home Care Services are configured in order to satisfy your needs with the expert and experienced staff. Our professional healthcare team is ready to answer your questions, take a weight of your mind and provide a safe environment for you.
+
+If you want the best for your loved ones, we&#039;re here for you. Reach out to learn how we can help.📞📧
+
+#medicalcenter #homehealthcare #CareWhereYouAre #FromHousetoHealing #StayHealthyAtHome">
+<div class="sby_thumbnail_hover sby_item_video_thumbnail_hover">
+<div class="sby_thumbnail_hover_inner">
+</div>
+</div>
+<div class="sby_play_btn">
+<span class="sby_play_btn_bg"></span>
+<svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="youtube" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-inline--fa fa-youtube fa-w-18"><path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" class></path></svg> </div>
+<span class="sby_loader sby_hidden" style="background-color: rgb(255, 255, 255);"></span>
+</a>
+</div>
+</div>
+</div><div class="sby_item  sby_new sby_transition" id="sby_UCppj7o0nM9zXl-lNbtEGArQ_q7QMGnJqbfE" data-date="1697178709" data-video-id="q7QMGnJqbfE">
+<div class="sby_inner_item">
+<div class="sby_video_thumbnail_wrap sby_item_video_thumbnail_wrap">
+<a class="sby_video_thumbnail sby_item_video_thumbnail" href="https://www.youtube.com/watch?v=q7QMGnJqbfE" target="_blank" rel="noopener" data-full-res="https://i2.ytimg.com/vi/q7QMGnJqbfE/maxresdefault.jpg" data-img-src-set="{&quot;120&quot;:&quot;https:\/\/i2.ytimg.com\/vi\/q7QMGnJqbfE\/default.jpg&quot;,&quot;320&quot;:&quot;https:\/\/i2.ytimg.com\/vi\/q7QMGnJqbfE\/mqdefault.jpg&quot;,&quot;480&quot;:&quot;https:\/\/i2.ytimg.com\/vi\/q7QMGnJqbfE\/hqdefault.jpg&quot;,&quot;640&quot;:&quot;https:\/\/i2.ytimg.com\/vi\/q7QMGnJqbfE\/sddefault.jpg&quot;}" data-video-id="q7QMGnJqbfE" data-video-title="What are IV drip solutions?">
+<img src="https://www.istanbulmedicalcenter.com/wp-content/plugins/feeds-for-youtube/img/placeholder.png" alt="Give your body the love and nutrients it deserves. Our IV drips are like a hug from the inside. 🤗
+
+We&#039;re here to make your life easier with personalized care plans. Share your needs, and we&#039;ll assist you. 📞📧
+
+#medicalcenter #homehealthcare #CareWhereYouAre #FromHousetoHealing #StayHealthyAtHome">
+<div class="sby_thumbnail_hover sby_item_video_thumbnail_hover">
+<div class="sby_thumbnail_hover_inner">
+</div>
+</div>
+<div class="sby_play_btn">
+<span class="sby_play_btn_bg"></span>
+<svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="youtube" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-inline--fa fa-youtube fa-w-18"><path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" class></path></svg> </div>
+<span class="sby_loader sby_hidden" style="background-color: rgb(255, 255, 255);"></span>
+</a>
+</div>
+</div>
+</div> </div>
+<div class="sby_footer">
+<span class="sby_follow_btn">
+<a href="https://www.youtube.com/channel/UCppj7o0nM9zXl-lNbtEGArQ/" target="_blank" rel="noopener"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="youtube" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-inline--fa fa-youtube fa-w-18"><path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" class></path></svg>Abone Ol!</a>
+</span>
+</div>
+</div>
+<style type="text/css">#sb_youtube_sbyUCppj7o0nM9zXllNbtEGArQ3 .sby_caption_wrap .sby_caption { font-size: 13px !important}#sb_youtube_sbyUCppj7o0nM9zXllNbtEGArQ3[data-videostyle=boxed] .sby_items_wrap .sby_item .sby_inner_item { background-color: #ffffff !important}</style></section><section id="custom_html-15" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"></div></section> </div>
+</div>
+</div>
+</div>
+</div>
+<div class="copyright_row">
+<div class="container">
+<div class="copyright_row_wr">
+<div class="copyright">
+Copyright © 2021. Medical Center. Tüm Hakları Saklıdır. </div>
+</div>
+</div>
+</div>
+</footer>
+</div> 
+<script>
+			window.RS_MODULES = window.RS_MODULES || {};
+			window.RS_MODULES.modules = window.RS_MODULES.modules || {};
+			window.RS_MODULES.waiting = window.RS_MODULES.waiting || [];
+			window.RS_MODULES.defered = true;
+			window.RS_MODULES.moduleWaiting = window.RS_MODULES.moduleWaiting || {};
+			window.RS_MODULES.type = 'compiled';
+		</script>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N8HXSWR"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+<script type="text/javascript">
+
+</script>
+
+<script type="text/javascript">
+var sbiajaxurl = "https://www.istanbulmedicalcenter.com/wp-admin/admin-ajax.php";
+</script>
+<div id="bravepop_element_tooltip"></div><div id="bravepop_element_lightbox"><div id="bravepop_element_lightbox_close" onclick="brave_lightbox_close()"></div><div id="bravepop_element_lightbox_content"></div></div>
+<div class="joinchat joinchat--right joinchat--dark-auto" data-settings="{&quot;telephone&quot;:&quot;905540088581&quot;,&quot;mobile_only&quot;:false,&quot;button_delay&quot;:3,&quot;whatsapp_web&quot;:false,&quot;qr&quot;:false,&quot;message_views&quot;:2,&quot;message_delay&quot;:10,&quot;message_badge&quot;:false,&quot;message_send&quot;:&quot;Merhaba&quot;,&quot;message_hash&quot;:&quot;d6c7e777&quot;}">
+<div class="joinchat__button">
+<div class="joinchat__button__open"></div>
+<div class="joinchat__button__sendtext">Sohbete Başla</div>
+<svg class="joinchat__button__send" width="60" height="60" viewbox="0 0 400 400" stroke-linecap="round" stroke-width="33">
+<path class="joinchat_svg__plain" d="M168.83 200.504H79.218L33.04 44.284a1 1 0 0 1 1.386-1.188L365.083 199.04a1 1 0 0 1 .003 1.808L34.432 357.903a1 1 0 0 1-1.388-1.187l29.42-99.427" />
+<path class="joinchat_svg__chat" d="M318.087 318.087c-52.982 52.982-132.708 62.922-195.725 29.82l-80.449 10.18 10.358-80.112C18.956 214.905 28.836 134.99 81.913 81.913c65.218-65.217 170.956-65.217 236.174 0 42.661 42.661 57.416 102.661 44.265 157.316" />
+</svg>
+<div class="joinchat__tooltip"><div>Merhaba</div></div>
+</div>
+<div class="joinchat__box">
+<div class="joinchat__header">
+<svg class="joinchat__wa" width="120" height="28" viewBox="0 0 120 28"><title>WhatsApp</title><path d="M117.2 17c0 .4-.2.7-.4 1-.1.3-.4.5-.7.7l-1 .2c-.5 0-.9 0-1.2-.2l-.7-.7a3 3 0 0 1-.4-1 5.4 5.4 0 0 1 0-2.3c0-.4.2-.7.4-1l.7-.7a2 2 0 0 1 1.1-.3 2 2 0 0 1 1.8 1l.4 1a5.3 5.3 0 0 1 0 2.3zm2.5-3c-.1-.7-.4-1.3-.8-1.7a4 4 0 0 0-1.3-1.2c-.6-.3-1.3-.4-2-.4-.6 0-1.2.1-1.7.4a3 3 0 0 0-1.2 1.1V11H110v13h2.7v-4.5c.4.4.8.8 1.3 1 .5.3 1 .4 1.6.4a4 4 0 0 0 3.2-1.5c.4-.5.7-1 .8-1.6.2-.6.3-1.2.3-1.9s0-1.3-.3-2zm-13.1 3c0 .4-.2.7-.4 1l-.7.7-1.1.2c-.4 0-.8 0-1-.2-.4-.2-.6-.4-.8-.7a3 3 0 0 1-.4-1 5.4 5.4 0 0 1 0-2.3c0-.4.2-.7.4-1 .1-.3.4-.5.7-.7a2 2 0 0 1 1-.3 2 2 0 0 1 1.9 1l.4 1a5.4 5.4 0 0 1 0 2.3zm1.7-4.7a4 4 0 0 0-3.3-1.6c-.6 0-1.2.1-1.7.4a3 3 0 0 0-1.2 1.1V11h-2.6v13h2.7v-4.5c.3.4.7.8 1.2 1 .6.3 1.1.4 1.7.4a4 4 0 0 0 3.2-1.5c.4-.5.6-1 .8-1.6.2-.6.3-1.2.3-1.9s-.1-1.3-.3-2c-.2-.6-.4-1.2-.8-1.6zm-17.5 3.2l1.7-5 1.7 5h-3.4zm.2-8.2l-5 13.4h3l1-3h5l1 3h3L94 7.3h-3zm-5.3 9.1l-.6-.8-1-.5a11.6 11.6 0 0 0-2.3-.5l-1-.3a2 2 0 0 1-.6-.3.7.7 0 0 1-.3-.6c0-.2 0-.4.2-.5l.3-.3h.5l.5-.1c.5 0 .9 0 1.2.3.4.1.6.5.6 1h2.5c0-.6-.2-1.1-.4-1.5a3 3 0 0 0-1-1 4 4 0 0 0-1.3-.5 7.7 7.7 0 0 0-3 0c-.6.1-1 .3-1.4.5l-1 1a3 3 0 0 0-.4 1.5 2 2 0 0 0 1 1.8l1 .5 1.1.3 2.2.6c.6.2.8.5.8 1l-.1.5-.4.4a2 2 0 0 1-.6.2 2.8 2.8 0 0 1-1.4 0 2 2 0 0 1-.6-.3l-.5-.5-.2-.8H77c0 .7.2 1.2.5 1.6.2.5.6.8 1 1 .4.3.9.5 1.4.6a8 8 0 0 0 3.3 0c.5 0 1-.2 1.4-.5a3 3 0 0 0 1-1c.3-.5.4-1 .4-1.6 0-.5 0-.9-.3-1.2zM74.7 8h-2.6v3h-1.7v1.7h1.7v5.8c0 .5 0 .9.2 1.2l.7.7 1 .3a7.8 7.8 0 0 0 2 0h.7v-2.1a3.4 3.4 0 0 1-.8 0l-1-.1-.2-1v-4.8h2V11h-2V8zm-7.6 9v.5l-.3.8-.7.6c-.2.2-.7.2-1.2.2h-.6l-.5-.2a1 1 0 0 1-.4-.4l-.1-.6.1-.6.4-.4.5-.3a4.8 4.8 0 0 1 1.2-.2 8.3 8.3 0 0 0 1.2-.2l.4-.3v1zm2.6 1.5v-5c0-.6 0-1.1-.3-1.5l-1-.8-1.4-.4a10.9 10.9 0 0 0-3.1 0l-1.5.6c-.4.2-.7.6-1 1a3 3 0 0 0-.5 1.5h2.7c0-.5.2-.9.5-1a2 2 0 0 1 1.3-.4h.6l.6.2.3.4.2.7c0 .3 0 .5-.3.6-.1.2-.4.3-.7.4l-1 .1a21.9 21.9 0 0 0-2.4.4l-1 .5c-.3.2-.6.5-.8.9-.2.3-.3.8-.3 1.3s.1 1 .3 1.3c.1.4.4.7.7 1l1 .4c.4.2.9.2 1.3.2a6 6 0 0 0 1.8-.2c.6-.2 1-.5 1.5-1a4 4 0 0 0 .2 1H70l-.3-1v-1.2zm-11-6.7c-.2-.4-.6-.6-1-.8-.5-.2-1-.3-1.8-.3-.5 0-1 .1-1.5.4a3 3 0 0 0-1.3 1.2v-5h-2.7v13.4H53v-5.1c0-1 .2-1.7.5-2.2.3-.4.9-.6 1.6-.6.6 0 1 .2 1.3.6.3.4.4 1 .4 1.8v5.5h2.7v-6c0-.6 0-1.2-.2-1.6 0-.5-.3-1-.5-1.3zm-14 4.7l-2.3-9.2h-2.8l-2.3 9-2.2-9h-3l3.6 13.4h3l2.2-9.2 2.3 9.2h3l3.6-13.4h-3l-2.1 9.2zm-24.5.2L18 15.6c-.3-.1-.6-.2-.8.2A20 20 0 0 1 16 17c-.2.2-.4.3-.7.1-.4-.2-1.5-.5-2.8-1.7-1-1-1.7-2-2-2.4-.1-.4 0-.5.2-.7l.5-.6.4-.6v-.6L10.4 8c-.3-.6-.6-.5-.8-.6H9c-.2 0-.6.1-.9.5C7.8 8.2 7 9 7 10.7c0 1.7 1.3 3.4 1.4 3.6.2.3 2.5 3.7 6 5.2l1.9.8c.8.2 1.6.2 2.2.1.6-.1 2-.8 2.3-1.6.3-.9.3-1.5.2-1.7l-.7-.4zM14 25.3c-2 0-4-.5-5.8-1.6l-.4-.2-4.4 1.1 1.2-4.2-.3-.5A11.5 11.5 0 0 1 22.1 5.7 11.5 11.5 0 0 1 14 25.3zM14 0A13.8 13.8 0 0 0 2 20.7L0 28l7.3-2A13.8 13.8 0 1 0 14 0z" /></svg>
+<div class="joinchat__close" title="Kapat"></div>
+</div>
+<div class="joinchat__box__scroll">
+<div class="joinchat__box__content">
+<div class="joinchat__message">Merhaba. Size nasıl yardımcı olabiliriz?</div> </div>
+</div>
+</div>
+<svg style="width:0;height:0;position:absolute"><defs><clipPath id="joinchat__peak_l"><path d="M17 25V0C17 12.877 6.082 14.9 1.031 15.91c-1.559.31-1.179 2.272.004 2.272C9.609 18.182 17 18.088 17 25z" /></clipPath><clipPath id="joinchat__peak_r"><path d="M0 25.68V0c0 13.23 10.92 15.3 15.97 16.34 1.56.32 1.18 2.34 0 2.34-8.58 0-15.97-.1-15.97 7Z" /></clipPath></defs></svg>
+</div>
+<script type="text/html" id="wpb-modifications"></script> 
+<noscript>
+			<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6QTWK57" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+		</noscript>
+
+<link rel="stylesheet" id="vc_google_fonts_abril_fatfaceregular-css" href="//fonts.googleapis.com/css?family=Abril+Fatface%3Aregular&#038;subset=latin-ext&#038;ver=5.8.9" type="text/css" media="all" />
+<link rel="stylesheet" id="vc_font_awesome_5_shims-css" href="https://www.istanbulmedicalcenter.com/wp-content/plugins/js_composer/assets/lib/bower/font-awesome/css/v4-shims.min.css?ver=6.10.0" type="text/css" media="all" />
+<link rel="stylesheet" id="vc_font_awesome_5-css" href="https://www.istanbulmedicalcenter.com/wp-content/plugins/js_composer/assets/lib/bower/font-awesome/css/all.min.css?ver=6.10.0" type="text/css" media="all" />
+<link rel="stylesheet" id="sby_styles-css" href="https://www.istanbulmedicalcenter.com/wp-content/plugins/feeds-for-youtube/css/sb-youtube.min.css?ver=2.0.3" type="text/css" media="all" />
+<link rel="stylesheet" id="bravepop_front_css-css" href="https://www.istanbulmedicalcenter.com/wp-content/plugins/brave-popup-builder/assets/css/frontend.min.css?ver=5.8.9" type="text/css" media="all" />
+<link rel="stylesheet" id="rs-plugin-settings-css" href="https://www.istanbulmedicalcenter.com/wp-content/plugins/revslider/public/assets/css/rs6.css?ver=6.5.19" type="text/css" media="all" />
+<style id="rs-plugin-settings-inline-css" type="text/css">
+#rs-demo-id {}
+</style>
+<script type="text/javascript" id="wp-ajax-response-js-extra">
+/* <![CDATA[ */
+var wpAjax = {"noPerm":"\u00dczg\u00fcn\u00fcm, bunu yapman\u0131za izin verilmiyor.","broken":"Bir \u015feyler yanl\u0131\u015f gitti."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.istanbulmedicalcenter.com/wp-includes/js/wp-ajax-response.min.js?ver=5.8.9" id="wp-ajax-response-js"></script>
+<script type="text/javascript" src="https://www.istanbulmedicalcenter.com/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.13.7" id="regenerator-runtime-js"></script>
+<script type="text/javascript" src="https://www.istanbulmedicalcenter.com/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0" id="wp-polyfill-js"></script>
+<script type="text/javascript" id="contact-form-7-js-extra">
+/* <![CDATA[ */
+var wpcf7 = {"api":{"root":"https:\/\/www.istanbulmedicalcenter.com\/wp-json\/","namespace":"contact-form-7\/v1"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.istanbulmedicalcenter.com/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.5.2" id="contact-form-7-js"></script>
+<script type="text/javascript" src="https://www.istanbulmedicalcenter.com/wp-content/plugins/revslider/public/assets/js/rbtools.min.js?ver=6.5.18" defer async id="tp-tools-js"></script>
+<script type="text/javascript" src="https://www.istanbulmedicalcenter.com/wp-content/plugins/revslider/public/assets/js/rs6.min.js?ver=6.5.19" defer async id="revmin-js"></script>
+<script type="text/javascript" id="stm-gdpr-scripts-js-extra">
+/* <![CDATA[ */
+var stm_gdpr_vars = {"AjaxUrl":"https:\/\/www.istanbulmedicalcenter.com\/wp-admin\/admin-ajax.php","error_prefix":"Some errors occurred:","success":"Your request have been submitted. Check your email to validate your data request.","accept_nonce":"95339902a7","data_request_nonce":"b1076c790d"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.istanbulmedicalcenter.com/wp-content/plugins/gdpr-compliance-cookie-consent/assets/js/scripts.js?ver=5.8.9" id="stm-gdpr-scripts-js"></script>
+<script type="text/javascript" src="https://www.istanbulmedicalcenter.com/wp-content/plugins/gdpr-compliance-cookie-consent/assets/js/block-cookies.js?ver=5.8.9" id="stm-gdpr-block-cookies-js"></script>
+<script type="text/javascript" src="https://www.istanbulmedicalcenter.com/wp-content/themes/crypterio/assets/js/bootstrap.min.js?ver=2.3.5" id="bootstrap-js"></script>
+<script type="text/javascript" src="https://www.istanbulmedicalcenter.com/wp-content/themes/crypterio/assets/js/select2.min.js?ver=2.3.5" id="select2-js"></script>
+<script type="text/javascript" src="https://www.istanbulmedicalcenter.com/wp-content/themes/crypterio/assets/js/lazysizes-umd.min.js?ver=2.3.5" id="lazysizes-umd.min-js"></script>
+<script type="text/javascript" src="https://www.istanbulmedicalcenter.com/wp-content/themes/crypterio/assets/js/custom.js?ver=2.3.5" id="crypterio-custom-js"></script>
+<script type="text/javascript" src="https://www.istanbulmedicalcenter.com/wp-content/themes/crypterio/assets/js/jquery.cookie.min.js?ver=2.3.5" id="jquery.cookie-js"></script>
+<script type="text/javascript" src="https://www.istanbulmedicalcenter.com/wp-content/plugins/creame-whatsapp-me/public/js/joinchat.min.js?ver=5.0.17" id="joinchat-js"></script>
+<script type="text/javascript" src="https://www.istanbulmedicalcenter.com/wp-content/plugins/pearl-header-builder/assets/frontend/assets/js/app.js?ver=1.0" id="stm_hb_scripts-js"></script>
+<script type="text/javascript" src="https://www.istanbulmedicalcenter.com/wp-content/plugins/pearl-header-builder/assets/frontend/assets/js/sticky.js?ver=1.0" id="stm_hb_scripts_sticky-js"></script>
+<script type="text/javascript" src="https://www.istanbulmedicalcenter.com/wp-includes/js/wp-embed.min.js?ver=5.8.9" id="wp-embed-js"></script>
+<script type="text/javascript" src="https://www.istanbulmedicalcenter.com/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js?ver=6.10.0" id="wpb_composer_front_js-js"></script>
+<script type="text/javascript" id="sbi_scripts-js-extra">
+/* <![CDATA[ */
+var sb_instagram_js_options = {"font_method":"svg","resized_url":"https:\/\/www.istanbulmedicalcenter.com\/wp-content\/uploads\/sb-instagram-feed-images\/","placeholder":"https:\/\/www.istanbulmedicalcenter.com\/wp-content\/plugins\/instagram-feed\/img\/placeholder.png","ajax_url":"https:\/\/www.istanbulmedicalcenter.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.istanbulmedicalcenter.com/wp-content/plugins/instagram-feed/js/sbi-scripts.min.js?ver=6.1" id="sbi_scripts-js"></script>
+<script type="text/javascript" id="sby_scripts-js-extra">
+/* <![CDATA[ */
+var sbyOptions = {"isAdmin":"","adminAjaxUrl":"https:\/\/www.istanbulmedicalcenter.com\/wp-admin\/admin-ajax.php","placeholder":"https:\/\/www.istanbulmedicalcenter.com\/wp-content\/plugins\/feeds-for-youtube\/img\/placeholder.png","placeholderNarrow":"https:\/\/www.istanbulmedicalcenter.com\/wp-content\/plugins\/feeds-for-youtube\/img\/placeholder-narrow.png","lightboxPlaceholder":"https:\/\/www.istanbulmedicalcenter.com\/wp-content\/plugins\/feeds-for-youtube\/img\/lightbox-placeholder.png","lightboxPlaceholderNarrow":"https:\/\/www.istanbulmedicalcenter.com\/wp-content\/plugins\/feeds-for-youtube\/img\/lightbox-placeholder-narrow.png","autoplay":"1","semiEagerload":"","eagerload":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.istanbulmedicalcenter.com/wp-content/plugins/feeds-for-youtube/js/sb-youtube.min.js?ver=2.0.3" id="sby_scripts-js"></script>
+<script type="text/javascript" src="https://www.istanbulmedicalcenter.com/wp-content/plugins/elfsight-pricing-table-cc/assets/elfsight-pricing-table.js?ver=2.6.0" id="elfsight-pricing-table-js"></script>
+<script type="text/javascript" src="https://www.istanbulmedicalcenter.com/wp-content/uploads/elfsight-pricing-table/elfsight-pricing-table-custom.js?ver=2.6.0" id="elfsight-pricing-table-custom-js"></script>
+<script type="text/javascript" id="bravepop_front_js-js-extra">
+/* <![CDATA[ */
+var bravepop_global = {"loggedin":"false","isadmin":"false","referer":"","security":"cbbab187a0","goalSecurity":"5059a043d9","couponSecurity":"019182bc57","cartURL":"","checkoutURL":"","ajaxURL":"https:\/\/www.istanbulmedicalcenter.com\/wp-admin\/admin-ajax.php","field_required":"Required","no_html_allowed":"No Html Allowed","invalid_number":"Invalid Number","invalid_email":"Invalid Email","invalid_url":"Invalid URL","invalid_date":"Invalid Date","fname_required":"First Name is Required.","lname_required":"Last Name is Required.","username_required":"Username is Required.","email_required":"Email is Required.","email_invalid":"Invalid Email addresss.","pass_required":"Password is Required.","pass_short":"Password is too Short.","yes":"Yes","no":"No","login_error":"Something Went Wrong. Please contact the Site administrator.","pass_reset_success":"Please check your Email for the Password reset link.","customFonts":[],"disableGoogleFonts":"false"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.istanbulmedicalcenter.com/wp-content/plugins/brave-popup-builder/assets/frontend/brave.js?ver=5.8.9" id="bravepop_front_js-js"></script>
+</body>
+</html>
