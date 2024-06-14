@@ -7,6 +7,7 @@
     --bg-color-5 : rgb(199, 201, 204);
     --bg-color-6 : rgb(158, 162, 168);
     --bg-color-7 : #fff;
+    --bg-color-8 : #20203a;
     --text-color-1 : #fff;
     --text-color-2 : #000000;
 }
@@ -21,8 +22,9 @@
     text-decoration: none;
     outline: none;
     scroll-behavior: smooth;
-    font-family: Arial, sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
+
 
 /* Body genel stil */
 body {
@@ -35,6 +37,7 @@ body {
 .header {
     background-color: var(--bg-color-6);
     color: white;
+
 }
 
 /* Header-top bölümü */
@@ -79,8 +82,8 @@ body {
 .contact-list,
 .social-list,
 .navbar-list {
-    padding: 0; /* Liste içi boşluğu sıfırla */
-    margin: 0; /* Liste dışı boşluğu sıfırla */
+    padding: 0; 
+    margin: 0; 
     
 }
 
@@ -88,7 +91,7 @@ body {
 .contact-item a,
 .social-link,
 .navbar-link {
-    text-decoration: none; /* Metin dekorasyonunu kaldır */
+    text-decoration: none;
     color: white;
     font-size: 1rem;
     margin: 0 10px;
@@ -117,7 +120,7 @@ body {
 }
 
 .navbar-link:hover {
-    background: rgba(255, 255, 255, 0.2); /* Hover efekti */
+    background: rgba(255, 255, 255, 0.2); 
     border-radius: 5px;
 }
 
@@ -135,7 +138,7 @@ body {
 }
 
 .social-link:hover {
-    color: #ffd700; /* Hover rengi */
+    color: #ffd700; 
 }
 
 /* CONTENT */
@@ -149,25 +152,25 @@ body {
     padding-left: 100px;
     padding-right: 100px;
     z-index: 1;
-    /*text-align: center; /* İçeriği ortalar */
+    /*text-align: center;*/
 }
 
 .content-text {
     display: flex;
     flex-direction: column;
-    /*align-items: center; /* İçeriği ortalar */
+    /*align-items: center;  */
     padding: 20px;
 }
 
 .content-text p {
     color: var(--text-color-1);
-    font-size: 2.5rem; /* Büyük başlık boyutu */
-    margin-bottom: 0; /* Alt boşluk */
+    font-size: 2.5rem; 
+    margin-bottom: 0; 
 }
 
 .content-text span {
     color: var(--text-color-1);
-    font-size: 2.5rem; /* Alt başlık boyutu */
+    font-size: 2.5rem; 
 }
 
 /* Content Buttons */
@@ -187,42 +190,43 @@ body {
 }
 
 .content-buttons .btn-left {
-    background-color: var(--bg-color-2); /* Sol buton arka plan rengi */
+    background-color: var(--bg-color-2); 
     color: var(--text-color-1);
 }
 
 .content-buttons .btn-right {
-    background-color: var(--bg-color-7); /* Sağ buton arka plan rengi */
+    background-color: var(--bg-color-7); 
     color: var(--text-color-2);
 }
 
 
 .content-buttons .btn-left:hover {
-    background-color: var(--bg-color-7); /* Hover arka plan rengi */
+    background-color: var(--bg-color-7); 
     color: var(--text-color-2);
-    transform: translateY(-2px); /* Hover efekti */
+    transform: translateY(-2px);
 }
 
 .content-buttons .btn-right:hover {
-    background-color: var(--bg-color-2); /* Hover arka plan rengi */
+    background-color: var(--bg-color-2); 
     color: var(--text-color-1);
-    transform: translateY(-2px); /* Hover efekti */
+    transform: translateY(-2px); 
 }
 
 .content-buttons button:active {
-    transform: translateY(0); /* Aktif durumunda normale dönme */
+    transform: translateY(0); 
 }
 
 /* card bölümü */
 .cards{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     position: absolute;
     color: var(--text-color-1);
     height: 400px;
     margin: 0px 120px;
     margin-top: -140px;
-    z-index: 99999;
+    z-index: 9;
 }
 
 .card-1{
@@ -263,11 +267,12 @@ body {
     margin: 20px 0;
 }
 
-.cards button{
+.cards .read-btn{
     background-color: transparent;
     color: var(--text-color-1);
     border: 1px solid #fff;
     margin: 20px 0;
+    padding: .5rem;
 }
 
 .welcome {
@@ -351,7 +356,7 @@ body {
 }
 
 .swiper-slide {
-    margin-right: 20px; /* Kartlar arasında sağ boşluk */
+    margin-right: 20px;
 }
 
 .swiper-button-next,
@@ -402,16 +407,18 @@ body {
 .services{
     padding: 40px 20px;
     margin: 40px 40px;
+    align-items: center;
 }
 
 .sidebar{
     background-color: var(--bg-color-2);
     color: var(--text-color-1);
-    height: 33rem;
-    overflow-y: auto;
+    height: 30rem;
+    width: 25%;
 }
 
 .sidebar h5{
+    font-size: 1.2rem;
     margin-bottom: 30px;
 }
 
@@ -440,22 +447,21 @@ body {
     opacity: .1;
 }
 
-
 /* review */
-
 
 .reviews{
     background-color: rgb(239, 241, 244);
     padding: 40px 20px;
+    width: 100%;
 }
 
 .review-cards{
     display: flex;
-    max-width: 1120px;
-    margin: 30px;
+    width: 100%;
 }
 
 .review-card{
+    flex: 1 0 auto;
     max-width: 300px;
     margin: 10px;
     text-align: center;
@@ -537,17 +543,18 @@ body {
 /* Genel stil */
 .faq-appointment {
     display: flex;
-    flex-wrap: wrap; /* Daha küçük ekranlarda sarma işlemi */
+    flex-wrap: wrap; 
     justify-content: space-between;
-    align-items: center; /* Elemanların yukarıda hizalanması */
+    align-items: center; 
     background-color: rgb(233, 234, 236);
     padding: 20px;
 }
 
 .faq, .appointment-section {
-    flex-basis: calc(50% - 40px); /* Eşit genişlik */
-    margin: 20px; /* Kenar boşluğu */
+    flex-basis: calc(50% - 40px); /*Eşit genişlik*/
+    margin: 20px; 
 }
+
 
 /* Sıkça Sorulan Sorular (FAQ) */
 .faq-item {
@@ -573,6 +580,7 @@ body {
 
 .faq-item.active p {
     display: block;
+    margin-right: 5rem;
 }
 
 .faq-item.active h3 {
@@ -615,6 +623,7 @@ body {
 .appointment-section {
     background-color: rgb(233, 234, 236);
     padding: 40px 20px;
+    width: 80%;
 }
 
 .appointment-container {
@@ -629,6 +638,7 @@ body {
     text-align: center;
     margin-bottom: 20px;
 }
+
 
 .form-group {
     margin-bottom: 15px;
@@ -648,9 +658,13 @@ body {
     border-radius: 4px;
 }
 
+#message{
+    width: 100%;
+}
+
 #submit-btn {
-    width: 100%; /* Tam genişlik */
-    padding: 10px;
+    width: 25%; 
+    padding: 12px;
     background-color: var(--bg-color-2);
     color: var(--text-color-1);
     border: none;
@@ -666,49 +680,164 @@ body {
 }
 
 
-*/
+.column{
+    width: 100%;
+}
 
 
-
-
+/* FOOTER */
 footer {
-    background: var(--bg-color-3);
+    background: var(--bg-color-4);
     color: #fff;
-    padding: 20px;
+    padding:10px;
 }
 
-footer .footer-content {
+.box-container{
     display: flex;
+    flex-wrap: wrap; 
     justify-content: space-around;
-    background-color: var(--bg-color-3);
+    align-items: center; 
 }
 
-.footer-column {
-    flex: 1;
-    margin: 10px;
+.box-container h6{
+    margin-bottom: 3rem;
 }
 
-.footer-column h3 {
-    color: #007bff;
+.medical-box .box{
+    display: flex;
+    margin-top: 2rem;
 }
 
-.footer-column ul {
-    list-style: none;
+.medical-box .box p{
+    margin-bottom: 0;
+}
+
+.medical-box .box span,
+.nav span {
+    margin-right: 2rem;
+}
+
+.medical-box .box hr{
+    opacity: .6;
+    color: white;
+    margin: 5px 0;
+}
+
+.navigation-box {
+    padding: 0px;
+}
+.navigation-box p {
+    margin-bottom: 3rem;
+}
+.nav {
+    display: flex;
+    justify-content: space-between;
+}
+.nav ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+.nav ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-right: 1rem;
+}
+.nav ul li span {
+    margin-right: 10px;
+}
+.nav ul li p {
+    margin: 0;
+}
+
+.post img {
+    margin-right: 1rem;
+    width: 4rem;
     padding: 0;
 }
 
-.footer-column ul li {
-    margin: 10px 0;
-}
-
-.footer-column ul li a {
-    color: #fff;
-    text-decoration: none;
+.post hr {
+    width: 100%;
+    border: 1px solid white;
+    margin: 20px 0;
 }
 
 .footer-bottom {
-    text-align: center;
-    margin-top: 20px;
-    border-top: 1px solid #444;
-    padding-top: 10px;
+    background-color: var(--bg-color-8); 
+    padding:15px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
+.footer-bottom p{
+    margin-left: 1rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header-bottom .logo {
+        margin-bottom: 20px;
+    }
+
+    .navbar-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .cards {
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+    }
+
+    .welcome-bottom {
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .swiper-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Small screens (phones, 576px and up) */
+@media (max-width: 576px) {
+    .content-text p,
+    .content-text span {
+        font-size: 1.5rem;
+    }
+
+    .content-buttons button {
+        padding: 8px 16px;
+        font-size: .8rem;
+    }
+
+    .cards {
+        flex-direction: column;
+        margin-top: 0;
+    }
+
+    .welcome-bottom {
+        margin: 0;
+        padding: 0;
+    }
+
+    .welcome-card {
+        margin: 10px 0;
+    }
+}
+

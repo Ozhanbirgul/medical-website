@@ -7,7 +7,9 @@
 
     <!-- Swiper Css Link-->
     <link rel="stylesheet" href="/css/swiper-bundle.min.css">
-
+    <!-- Googlefonts Link-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <!--- Css Link --->
     <link rel="stylesheet" href="css/style.css">
     <!--- Bootstrap Link --->
@@ -20,7 +22,7 @@
 <body>
 
     <!-- Header -->
-    <header class="header">
+    <header class="header fixed-top">
         <div class="header-top">
             <div class="container">
                 <ul class="contact-list">
@@ -46,7 +48,7 @@
 
                     <li>
                         <a href="#" class="social-link">
-                            <i class="fa-brands fa-instagram"></i>
+                            <i class="fa-brands fa-linkedin-in"></i>
                         </a>
                     </li>
 
@@ -70,7 +72,7 @@
 
                 <a href="" class="logo">
                     <i class="fa-solid fa-notes-medical fs-3" style="color: #0e1a60"></i>
-                    <span class="px-2 fs-6">MEDICAL</span>
+                    <h6 class="px-2 fs-6">MEDICAL</h6>
                 </a>
 
                 <nav class="navbar-container" data-navbar>
@@ -112,7 +114,7 @@
     </header>
 
     <!-- section 1-->
-    <section>
+    <section id="home">
         <!-- Content -->
         <div class="content">
             <!-- text -->
@@ -172,9 +174,8 @@
     </section>
 
 
-
     <!-- section 3 (welcome to medical)-->
-    <section class="welcome">
+    <section id="timetable" class="welcome">
         <div class="welcome-top">
             <h2>Welcome to Medical</h2>
             <p>Our medical specialists care about you & your family’s health</p>
@@ -205,7 +206,7 @@
     <section class="doctors swiper">
         <h2>We are Here for You</h2>
         <p>All our consultants are highly experienced in their fields and produce excellent outcomes for patiens</p>
-        <div class="dr-wrapper swiper-wrapper">
+        <div class="dr swiper-wrapper">
             <div class="dr-card swiper-slide">
                 <img src="" alt="">
                 <div>
@@ -289,10 +290,8 @@
         <div class="swiper-pagination"></div>
     </section>
 
-
-
     <!-- section 5 (number)-->
-    <section class="statistics">
+    <section id="feature" class="statistics">
         <div class="stat">
             <h4>856</h4>
             <p>Hospital Rooms</p>
@@ -317,7 +316,7 @@
 
     <!-- section 6 (services)-->
     <section class="services d-flex h-550">
-        <aside class="sidebar p-4 w-25">
+        <aside class="sidebar p-4 w-30">
             <h5>DEPARTMENTS</h5>
             <p>Primary Health Care</p>
             <hr>
@@ -335,50 +334,51 @@
             <hr>
 
             <p>Ophthalmology Clinic</p>
-            <button class="view-btn bg-transparent text-white border px-2 mt-3">VIEW ALL</button>
+            <button class="view-btn bg-transparent text-white border p-2 mt-3">VIEW ALL</button>
         </aside>
 
 
-        <div>
-            <h2>Our Servises</h2>
-            <div class="services-cards">
-                <div class="servis-card">
-                    <img src="" alt="">
-                    <h6 class="m-3 text-dark">Primary Health Care</h6>
-                    <hr>
-                    <p class="m-3">Lorem ipsum dolor sit aquam sint rem laudantium animi!s</p>
+        <div class="container">
+            <div class="row d-flex justify-content-center mx-2">
+                <h2>Our Services</h2>
+                <div class="services-cards">
+                    <div class="servis-card">
+                        <img src="" alt="">
+                        <h6 class="m-3 text-dark">Primary Health Care</h6>
+                        <hr>
+                        <p class="m-3">Lorem ipsum dolor sit aquam sint rem laudantium animi!s</p>
+                    </div>
+
+                    <div class="servis-card">
+                        <img src="" alt="">
+                        <h6 class="m-3 text-dark">Pediatric Clinic</h6>
+                        <hr>
+                        <p class="m-3">Lorem ipsum dolor sit aquam sint rem laudantium animi!s</p>
+                    </div>
+
+                    <div class="servis-card">
+                        <img src="" alt="">
+                        <h6 class="m-3 text-dark">Gynaecological Clinic</h6>
+                        <hr>
+                        <p class="m-3">Lorem ipsum dolor sit aquam sint rem laudantium animi!s</p>
+                    </div>
                 </div>
-
-
-                <div class="servis-card">
-                    <img src="" alt="">
-                    <h6 class="m-3 text-dark">Pediatric Clinic</h6>
-                    <hr>
-                    <p class="m-3">Lorem ipsum dolor sit aquam sint rem laudantium animi!s</p>
-                </div>
-
-
-                <div class="servis-card">
-                    <img src="" alt="">
-                    <h6 class="m-3 text-dark">Gynaecological Clinic</h6>
-                    <hr>
-                    <p class="m-3">Lorem ipsum dolor sit aquam sint rem laudantium animi!s</p>
-                </div>
-
             </div>
+
+        </div>
     </section>
 
 
     <!-- section 7 (customer reviews)-->
-    <section class="reviews p-2 swiper">
-        <h2 class="mb-3">Customer Reviews</h2>
+    <section class="reviews swiper-container">
+        <h2 class="mb-3 text-center">Customer Reviews</h2>
         <p class="text-center">All our consultants are highly experienced in their fields and produce excellent
             outcomes for patiens</p>
 
 
 
-        <div class="review-cards  swiper-wrapper d-flex mx-5 p-5">
-            <div class="review-card swiper-slide">
+        <div class="swiper-wrapper review-cards d-flex mx-5 p-5">
+            <div class="swiper-slide review-card">
                 <img src="" alt="">
                 <div>
                     <h6>JUSTIN FORDER</h6>
@@ -389,7 +389,7 @@
                 </div>
             </div>
 
-            <div class="review-card swiper-slide">
+            <div class="swiper-slide review-card ">
                 <img src="" alt="">
                 <div>
                     <h6>JUSTIN FORDER</h6>
@@ -400,7 +400,7 @@
                 </div>
             </div>
 
-            <div class="review-card swiper-slide">
+            <div class="swiper-slide review-card">
                 <img src="" alt="">
                 <div>
                     <h6>JUSTIN FORDER</h6>
@@ -455,8 +455,8 @@
 
 
     <!-- section 8 (medical news)-->
-    <section class="news p-2 swiper">
-        <h2 class="mb-3">Medical News</h2>
+    <section id="new" class="news swiper-container">
+        <h2 class="mb-3 text-center">Medical News</h2>
         <p class="text-center">All our consultants are highly experienced in their fields and produce excellent
             outcomes for patiens</p>
 
@@ -515,17 +515,17 @@
                     <p class="name">By Tom Smith</p>
                 </div>
             </div>
-            
+
         </div>
 
         <div class="swiper-button-next news-swiper-button-next"></div>
         <div class="swiper-button-prev news-swiper-button-prev"></div>
         <div class="swiper-pagination swiper-pagination"></div>
-    
+
     </section>
 
     <!-- section 9 (medical news)-->
-    <section class="faq-appointment">
+    <section id="shortcode" class="faq-appointment">
         <div class="faq">
             <div class="faq-item">
                 <h3>Why should I choose Medical Health?</h3>
@@ -582,9 +582,9 @@
         <div class="appointment-section">
             <div class="appointment-container">
                 <h2>Request Appointment</h2>
-                <form action="submit_appointment.php" method="post">
-                    <div class="form-row d-flex">
-                        <div class="column">
+                <form method="post" class="form">
+                    <div class="form-row d-flex m-3">
+                        <div class="column m-2">
                             <div class="form-group">
                                 <input type="text" id="name" name="name" placeholder="Name" required>
                             </div>
@@ -600,7 +600,7 @@
                             </div>
                         </div>
 
-                        <div class="column">
+                        <div class="column m-2">
                             <div class="form-group">
                                 <input type="tel" id="phone" name="phone" placeholder="Phone" required>
                             </div>
@@ -617,7 +617,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <textarea id="message" name="message" placeholder="Message" rows="4"></textarea>
+                        <textarea id="message" name="message" placeholder="Message" rows="5"></textarea>
                     </div>
                     <button id="submit-btn" type="submit">Submit Now</button>
                 </form>
@@ -628,35 +628,153 @@
 
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-column">
-                <h3>Medical</h3>
-                <p>Contact Us: +88-123-456-789</p>
-                <p>1234 Somewhere Road, Washington, DC 12345</p>
-                <p>Email: support@medical.com</p>
+        <div class="box-container">
+            <div class="medical-box py-5">
+
+                <div class="logo d-flex">
+                    <i class="fa-solid fa-notes-medical fs-3" style="color: #0e1a60"></i>
+                    <span class="px-2 fs-6">MEDICAL</span>
+                </div>
+ 
+                    <div class="box">
+                        <span><i class="fa-solid fa-phone"></i></span>
+                        <p>Call Us: +86-123-456-789</p>
+                    </div>
+                    <hr>
+                    <div class="box">
+                        <span><i class="fa-solid fa-location-dot"></i></span>
+                        <p>6110 Athens Place Washington, DC 20521-7100</p> 
+                    </div>
+                    <hr>
+                    <div class="box">
+                        <span><i class="fa-regular fa-envelope"></i></span>
+                        <p>Support@MedicalHealth.com</p>
+                    </div>
+                    <hr>
+                
+
+                    <ul class="social-list">
+                        <li>
+                            <a href="#" class="social-link">
+                                <i class="fa-brands fa-twitter"></i>
+                            </a>
+                        </li>
+    
+                        <li>
+                            <a href="#" class="social-link">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                        </li>
+    
+                        <li>
+                            <a href="#" class="social-link">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                        </li>
+    
+                        <li>
+                            <a href="#" class="social-link">
+                                <i class="fa-brands fa-google-plus-g"></i>
+                            </a>
+                        </li>
+    
+                        <li>
+                            <a href="#" class="social-link">
+                                <i class="fa-brands fa-skype"></i>
+                            </a>
+                        </li>
+                    </ul>
             </div>
-            <div class="footer-column">
-                <h3>Navigation</h3>
-                <ul>
-                    <li><a href="#">Appointment</a></li>
-                    <li><a href="#">Find a doctor</a></li>
-                    <li><a href="#">Patient FAQ</a></li>
-                    <li><a href="#">Health Topics</a></li>
-                </ul>
+
+            <div class="navigation-box">
+                <h6>NAVIGATION</h6>
+              <div class="nav d-flex justify-content-between">
+                <div class="nav-left">
+                    <ul>
+                        <li>
+                            <span><i class="fa-solid fa-chevron-right"></i></span>
+                            <p> Appointment</p>
+                        </li>
+                        <li>
+                            <span><i class="fa-solid fa-chevron-right"></i></span>
+                            <p> Other Specialist Staff</p>
+                        </li>
+                        <li>
+                            <span><i class="fa-solid fa-chevron-right"></i></span>
+                            <p> Patient FAQs</p>
+                        </li>
+                        <li>
+                            <span><i class="fa-solid fa-chevron-right"></i></span>
+                            <p> Healty Eating</p>
+                        </li>
+                        <li>
+                            <span><i class="fa-solid fa-chevron-right"></i></span>
+                            <p> Our vision and values</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-right">
+                    <ul>
+                        <li>
+                            <span><i class="fa-solid fa-chevron-right"></i></span>
+                            <p> Why Choose Us</p>
+                        </li>
+                        <li>
+                            <span><i class="fa-solid fa-chevron-right"></i></span>
+                            <p> Physiotherapits</p>
+                        </li>
+                        <li>
+                            <span><i class="fa-solid fa-chevron-right"></i></span>
+                            <p> Find a Doctor</p>
+                        </li>
+                        <li>
+                            <span><i class="fa-solid fa-chevron-right"></i></span>
+                            <p>Volunteer roles</p>
+                        </li>
+                        <li>
+                            <span><i class="fa-solid fa-chevron-right"></i></span>
+                            <p> Health Topics</p>
+                        </li>
+                    </ul>
+                </div>
+              </div>
             </div>
-            <div class="footer-column">
-                <h3>Popular Posts</h3>
-                <ul>
-                    <li><a href="#">Why I Really Enjoy Therapy</a></li>
-                    <li><a href="#">Patient Forum</a></li>
-                    <li><a href="#">10 Tips for a Healthy Lifestyle</a></li>
-                </ul>
+
+            <div class="posts-box">
+                <h6>POPULAR POSTS</h6>
+                <div class="post d-flex justify-content-around">
+                    <img src="/css/eve-doktor-cagirma (1).html" alt="">
+                    <div id="post">
+                        <p>Why I finally tried therapy and how it changed my life</p>
+                        <span>25 March, 2018</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="post d-flex justify-content-between my-3">
+                    <img src="/css/eve-doktor-cagirma (1).html" alt="">
+                    <div>
+                        <p>Why I finally tried therapy and how it changed my life</p>
+                        <span>25 March, 2018</span>
+                    </div>
+                </div>
+
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Medical Services. All rights reserved.</p>
+
+            
         </div>
     </footer>
+    <div class="footer-bottom px-5 m-0 d-flex justify-content-between text-white">
+        <div class="d-flex">
+            <p> <i class="fa-regular fa-copyright"></i>  2018 MedicalHealth, All rights reserved</p>
+        </div>
+
+        <ul class="contact-list">
+            <li class="contact-item">
+                <a href="">FAQS</a>
+                <a href="">About</a>
+                <a href="">Contact</a>
+            </li>
+</div>
 
     <!-- Javascript -->
 
