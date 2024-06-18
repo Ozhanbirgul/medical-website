@@ -22,15 +22,11 @@ function closeAll() {
 };
 
 
-
-
-
-
 document.addEventListener("DOMContentLoaded", function() {
     var doctorSwiper = new Swiper('.swiper', {
         slidesPerView: 4,
         spaceBetween: 30,
-        slidePerGroup: 4,
+        slidesPerGroup: 2,
         loop: true,
         loopFillGroupWithBlank: true,
         pagination: {
@@ -41,28 +37,14 @@ document.addEventListener("DOMContentLoaded", function() {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
-        loop: false 
+        loop:false,
     });
 
-    // İleri ve geri oklara tıklama olayı eklemek için
-    var nextButton = document.querySelector('.swiper-button-next');
-    var prevButton = document.querySelector('.swiper-button-prev');
 
-    nextButton.addEventListener('click', function() {
-        doctorSwiper.slideNext(); // İleri gitmek için
-    });
-
-    prevButton.addEventListener('click', function() {
-        doctorSwiper.slidePrev(); // Geri gitmek için
-    });
-});
-
-
-document.addEventListener("DOMContentLoaded", function() {
     var reviewSwiper = new Swiper('.reviews', {
         slidesPerView: 4,
         spaceBetween: 30,
-        slidePerGroup: 4,
+        slidesPerGroup: 4,
         loop: true,
         loopFillGroupWithBlank: true,
         pagination: {
@@ -73,29 +55,14 @@ document.addEventListener("DOMContentLoaded", function() {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
-        loop: false 
+        loop:false,
     });
+    
 
-    // İleri ve geri oklara tıklama olayı eklemek için
-    var nextButton = document.querySelector('.swiper-button-next');
-    var prevButton = document.querySelector('.swiper-button-prev');
-
-    nextButton.addEventListener('click', function() {
-        reviewSwiper.slideNext(); // İleri gitmek için
-    });
-
-    prevButton.addEventListener('click', function() {
-        reviewSwiper.slidePrev(); // Geri gitmek için
-    });
-
-
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    var newSwiper = new Swiper('.swiper-container', {
+    var newSwiper = new Swiper('.mySwiper', {
         slidesPerView: 4,
         spaceBetween: 30,
-        slidePerGroup: 4,
+        slidesPerGroup: 4,
         loop: true,
         loopFillGroupWithBlank: true,
         pagination: {
@@ -106,23 +73,19 @@ document.addEventListener("DOMContentLoaded", function() {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
-        loop: false 
+        loop:false,
     });
 
-    // İleri ve geri oklara tıklama olayı eklemek için
-    var nextButton = document.querySelector('.swiper-button-next');
-    var prevButton = document.querySelector('.swiper-button-prev');
-
-    nextButton.addEventListener('click', function() {
-        reviewSwiper.slideNext(); // İleri gitmek için
-    });
-
-    prevButton.addEventListener('click', function() {
-        reviewSwiper.slidePrev(); // Geri gitmek için
-    });
-
-
+   
 });
+
+
+    
+
+
+
+
+
 
 
 
